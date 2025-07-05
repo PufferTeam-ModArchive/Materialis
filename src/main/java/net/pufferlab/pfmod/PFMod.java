@@ -1,7 +1,11 @@
 package net.pufferlab.pfmod;
 
 import net.minecraft.item.Item;
-import net.pufferlab.pfmod.items.ItemLumber;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+import net.pufferlab.pfmod.items.ItemMaterial;
+import net.pufferlab.pfmod.items.OreDictionaryRegistry;
+import net.pufferlab.pfmod.Constants;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,26 +30,44 @@ public class PFMod {
     public static Item lumber;
     public static Item lumber_bop;
     public static Item lumber_thaumcraft;
+    public static Item ingot;
+    public static Item nugget;
+    public static Item dust;
+    public static Item gear;
+    public static Item plate;
+    public static Item gem;
 
     @Mod.EventHandler
     // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
     // GameRegistry." (Remove if not needed)
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
-
-        lumber = new ItemLumber("vanilla");
-        lumber_bop = new ItemLumber("biomesoplenty");
-        lumber_thaumcraft = new ItemLumber("thaumcraft");
-
-        GameRegistry.registerItem(lumber, "lumber");
-        GameRegistry.registerItem(lumber_bop, "lumber_bop");
-        GameRegistry.registerItem(lumber_thaumcraft, "lumber_thaumcraft");
+        
+        gem = new ItemMaterial(Constants.gemTypes, "gem", Constants.none);
+        ingot = new ItemMaterial(Constants.metalTypes, "ingot", Constants.ingotBlacklist);
+        nugget = new ItemMaterial(Constants.metalTypes, "nugget", Constants.nuggetBlacklist);
+        dust = new ItemMaterial(Constants.metalTypes, "dust", Constants.none);
+        gear = new ItemMaterial(Constants.metalTypes, "gear", Constants.none);
+        plate = new ItemMaterial(Constants.metalTypes, "plate", Constants.none);
+        GameRegistry.registerItem(gem, "gem");
+        GameRegistry.registerItem(ingot, "ingot");
+        GameRegistry.registerItem(nugget, "nugget");
+        GameRegistry.registerItem(dust, "dust");
+        GameRegistry.registerItem(gear, "gear");
+        GameRegistry.registerItem(plate, "plate");
     }
 
     @Mod.EventHandler
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
+
+        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "ingot", Constants.ingotBlacklist, ingot);
+        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "nugget", Constants.nuggetBlacklist, nugget);
+        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "dust", Constants.none, dust);
+        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "gear", Constants.none, gear);
+        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "plate", Constants.none, plate);
+
     }
 
     @Mod.EventHandler
