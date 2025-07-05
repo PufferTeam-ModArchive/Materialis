@@ -6,7 +6,7 @@
 		"description": "Mod for Thaumcraft: Unseen Realm.",
 		"version": "${modVersion}",
 		"mcversion": "${minecraftVersion}",
-		"url": "https://github.com/PufferTeam-ModArchive/PFMod",
+		"url": "https://github.com/PufferTeam-ModArchive/Materialis",
 		"updateUrl": "",
 		"authorList": ["SinTho0r4s, PufferTeam"],
 		"credits": "",
