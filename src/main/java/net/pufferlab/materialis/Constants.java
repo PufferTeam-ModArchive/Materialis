@@ -9,9 +9,19 @@ public class Constants {
     public static final String[] thaumcraftWoodTypes = new String[] { "greatwood", "silverwood" };
     public static final String[] metalTypes = new String[] { "iron", "gold", "copper", "tin", "silver", "lead",
         "nickel", "bronze", "electrum", "invar", "constantan", "steel" };
+    public static final String[] metalTools = new String[] { "pickaxe", "pickaxe", "pickaxe", "pickaxe", "pickaxe",
+        "pickaxe", "pickaxe", "pickaxe", "pickaxe", "pickaxe", "pickaxe", "pickaxe" };
+    public static final int[] metalLevels = new int[] { 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2 };
     public static final String[] gemTypes = new String[] { "cinnabar" };
+    public static final String[] oreTypes = new String[] { "copper", "tin", "silver", "lead", "nickel", "platinum",
+        "mithril", "bauxite" };
+    public static final String[] oreTools = new String[] { "pickaxe", "pickaxe", "pickaxe", "pickaxe", "pickaxe",
+        "pickaxe", "pickaxe", "pickaxe" };
+    public static final int[] oreLevels = new int[] { 1, 1, 2, 2, 2, 3, 3, 1 };
 
     public static final String[] ingotBlacklist = new String[] { "iron", "gold" };
     public static final String[] nuggetBlacklist = new String[] { "gold" };
+    public static final String[] miscBlacklist = new String[] { "pig_iron" };
+    public static final String[] blockBlacklist = new String[] { "iron", "gold", "steel" };
 
 }

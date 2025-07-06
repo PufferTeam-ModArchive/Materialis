@@ -1,5 +1,23 @@
 item.materialis.cinnabar_gem.name=Raw Cinnabar 
 
+tile.materialis.iron_block.name=Iron Block
+tile.materialis.gold_block.name=Gold Block
+tile.materialis.copper_block.name=Copper Block
+tile.materialis.tin_block.name=Tin Block
+tile.materialis.silver_block.name=Silver Block
+tile.materialis.lead_block.name=Lead Block
+tile.materialis.nickel_block.name=Nickel Block
+tile.materialis.bronze_block.name=Bronze Block
+tile.materialis.electrum_block.name=Electrum Block
+tile.materialis.invar_block.name=Invar Block
+tile.materialis.constantan_block.name=Constantan Block
+tile.materialis.steel_block.name=Steel Block
+tile.materialis.pig_iron_block.name=Pig Iron Block
+tile.materialis.platinum_block.name=Platinum Block
+tile.materialis.mythril_block.name=Mythril Block
+tile.materialis.osmium_block.name=Osmium Block
+tile.materialis.iridium_block.name=Iridium Block
+
 item.materialis.iron_ingot.name=Iron Ingot
 item.materialis.gold_ingot.name=Gold Ingot
 item.materialis.copper_ingot.name=Copper Ingot

@@ -1,6 +1,10 @@
 package net.pufferlab.materialis;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.pufferlab.materialis.blocks.BlockMaterial;
+import net.pufferlab.materialis.itemblocks.ItemBlockMaterial;
 import net.pufferlab.materialis.items.ItemMaterial;
 import net.pufferlab.materialis.items.OreDictionaryRegistry;
 
@@ -26,9 +30,8 @@ public class Materialis {
         serverSide = "net.pufferlab.materialis.CommonProxy")
     public static CommonProxy proxy;
 
-    public static Item lumber;
-    public static Item lumber_bop;
-    public static Item lumber_thaumcraft;
+    public static Block storage;
+    public static Block ore;
     public static Item ingot;
     public static Item nugget;
     public static Item dust;
@@ -36,41 +39,69 @@ public class Materialis {
     public static Item plate;
     public static Item gem;
 
+    public static final Block.SoundType soundTypePiston = new Block.SoundType("stone", 1.0F, 1.0F);
+    public static final Block.SoundType soundTypeMetal = new Block.SoundType("stone", 1.0F, 1.5F);
+
     @Mod.EventHandler
-    // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
+    // preInit "Run before anything else. Read your config, create blocks, items,
+    // etc, and register them with the
     // GameRegistry." (Remove if not needed)
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
 
+        ore = new BlockMaterial(
+            Material.rock,
+            Constants.oreTypes,
+            "ore",
+            Constants.none,
+            Constants.oreTools,
+            Constants.oreLevels).setHardness(3.0F)
+                .setResistance(5.0F)
+                .setStepSound(soundTypePiston);
+        storage = new BlockMaterial(
+            Material.iron,
+            Constants.metalTypes,
+            "block",
+            Constants.blockBlacklist,
+            Constants.metalTools,
+            Constants.metalLevels).setHardness(5.0F)
+                .setResistance(10.0F)
+                .setStepSound(soundTypeMetal);
         gem = new ItemMaterial(Constants.gemTypes, "gem", Constants.none);
         ingot = new ItemMaterial(Constants.metalTypes, "ingot", Constants.ingotBlacklist);
         nugget = new ItemMaterial(Constants.metalTypes, "nugget", Constants.nuggetBlacklist);
-        dust = new ItemMaterial(Constants.metalTypes, "dust", Constants.none);
-        gear = new ItemMaterial(Constants.metalTypes, "gear", Constants.none);
-        plate = new ItemMaterial(Constants.metalTypes, "plate", Constants.none);
+        dust = new ItemMaterial(Constants.metalTypes, "dust", Constants.miscBlacklist);
+        gear = new ItemMaterial(Constants.metalTypes, "gear", Constants.miscBlacklist);
+        plate = new ItemMaterial(Constants.metalTypes, "plate", Constants.miscBlacklist);
         GameRegistry.registerItem(gem, "gem");
         GameRegistry.registerItem(ingot, "ingot");
         GameRegistry.registerItem(nugget, "nugget");
         GameRegistry.registerItem(dust, "dust");
         GameRegistry.registerItem(gear, "gear");
         GameRegistry.registerItem(plate, "plate");
+        GameRegistry.registerBlock(ore, ItemBlockMaterial.class, "ore");
+        GameRegistry.registerBlock(storage, ItemBlockMaterial.class, "block");
     }
 
     @Mod.EventHandler
-    // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
+    // load "Do your mod setup. Build whatever data structures you care about.
+    // Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
 
         OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "ingot", Constants.ingotBlacklist, ingot);
         OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "nugget", Constants.nuggetBlacklist, nugget);
-        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "dust", Constants.none, dust);
-        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "gear", Constants.none, gear);
-        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "plate", Constants.none, plate);
+        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "dust", Constants.miscBlacklist, dust);
+        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "gear", Constants.miscBlacklist, gear);
+        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "plate", Constants.miscBlacklist, plate);
+        OreDictionaryRegistry.registerOreDict(Constants.oreTypes, "ore", Constants.none, ore);
+        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "block", Constants.blockBlacklist, storage);
 
     }
 
     @Mod.EventHandler
-    // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
+    // postInit "Handle interaction with other mods, complete your setup based on
+    // this." (Remove if not needed)
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
     }
