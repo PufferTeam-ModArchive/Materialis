@@ -33,4 +33,5 @@ public class Constants {
         "pickaxe", "pickaxe", "pickaxe", "pickaxe", "pickaxe" };
     public static final int[] blockLevels = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 
+    public static final String[] castTypes = new String[] { "blank", "pickaxe", "shovel", "axe", "hoe", "sword", "saw", "hammer", "chisel", "helmet", "chestplate", "leggings", "boots" };
 }

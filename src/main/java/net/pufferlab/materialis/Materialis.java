@@ -38,6 +38,7 @@ public class Materialis {
     public static Item gear;
     public static Item plate;
     public static Item gem;
+    public static Item cast;
 
     public static final Block.SoundType soundTypePiston = new Block.SoundType("stone", 1.0F, 1.0F);
     public static final Block.SoundType soundTypeMetal = new Block.SoundType("stone", 1.0F, 1.5F);
@@ -73,12 +74,14 @@ public class Materialis {
         dust = new ItemMaterial(Constants.metalTypes, "dust", Constants.miscBlacklist);
         gear = new ItemMaterial(Constants.metalTypes, "gear", Constants.miscBlacklist);
         plate = new ItemMaterial(Constants.metalTypes, "plate", Constants.miscBlacklist);
+        cast = new ItemMaterial(Constants.castTypes, "cast", Constants.none);
         GameRegistry.registerItem(gem, "gem");
         GameRegistry.registerItem(ingot, "ingot");
         GameRegistry.registerItem(nugget, "nugget");
         GameRegistry.registerItem(dust, "dust");
         GameRegistry.registerItem(gear, "gear");
         GameRegistry.registerItem(plate, "plate");
+        GameRegistry.registerItem(cast, "cast");
         GameRegistry.registerBlock(ore, ItemBlockMaterial.class, "ore");
         GameRegistry.registerBlock(storage, ItemBlockMaterial.class, "block");
     }
@@ -94,6 +97,7 @@ public class Materialis {
         OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "dust", Constants.miscBlacklist, dust);
         OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "gear", Constants.miscBlacklist, gear);
         OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "plate", Constants.miscBlacklist, plate);
+        OreDictionaryRegistry.registerOreDict(Constants.castTypes, "cast", Constants.none, cast);
         OreDictionaryRegistry.registerOreDict(Constants.oreTypes, "ore", Constants.none, ore);
         OreDictionaryRegistry.registerOreDict(Constants.blockTypes, "block", Constants.none, storage);
 
