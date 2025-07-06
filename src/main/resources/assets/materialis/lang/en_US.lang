@@ -1,5 +1,18 @@
-item.materialis.cinnabar_gem.name=Raw Cinnabar 
+item.materialis.cinnabar_gem.name=Cinnabar 
+item.materialis.slag_gem.name=Slag 
+item.materialis.rich_slag_gem.name=Rich Slag 
 
+tile.materialis.copper_ore.name=Copper Ore
+tile.materialis.tin_ore.name=Tin Ore
+tile.materialis.silver_ore.name=Silver Ore
+tile.materialis.lead_ore.name=Lead Ore
+tile.materialis.nickel_ore.name=Nickel Ore
+tile.materialis.mithril_ore.name=Mithril Ore
+tile.materialis.platinum_ore.name=Platinum Ore
+tile.materialis.bauxite_ore.name=Bauxite Ore
+tile.materialis.osmium_ore.name=Osmium Ore
+
+tile.materialis.aluminum_block.name=Aluminium Block
 tile.materialis.iron_block.name=Iron Block
 tile.materialis.gold_block.name=Gold Block
 tile.materialis.copper_block.name=Copper Block
@@ -18,6 +31,7 @@ tile.materialis.mythril_block.name=Mythril Block
 tile.materialis.osmium_block.name=Osmium Block
 tile.materialis.iridium_block.name=Iridium Block
 
+item.materialis.aluminum_ingot.name=Aluminium Ingot
 item.materialis.iron_ingot.name=Iron Ingot
 item.materialis.gold_ingot.name=Gold Ingot
 item.materialis.copper_ingot.name=Copper Ingot
@@ -35,7 +49,11 @@ item.materialis.platinum_ingot.name=Platinum Ingot
 item.materialis.mythril_ingot.name=Mythril Ingot
 item.materialis.osmium_ingot.name=Osmium Ingot
 item.materialis.iridium_ingot.name=Iridium Ingot
+item.materialis.thaumium_ingot.name=Thaumium Ingot
+item.materialis.manasteel_ingot.name=Manasteel Ingot
+item.materialis.terrasteel_ingot.name=Terrasteel Ingot
 
+item.materialis.aluminum_nugget.name=Aluminium Nugget
 item.materialis.iron_nugget.name=Iron Nugget
 item.materialis.gold_nugget.name=Gold Nugget
 item.materialis.copper_nugget.name=Copper Nugget
@@ -53,7 +71,11 @@ item.materialis.platinum_nugget.name=Platinum Nugget
 item.materialis.mythril_nugget.name=Mythril Nugget
 item.materialis.osmium_nugget.name=Osmium Nugget
 item.materialis.iridium_nugget.name=Iridium Nugget
+item.materialis.thaumium_nugget.name=Thaumium Nugget
+item.materialis.manasteel_nugget.name=Manasteel Nugget
+item.materialis.terrasteel_nugget.name=Terrasteel Nugget
 
+item.materialis.aluminum_dust.name=Aluminium Dust
 item.materialis.iron_dust.name=Iron Dust
 item.materialis.gold_dust.name=Gold Dust
 item.materialis.copper_dust.name=Copper Dust
@@ -71,7 +93,11 @@ item.materialis.platinum_dust.name=Platinum Dust
 item.materialis.mythril_dust.name=Mythril Dust
 item.materialis.osmium_dust.name=Osmium Dust
 item.materialis.iridium_dust.name=Iridium Dust
+item.materialis.thaumium_dust.name=Thaumium Dust
+item.materialis.manasteel_dust.name=Manasteel Dust
+item.materialis.terrasteel_dust.name=Terrasteel Dust
 
+item.materialis.aluminum_gear.name=Aluminium Gear
 item.materialis.iron_gear.name=Iron Gear
 item.materialis.gold_gear.name=Gold Gear
 item.materialis.copper_gear.name=Copper Gear
@@ -89,7 +115,11 @@ item.materialis.platinum_gear.name=Platinum Gear
 item.materialis.mythril_gear.name=Mythril Gear
 item.materialis.osmium_gear.name=Osmium Gear
 item.materialis.iridium_gear.name=Iridium Gear
+item.materialis.thaumium_gear.name=Thaumium Gear
+item.materialis.manasteel_gear.name=Manasteel Gear
+item.materialis.terrasteel_gear.name=Terrasteel Gear
 
+item.materialis.aluminum_plate.name=Aluminium Plate
 item.materialis.iron_plate.name=Iron Plate
 item.materialis.gold_plate.name=Gold Plate
 item.materialis.copper_plate.name=Copper Plate
@@ -107,3 +137,6 @@ item.materialis.platinum_plate.name=Platinum Plate
 item.materialis.mythril_plate.name=Mythril Plate
 item.materialis.osmium_plate.name=Osmium Plate
 item.materialis.iridium_plate.name=Iridium Plate
+item.materialis.thaumium_plate.name=Thaumium Plate
+item.materialis.manasteel_plate.name=Manasteel Plate
+item.materialis.terrasteel_plate.name=Terrasteel Plate

@@ -60,11 +60,11 @@ public class Materialis {
                 .setStepSound(soundTypePiston);
         storage = new BlockMaterial(
             Material.iron,
-            Constants.metalTypes,
+            Constants.blockTypes,
             "block",
-            Constants.blockBlacklist,
-            Constants.metalTools,
-            Constants.metalLevels).setHardness(5.0F)
+            Constants.none,
+            Constants.blockTools,
+            Constants.blockLevels).setHardness(5.0F)
                 .setResistance(10.0F)
                 .setStepSound(soundTypeMetal);
         gem = new ItemMaterial(Constants.gemTypes, "gem", Constants.none);
@@ -95,7 +95,7 @@ public class Materialis {
         OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "gear", Constants.miscBlacklist, gear);
         OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "plate", Constants.miscBlacklist, plate);
         OreDictionaryRegistry.registerOreDict(Constants.oreTypes, "ore", Constants.none, ore);
-        OreDictionaryRegistry.registerOreDict(Constants.metalTypes, "block", Constants.blockBlacklist, storage);
+        OreDictionaryRegistry.registerOreDict(Constants.blockTypes, "block", Constants.none, storage);
 
     }
 
