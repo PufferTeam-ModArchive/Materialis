@@ -2,6 +2,18 @@ item.materialis.cinnabar_gem.name=Cinnabar
 item.materialis.slag_gem.name=Slag 
 item.materialis.rich_slag_gem.name=Rich Slag 
 
+tile.materialis.andesite_cobblestone.name=Cobbled Andesite
+tile.materialis.diorite_cobblestone.name=Cobbled Diorite
+tile.materialis.granite_cobblestone.name=Cobbled Granite
+tile.materialis.limestone_cobblestone.name=Cobbled Limestone
+tile.materialis.marble_cobblestone.name=Cobbled Marble
+
+tile.materialis.andesite_cobblestone_slab.name=Cobbled Andesite Slab
+tile.materialis.diorite_cobblestone_slab.name=Cobbled Diorite Slab
+tile.materialis.granite_cobblestone_slab.name=Cobbled Granite Slab
+tile.materialis.limestone_cobblestone_slab.name=Cobbled Limestone Slab
+tile.materialis.marble_cobblestone_slab.name=Cobbled Marble Slab
+
 tile.materialis.copper_ore.name=Copper Ore
 tile.materialis.tin_ore.name=Tin Ore
 tile.materialis.silver_ore.name=Silver Ore

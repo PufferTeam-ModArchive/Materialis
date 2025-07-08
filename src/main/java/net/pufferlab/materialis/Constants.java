@@ -3,6 +3,7 @@ package net.pufferlab.materialis;
 public class Constants {
 
     public static final String[] none = new String[] {};
+    public static final int[] noneI = new int[] {};
 
     public static final String[] woodTypes = new String[] { "oak", "spruce", "birch", "jungle", "acacia", "dark_oak" };
     public static final String[] bopWoodTypes = new String[] { "sacredoak", "cherry", "dark", "fir", "ethereal",
@@ -32,6 +33,8 @@ public class Constants {
     public static final String[] blockTools = new String[] { "pickaxe", "pickaxe", "pickaxe", "pickaxe", "pickaxe",
         "pickaxe", "pickaxe", "pickaxe", "pickaxe", "pickaxe" };
     public static final int[] blockLevels = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+
+    public static final String[] rockTypes = new String[] { "andesite", "diorite", "granite", "limestone", "marble" };
 
     public static final String[] castTypes = new String[] { "blank", "pickaxe", "shovel", "axe", "hoe", "sword", "saw", "hammer", "chisel", "helmet", "chestplate", "leggings", "boots" };
 }
