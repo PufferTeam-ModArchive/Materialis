@@ -36,5 +36,6 @@ public class Constants {
 
     public static final String[] rockTypes = new String[] { "andesite", "diorite", "granite", "limestone", "marble" };
 
-    public static final String[] castTypes = new String[] { "blank", "pickaxe", "shovel", "axe", "hoe", "sword", "saw", "hammer", "chisel", "helmet", "chestplate", "leggings", "boots" };
+    public static final String[] castTypes = new String[] { "blank", "pickaxe", "shovel", "axe", "hoe", "sword", "saw",
+        "hammer", "chisel", "helmet", "chestplate", "leggings", "boots" };
 }

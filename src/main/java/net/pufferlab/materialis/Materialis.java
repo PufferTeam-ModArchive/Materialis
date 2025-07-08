@@ -3,10 +3,10 @@ package net.pufferlab.materialis;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-import net.pufferlab.materialis.itemblocks.ItemBlockSlabMaterial;
 import net.pufferlab.materialis.blocks.BlockMaterial;
 import net.pufferlab.materialis.blocks.BlockSlabMaterial;
 import net.pufferlab.materialis.itemblocks.ItemBlockMaterial;
+import net.pufferlab.materialis.itemblocks.ItemBlockSlabMaterial;
 import net.pufferlab.materialis.items.ItemMaterial;
 import net.pufferlab.materialis.items.OreDictionaryRegistry;
 
@@ -47,6 +47,7 @@ public class Materialis {
 
     public static final Block.SoundType soundTypePiston = new Block.SoundType("stone", 1.0F, 1.0F);
     public static final Block.SoundType soundTypeMetal = new Block.SoundType("stone", 1.0F, 1.5F);
+
     @Mod.EventHandler
     // preInit "Run before anything else. Read your config, create blocks, items,
     // etc, and register them with the
@@ -54,29 +55,34 @@ public class Materialis {
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
 
-        cobblestone = new BlockMaterial(
-            Material.rock,
-            Constants.rockTypes,
-            "cobblestone",
-            Constants.none,
-            null,
-            null).setHardness(2.0F).setResistance(10.0F).setStepSound(soundTypePiston);
+        cobblestone = new BlockMaterial(Material.rock, Constants.rockTypes, "cobblestone", Constants.none, null, null)
+            .setHardness(2.0F)
+            .setResistance(10.0F)
+            .setStepSound(soundTypePiston);
         cobblestone_slab = new BlockSlabMaterial(
-            false, Materialis.cobblestone_slab, Materialis.cobblestone,
+            false,
+            Materialis.cobblestone_slab,
+            Materialis.cobblestone,
             Material.rock,
             Constants.rockTypes,
             "cobblestone_slab",
             Constants.none,
             null,
-            null).setHardness(2.0F).setResistance(10.0F).setStepSound(soundTypePiston);
+            null).setHardness(2.0F)
+                .setResistance(10.0F)
+                .setStepSound(soundTypePiston);
         cobblestone_slab_double = new BlockSlabMaterial(
-            true, Materialis.cobblestone_slab, Materialis.cobblestone,
+            true,
+            Materialis.cobblestone_slab,
+            Materialis.cobblestone,
             Material.rock,
             Constants.rockTypes,
             "cobblestone_slab_double",
             Constants.none,
             null,
-            null).setHardness(2.0F).setResistance(10.0F).setStepSound(soundTypePiston);
+            null).setHardness(2.0F)
+                .setResistance(10.0F)
+                .setStepSound(soundTypePiston);
         ore = new BlockMaterial(
             Material.rock,
             Constants.oreTypes,
@@ -110,8 +116,20 @@ public class Materialis {
         GameRegistry.registerItem(plate, "plate");
         GameRegistry.registerItem(cast, "cast");
         GameRegistry.registerBlock(cobblestone, ItemBlockMaterial.class, "cobblestone");
-        GameRegistry.registerBlock(cobblestone_slab, ItemBlockSlabMaterial.class, "cobblestone_slab", Materialis.cobblestone_slab, Materialis.cobblestone_slab_double, false);
-        GameRegistry.registerBlock(cobblestone_slab_double, ItemBlockSlabMaterial.class, "double_cobblestone_slab", Materialis.cobblestone_slab, Materialis.cobblestone_slab_double, true);
+        GameRegistry.registerBlock(
+            cobblestone_slab,
+            ItemBlockSlabMaterial.class,
+            "cobblestone_slab",
+            Materialis.cobblestone_slab,
+            Materialis.cobblestone_slab_double,
+            false);
+        GameRegistry.registerBlock(
+            cobblestone_slab_double,
+            ItemBlockSlabMaterial.class,
+            "double_cobblestone_slab",
+            Materialis.cobblestone_slab,
+            Materialis.cobblestone_slab_double,
+            true);
         GameRegistry.registerBlock(ore, ItemBlockMaterial.class, "ore");
         GameRegistry.registerBlock(storage, ItemBlockMaterial.class, "block");
     }

@@ -13,27 +13,28 @@ public class ItemBlockSlabMaterial extends ItemSlab {
     private String name;
     private BlockSlabMaterial blockC;
 
-    public ItemBlockSlabMaterial(Block p_i45355_1_, BlockSlabMaterial p_i45355_2_, BlockSlabMaterial p_i45355_3_, Boolean p_i45355_4_) {
+    public ItemBlockSlabMaterial(Block p_i45355_1_, BlockSlabMaterial p_i45355_2_, BlockSlabMaterial p_i45355_3_,
+        Boolean p_i45355_4_) {
         super(p_i45355_1_, p_i45355_2_, p_i45355_3_, p_i45355_4_);
-        
+
         blockC = (BlockSlabMaterial) field_150939_a;
 
         elements = blockC.getElements();
         elementsBlacklist = blockC.getElementsBlacklist();
         name = blockC.getElementName();
-        
+
         this.setHasSubtypes(true);
     }
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         int meta = stack.getItemDamage();
-        if(meta > 7) {
+        if (meta > 7) {
             meta = meta - 8;
         }
         String[] array = name.split("");
         String[] array2 = name.split("_");
-        if(array2[array2.length - 1].equals("double")) {
+        if (array2[array2.length - 1].equals("double")) {
             name = name.substring(0, array.length - 7);
         }
         if (Utils.containsExactMatch(elementsBlacklist, elements[meta])) {

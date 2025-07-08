@@ -24,8 +24,9 @@ public class BlockSlabMaterial extends BlockSlab {
     private String[] elements;
     private String[] elementsBlacklist;
     private String name;
-    public BlockSlabMaterial(boolean doubleSlab, Block slabBlock, Block block, Material material, String[] materials, String type, String[] blacklist, String[] tools,
-        int[] levels) {
+
+    public BlockSlabMaterial(boolean doubleSlab, Block slabBlock, Block block, Material material, String[] materials,
+        String type, String[] blacklist, String[] tools, int[] levels) {
         super(doubleSlab, material);
         this.useNeighborBrightness = true;
         elements = materials;
@@ -45,21 +46,18 @@ public class BlockSlabMaterial extends BlockSlab {
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister register) {
+    public void registerBlockIcons(IIconRegister register) {}
+
+    public Block idDropped(int par1, Random par2Random, int par3) {
+        return elementSlabBlock;
     }
 
-	public Block idDropped(int par1, Random par2Random, int par3) {
-		return elementSlabBlock;
-	}
-
-    public Item getItemDropped(int meta, Random random, int fortune)
-    {
+    public Item getItemDropped(int meta, Random random, int fortune) {
         return Item.getItemFromBlock(elementSlabBlock);
     }
 
     @Override
-    public ItemStack createStackedBlock(int meta)
-    {
+    public ItemStack createStackedBlock(int meta) {
         return new ItemStack(Item.getItemFromBlock(elementSlabBlock), 2, meta & 7);
     }
 
@@ -74,7 +72,7 @@ public class BlockSlabMaterial extends BlockSlab {
 
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        if(meta > 7) {
+        if (meta > 7) {
             meta = meta - 8;
         }
         if (meta >= elements.length || Utils.containsExactMatch(elementsBlacklist, elements[meta])) {
@@ -84,21 +82,18 @@ public class BlockSlabMaterial extends BlockSlab {
     }
 
     @Override
-    public String func_150002_b(int p_150002_1_)
-    {
-        if (p_150002_1_ < 0 || p_150002_1_ >= elements.length)
-        {
+    public String func_150002_b(int p_150002_1_) {
+        if (p_150002_1_ < 0 || p_150002_1_ >= elements.length) {
             p_150002_1_ = 0;
         }
 
         return super.getUnlocalizedName() + "." + elements[p_150002_1_];
     }
 
-    public Item getItem(World worldIn, int x, int y, int z)
-    {
+    public Item getItem(World worldIn, int x, int y, int z) {
         return Item.getItemFromBlock(elementSlabBlock);
     }
-    
+
     public String[] getElements() {
         return elements;
     }

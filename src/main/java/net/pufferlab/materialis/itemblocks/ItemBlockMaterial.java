@@ -15,7 +15,7 @@ public class ItemBlockMaterial extends ItemBlock {
 
     public ItemBlockMaterial(Block block) {
         super(block);
-        
+
         blockC = (BlockMaterial) field_150939_a;
 
         elements = blockC.getElements();
