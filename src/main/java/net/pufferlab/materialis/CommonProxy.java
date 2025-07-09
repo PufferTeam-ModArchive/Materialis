@@ -41,21 +41,23 @@ public class CommonProxy {
     // register server commands in this event handler (Remove if not needed)
     public void serverStarting(FMLServerStartingEvent event) {}
 
-    // prevent wood/rocks from being destroyed by hand & make dirt slower to mine at hand
+    // prevent wood/rocks from being destroyed by hand & make dirt slower to mine at
+    // hand
     @SubscribeEvent
     public void setBreakSpeed(PlayerEvent.BreakSpeed event) {
 
-        if (event.block.getHarvestTool(event.metadata) == "axe"
-            || event.block.getHarvestTool(event.metadata) == "pickaxe") {
-            if (event.entityPlayer.getCurrentEquippedItem() == null || !ForgeHooks
-                .isToolEffective(event.entityPlayer.getCurrentEquippedItem(), event.block, event.metadata)) {
+        if (Utils.containsOreDict(event.block, "logWood")) {
+            if (event.entityPlayer.getCurrentEquippedItem() == null
+                || !ForgeHooks.isToolEffective(event.entityPlayer.getCurrentEquippedItem(), event.block, event.metadata)
+                || Utils.containsOreDict(event.entityPlayer.getCurrentEquippedItem(), "toolAxe")) {
                 event.setCanceled(true);
             }
         }
 
         if (event.block.getHarvestTool(event.metadata) == "shovel") {
-            if (event.entityPlayer.getCurrentEquippedItem() == null || !ForgeHooks
-                .isToolEffective(event.entityPlayer.getCurrentEquippedItem(), event.block, event.metadata)) {
+            if (event.entityPlayer.getCurrentEquippedItem() == null
+                || !ForgeHooks.isToolEffective(event.entityPlayer.getCurrentEquippedItem(), event.block, event.metadata)
+                || Utils.containsOreDict(event.entityPlayer.getCurrentEquippedItem(), "toolShovel")) {
                 event.newSpeed = event.originalSpeed / 2;
             }
         }
