@@ -1,6 +1,5 @@
 package net.pufferlab.materialis;
 
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
@@ -48,7 +47,6 @@ public class CommonProxy {
 
         if (Utils.containsOreDict(event.block, "logWood")) {
             if (event.entityPlayer.getCurrentEquippedItem() == null
-                || !ForgeHooks.isToolEffective(event.entityPlayer.getCurrentEquippedItem(), event.block, event.metadata)
                 || !Utils.containsOreDict(event.entityPlayer.getCurrentEquippedItem(), "toolAxe")) {
                 event.setCanceled(true);
             }
@@ -56,7 +54,6 @@ public class CommonProxy {
 
         if (event.block.getHarvestTool(event.metadata) == "shovel") {
             if (event.entityPlayer.getCurrentEquippedItem() == null
-                || !ForgeHooks.isToolEffective(event.entityPlayer.getCurrentEquippedItem(), event.block, event.metadata)
                 || !Utils.containsOreDict(event.entityPlayer.getCurrentEquippedItem(), "toolShovel")) {
                 event.newSpeed = event.originalSpeed / 2;
             }
