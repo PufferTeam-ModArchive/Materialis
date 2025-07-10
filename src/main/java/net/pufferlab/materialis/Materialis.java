@@ -4,13 +4,18 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.OreDictionary;
 import net.pufferlab.materialis.blocks.BlockMaterial;
 import net.pufferlab.materialis.blocks.BlockSlabMaterial;
 import net.pufferlab.materialis.itemblocks.ItemBlockMaterial;
 import net.pufferlab.materialis.itemblocks.ItemBlockSlabMaterial;
 import net.pufferlab.materialis.items.ItemMaterial;
+import net.pufferlab.materialis.items.ItemPrimitiveAxe;
+import net.pufferlab.materialis.items.ItemPrimitivePickaxe;
+import net.pufferlab.materialis.items.ItemPrimitiveShovel;
 import net.pufferlab.materialis.items.OreDictionaryRegistry;
 
 import org.apache.logging.log4j.LogManager;
@@ -35,6 +40,7 @@ public class Materialis {
         serverSide = "net.pufferlab.materialis.CommonProxy")
     public static CommonProxy proxy;
 
+    public static ToolMaterial toolFlint;
     public static Block cobblestone;
     public static Block cobblestone_slab_double;
     public static Block cobblestone_slab;
@@ -48,7 +54,15 @@ public class Materialis {
     public static Item gem;
     public static Item cast;
     public static Item misc;
-
+    public static Item pickaxe_head;
+    public static Item axe_head;
+    public static Item shovel_head;
+    public static Item hoe_head;
+    public static Item sword_blade;
+    public static Item flintAxe;
+    public static Item flintPickaxe;
+    public static Item flintShovel;
+    public static Item flintSword;
     public static final Block.SoundType soundTypePiston = new Block.SoundType("stone", 1.0F, 1.0F);
     public static final Block.SoundType soundTypeMetal = new Block.SoundType("stone", 1.0F, 1.5F);
 
@@ -58,6 +72,8 @@ public class Materialis {
     // GameRegistry." (Remove if not needed)
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
+
+        toolFlint = EnumHelper.addToolMaterial("flint", 0, 59, 2.0F, 0.0F, 15);
 
         cobblestone = new BlockMaterial(Material.rock, Constants.rockTypes, "cobblestone", Constants.none, null, null)
             .setHardness(2.0F)
@@ -113,6 +129,15 @@ public class Materialis {
         plate = new ItemMaterial(Constants.metalTypes, "plate", Constants.miscBlacklist);
         cast = new ItemMaterial(Constants.castTypes, "cast", Constants.none);
         misc = new ItemMaterial(Constants.miscItems, "item", Constants.none);
+        pickaxe_head = new ItemMaterial(Constants.toolTypes, "pickaxe_head", Constants.none);
+        axe_head = new ItemMaterial(Constants.toolTypes, "axe_head", Constants.none);
+        shovel_head = new ItemMaterial(Constants.toolTypes, "shovel_head", Constants.none);
+        hoe_head = new ItemMaterial(Constants.toolTypes, "hoe_head", Constants.none);
+        sword_blade = new ItemMaterial(Constants.toolTypes, "sword_blade", Constants.none);
+        flintAxe = new ItemPrimitiveAxe(toolFlint, "flint_axe");
+        flintPickaxe = new ItemPrimitivePickaxe(toolFlint, "flint_pickaxe");
+        flintShovel = new ItemPrimitiveShovel(toolFlint, "flint_shovel");
+        flintSword = new ItemPrimitiveShovel(toolFlint, "flint_sword");
         GameRegistry.registerItem(gem, "gem");
         GameRegistry.registerItem(ingot, "ingot");
         GameRegistry.registerItem(nugget, "nugget");
@@ -121,6 +146,14 @@ public class Materialis {
         GameRegistry.registerItem(plate, "plate");
         GameRegistry.registerItem(cast, "cast");
         GameRegistry.registerItem(misc, "item");
+        GameRegistry.registerItem(pickaxe_head, "pickaxe_head");
+        GameRegistry.registerItem(axe_head, "axe_head");
+        GameRegistry.registerItem(shovel_head, "shovel_head");
+        GameRegistry.registerItem(hoe_head, "hoe_head");
+        GameRegistry.registerItem(sword_blade, "sword_blade");
+        GameRegistry.registerItem(flintAxe, "flint_axe");
+        GameRegistry.registerItem(flintPickaxe, "flint_pickaxe");
+        GameRegistry.registerItem(flintShovel, "flint_shovel");
         GameRegistry.registerBlock(cobblestone, ItemBlockMaterial.class, "cobblestone");
         GameRegistry.registerBlock(
             cobblestone_slab,

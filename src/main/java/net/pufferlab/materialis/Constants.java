@@ -41,4 +41,7 @@ public class Constants {
 
     public static final String[] miscItems = new String[] { "flint_shard" };
 
+    public static final String[] toolTypes = new String[] { "bronze", "iron", "steel", "gold", "thaumium",
+        "manasteel" };
+
 }

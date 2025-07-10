@@ -46,14 +46,12 @@ public class CommonProxy {
     public void serverStarting(FMLServerStartingEvent event) {}
 
     // prevent wood/rocks from being destroyed by hand & make dirt slower to mine at
-    // hand
     @SubscribeEvent
     public void setBreakSpeed(PlayerEvent.BreakSpeed event) {
         ItemStack heldItem = event.entityPlayer.inventory.getCurrentItem();
 
         if (Utils.containsOreDict(event.block, "logWood")) {
-            if (heldItem == null || !heldItem.getItem()
-                .isItemTool(heldItem)) {
+            if (heldItem == null || !Utils.containsOreDict(heldItem, "toolAxe")) {
                 event.setCanceled(true);
             }
         }
@@ -72,7 +70,8 @@ public class CommonProxy {
             ItemStack heldItem = event.entityPlayer.inventory.getCurrentItem();
             if (Utils.containsOreDict(heldItem, "flint")) {
                 Block block = event.world.getBlock(event.x, event.y, event.z);
-                if (Utils.containsOreDict(block, "stone")) {
+                int blockMeta = event.world.getBlockMetadata(event.x, event.y, event.z);
+                if (block.getHarvestTool(blockMeta) == "pickaxe") {
                     int heldItemSlot = event.entityPlayer.inventory.currentItem;
                     ItemStack outputItem = new ItemStack(Materialis.misc, 2, 0);
                     // EntityItem entityitem = new EntityItem(event.world, event.x, event.y + 1, event.z, outputItem);

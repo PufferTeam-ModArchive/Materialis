@@ -2,6 +2,45 @@ item.materialis.cinnabar_gem.name=Cinnabar
 item.materialis.slag_gem.name=Slag 
 item.materialis.rich_slag_gem.name=Rich Slag 
 
+item.materialis.flint_axe.name=Flint Axe
+item.materialis.flint_shovel.name=Flint Shovel
+item.materialis.flint_pickaxe.name=Flint Pickaxe
+
+item.materialis.bronze_pickaxe_head.name=Bronze Pickaxe Head
+item.materialis.gold_pickaxe_head.name=Gold Pickaxe Head
+item.materialis.iron_pickaxe_head.name=Iron Pickaxe Head
+item.materialis.steel_pickaxe_head.name=Steel Pickaxe Head
+item.materialis.thaumium_pickaxe_head.name=Thaumium Pickaxe Head
+item.materialis.manasteel_pickaxe_head.name=Manasteel Pickaxe Head
+
+item.materialis.bronze_axe_head.name=Bronze Axe Head
+item.materialis.gold_axe_head.name=Gold Axe Head
+item.materialis.iron_axe_head.name=Iron Axe Head
+item.materialis.steel_axe_head.name=Steel Axe Head
+item.materialis.thaumium_axe_head.name=Thaumium Axe Head
+item.materialis.manasteel_axe_head.name=Manasteel Axe Head
+
+item.materialis.bronze_shovel_head.name=Bronze Shovel Head
+item.materialis.gold_shovel_head.name=Gold Shovel Head
+item.materialis.iron_shovel_head.name=Iron Shovel Head
+item.materialis.steel_shovel_head.name=Steel Shovel Head
+item.materialis.thaumium_shovel_head.name=Thaumium Shovel Head
+item.materialis.manasteel_shovel_head.name=Manasteel Shovel Head
+
+item.materialis.bronze_hoe_head.name=Bronze Hoe Head
+item.materialis.gold_hoe_head.name=Gold Hoe Head
+item.materialis.iron_hoe_head.name=Iron Hoe Head
+item.materialis.steel_hoe_head.name=Steel Hoe Head
+item.materialis.thaumium_hoe_head.name=Thaumium Hoe Head
+item.materialis.manasteel_hoe_head.name=Manasteel Hoe Head
+
+item.materialis.bronze_sword_blade.name=Bronze Sword Blade
+item.materialis.gold_sword_blade.name=Gold Sword Blade
+item.materialis.iron_sword_blade.name=Iron Sword Blade
+item.materialis.steel_sword_blade.name=Steel Sword Blade
+item.materialis.thaumium_sword_blade.name=Thaumium Sword Blade
+item.materialis.manasteel_sword_blade.name=Manasteel Sword Blade
+
 item.materialis.flint_shard_item.name=Flint Shard
 tile.materialis.andesite_cobblestone.name=Cobbled Andesite
 tile.materialis.diorite_cobblestone.name=Cobbled Diorite
