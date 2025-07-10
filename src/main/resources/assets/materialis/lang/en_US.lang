@@ -2,6 +2,7 @@ item.materialis.cinnabar_gem.name=Cinnabar
 item.materialis.slag_gem.name=Slag 
 item.materialis.rich_slag_gem.name=Rich Slag 
 
+item.materialis.flint_shard_item.name=Flint Shard
 tile.materialis.andesite_cobblestone.name=Cobbled Andesite
 tile.materialis.diorite_cobblestone.name=Cobbled Diorite
 tile.materialis.granite_cobblestone.name=Cobbled Granite

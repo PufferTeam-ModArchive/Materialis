@@ -2,7 +2,10 @@ package net.pufferlab.materialis;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import net.pufferlab.materialis.blocks.BlockMaterial;
 import net.pufferlab.materialis.blocks.BlockSlabMaterial;
 import net.pufferlab.materialis.itemblocks.ItemBlockMaterial;
@@ -44,6 +47,7 @@ public class Materialis {
     public static Item plate;
     public static Item gem;
     public static Item cast;
+    public static Item misc;
 
     public static final Block.SoundType soundTypePiston = new Block.SoundType("stone", 1.0F, 1.0F);
     public static final Block.SoundType soundTypeMetal = new Block.SoundType("stone", 1.0F, 1.5F);
@@ -108,6 +112,7 @@ public class Materialis {
         gear = new ItemMaterial(Constants.metalTypes, "gear", Constants.miscBlacklist);
         plate = new ItemMaterial(Constants.metalTypes, "plate", Constants.miscBlacklist);
         cast = new ItemMaterial(Constants.castTypes, "cast", Constants.none);
+        misc = new ItemMaterial(Constants.miscItems, "item", Constants.none);
         GameRegistry.registerItem(gem, "gem");
         GameRegistry.registerItem(ingot, "ingot");
         GameRegistry.registerItem(nugget, "nugget");
@@ -115,6 +120,7 @@ public class Materialis {
         GameRegistry.registerItem(gear, "gear");
         GameRegistry.registerItem(plate, "plate");
         GameRegistry.registerItem(cast, "cast");
+        GameRegistry.registerItem(misc, "item");
         GameRegistry.registerBlock(cobblestone, ItemBlockMaterial.class, "cobblestone");
         GameRegistry.registerBlock(
             cobblestone_slab,
@@ -148,6 +154,7 @@ public class Materialis {
         OreDictionaryRegistry.registerOreDict(Constants.castTypes, "cast", Constants.none, cast);
         OreDictionaryRegistry.registerOreDict(Constants.oreTypes, "ore", Constants.none, ore);
         OreDictionaryRegistry.registerOreDict(Constants.blockTypes, "block", Constants.none, storage);
+        OreDictionary.registerOre("flint", new ItemStack(Items.flint, 1, 0));
 
     }
 
