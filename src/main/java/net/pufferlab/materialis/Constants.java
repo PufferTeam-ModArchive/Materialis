@@ -44,4 +44,6 @@ public class Constants {
     public static final String[] toolTypes = new String[] { "bronze", "iron", "steel", "gold", "thaumium",
         "manasteel" };
 
+    public static final String[] hoeBlacklist = new String[] { "manasteel" };
+
 }

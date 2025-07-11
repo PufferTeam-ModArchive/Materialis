@@ -41,6 +41,13 @@ item.materialis.steel_sword_blade.name=Steel Sword Blade
 item.materialis.thaumium_sword_blade.name=Thaumium Sword Blade
 item.materialis.manasteel_sword_blade.name=Manasteel Sword Blade
 
+item.materialis.bronze_saw_blade.name=Bronze Saw Blade
+item.materialis.gold_saw_blade.name=Gold Saw Blade
+item.materialis.iron_saw_blade.name=Iron Saw Blade
+item.materialis.steel_saw_blade.name=Steel Saw Blade
+item.materialis.thaumium_saw_blade.name=Thaumium Saw Blade
+item.materialis.manasteel_saw_blade.name=Manasteel Saw Blade
+
 item.materialis.flint_shard_item.name=Flint Shard
 tile.materialis.andesite_cobblestone.name=Cobbled Andesite
 tile.materialis.diorite_cobblestone.name=Cobbled Diorite

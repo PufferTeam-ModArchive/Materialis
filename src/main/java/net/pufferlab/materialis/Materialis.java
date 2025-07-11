@@ -59,6 +59,7 @@ public class Materialis {
     public static Item shovel_head;
     public static Item hoe_head;
     public static Item sword_blade;
+    public static Item saw_blade;
     public static Item flintAxe;
     public static Item flintPickaxe;
     public static Item flintShovel;
@@ -132,8 +133,9 @@ public class Materialis {
         pickaxe_head = new ItemMaterial(Constants.toolTypes, "pickaxe_head", Constants.none);
         axe_head = new ItemMaterial(Constants.toolTypes, "axe_head", Constants.none);
         shovel_head = new ItemMaterial(Constants.toolTypes, "shovel_head", Constants.none);
-        hoe_head = new ItemMaterial(Constants.toolTypes, "hoe_head", Constants.none);
+        hoe_head = new ItemMaterial(Constants.toolTypes, "hoe_head", Constants.hoeBlacklist);
         sword_blade = new ItemMaterial(Constants.toolTypes, "sword_blade", Constants.none);
+        saw_blade = new ItemMaterial(Constants.toolTypes, "saw_blade", Constants.none);
         flintAxe = new ItemPrimitiveAxe(toolFlint, "flint_axe");
         flintPickaxe = new ItemPrimitivePickaxe(toolFlint, "flint_pickaxe");
         flintShovel = new ItemPrimitiveShovel(toolFlint, "flint_shovel");
@@ -151,6 +153,7 @@ public class Materialis {
         GameRegistry.registerItem(shovel_head, "shovel_head");
         GameRegistry.registerItem(hoe_head, "hoe_head");
         GameRegistry.registerItem(sword_blade, "sword_blade");
+        GameRegistry.registerItem(saw_blade, "saw_blade");
         GameRegistry.registerItem(flintAxe, "flint_axe");
         GameRegistry.registerItem(flintPickaxe, "flint_pickaxe");
         GameRegistry.registerItem(flintShovel, "flint_shovel");
