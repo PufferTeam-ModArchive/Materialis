@@ -32,6 +32,10 @@ public class CommonProxy {
         Materialis.LOG.info("I am MyMod at version " + Tags.VERSION);
     }
 
+    public int getArmorIndex(String string) {
+        return 0;
+    }
+
     // load "Do your mod setup. Build whatever data structures you care about.
     // Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {

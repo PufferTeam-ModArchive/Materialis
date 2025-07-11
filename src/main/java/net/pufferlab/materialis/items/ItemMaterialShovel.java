@@ -1,17 +1,17 @@
 package net.pufferlab.materialis.items;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemPrimitivePickaxe extends ItemPickaxe {
+public class ItemMaterialShovel extends ItemSpade {
 
     String toolName;
 
-    public ItemPrimitivePickaxe(ToolMaterial tool, String name) {
+    public ItemMaterialShovel(ToolMaterial tool, String name) {
         super(tool);
 
         toolName = name;

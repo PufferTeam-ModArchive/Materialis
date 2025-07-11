@@ -2,9 +2,33 @@ item.materialis.cinnabar_gem.name=Cinnabar
 item.materialis.slag_gem.name=Slag 
 item.materialis.rich_slag_gem.name=Rich Slag 
 
+item.materialis.blank_cast.name=Blank Cast
+item.materialis.pickaxe_cast.name=Pickaxe Head Cast
+item.materialis.shovel_cast.name=Shovel Head Cast
+item.materialis.axe_cast.name=Axe Head Cast
+item.materialis.hoe_cast.name=Hoe Head Cast
+item.materialis.sword_cast.name=Sword Blade Cast
+item.materialis.saw_cast.name=Saw Blade Cast
+item.materialis.hammer_cast.name=Hammer Head Cast
+item.materialis.chisel_cast.name=Chisel Head Cast
+item.materialis.helmet_cast.name=Helmet Cast
+item.materialis.chestplate_cast.name=Chestplate Cast
+item.materialis.leggings_cast.name=Leggings Cast
+item.materialis.boots_cast.name=Boots Cast
+
 item.materialis.flint_axe.name=Flint Axe
 item.materialis.flint_shovel.name=Flint Shovel
 item.materialis.flint_pickaxe.name=Flint Pickaxe
+
+item.materialis.bronze_helmet.name=Bronze Helmet
+item.materialis.bronze_chestplate.name=Bronze Chestplate
+item.materialis.bronze_leggings.name=Bronze Leggings
+item.materialis.bronze_boots.name=Bronze Boots
+item.materialis.bronze_axe.name=Bronze Axe
+item.materialis.bronze_pickaxe.name=Bronze Pickaxe
+item.materialis.bronze_shovel.name=Bronze Shovel
+item.materialis.bronze_hoe.name=Bronze Hoe
+item.materialis.bronze_sword.name=Bronze Sword
 
 item.materialis.bronze_pickaxe_head.name=Bronze Pickaxe Head
 item.materialis.gold_pickaxe_head.name=Gold Pickaxe Head

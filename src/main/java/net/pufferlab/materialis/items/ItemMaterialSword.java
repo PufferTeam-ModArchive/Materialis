@@ -7,11 +7,11 @@ import net.minecraft.item.ItemSword;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemPrimitiveSword extends ItemSword {
+public class ItemMaterialSword extends ItemSword {
 
     String toolName;
 
-    public ItemPrimitiveSword(ToolMaterial tool, String name) {
+    public ItemMaterialSword(ToolMaterial tool, String name) {
         super(tool);
 
         toolName = name;

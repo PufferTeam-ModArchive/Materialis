@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.OreDictionary;
@@ -13,9 +14,12 @@ import net.pufferlab.materialis.blocks.BlockSlabMaterial;
 import net.pufferlab.materialis.itemblocks.ItemBlockMaterial;
 import net.pufferlab.materialis.itemblocks.ItemBlockSlabMaterial;
 import net.pufferlab.materialis.items.ItemMaterial;
-import net.pufferlab.materialis.items.ItemPrimitiveAxe;
-import net.pufferlab.materialis.items.ItemPrimitivePickaxe;
-import net.pufferlab.materialis.items.ItemPrimitiveShovel;
+import net.pufferlab.materialis.items.ItemMaterialArmor;
+import net.pufferlab.materialis.items.ItemMaterialAxe;
+import net.pufferlab.materialis.items.ItemMaterialHoe;
+import net.pufferlab.materialis.items.ItemMaterialPickaxe;
+import net.pufferlab.materialis.items.ItemMaterialShovel;
+import net.pufferlab.materialis.items.ItemMaterialSword;
 import net.pufferlab.materialis.items.OreDictionaryRegistry;
 
 import org.apache.logging.log4j.LogManager;
@@ -41,6 +45,8 @@ public class Materialis {
     public static CommonProxy proxy;
 
     public static ToolMaterial toolFlint;
+    public static ToolMaterial toolBronze;
+    public static ArmorMaterial armorBronze;
     public static Block cobblestone;
     public static Block cobblestone_slab_double;
     public static Block cobblestone_slab;
@@ -54,16 +60,25 @@ public class Materialis {
     public static Item gem;
     public static Item cast;
     public static Item misc;
+    public static Item bronze_helmet;
+    public static Item bronze_chestplate;
+    public static Item bronze_leggings;
+    public static Item bronze_boots;
     public static Item pickaxe_head;
     public static Item axe_head;
     public static Item shovel_head;
     public static Item hoe_head;
     public static Item sword_blade;
     public static Item saw_blade;
-    public static Item flintAxe;
-    public static Item flintPickaxe;
-    public static Item flintShovel;
-    public static Item flintSword;
+    public static Item flint_axe;
+    public static Item flint_pickaxe;
+    public static Item flint_shovel;
+    public static Item flint_sword;
+    public static Item bronze_axe;
+    public static Item bronze_pickaxe;
+    public static Item bronze_shovel;
+    public static Item bronze_hoe;
+    public static Item bronze_sword;
     public static final Block.SoundType soundTypePiston = new Block.SoundType("stone", 1.0F, 1.0F);
     public static final Block.SoundType soundTypeMetal = new Block.SoundType("stone", 1.0F, 1.5F);
 
@@ -75,6 +90,9 @@ public class Materialis {
         proxy.preInit(event);
 
         toolFlint = EnumHelper.addToolMaterial("flint", 0, 59, 2.0F, 0.0F, 15);
+        toolBronze = EnumHelper.addToolMaterial("bronze", 1, 200, 5.0F, 1.0F, 10);
+
+        armorBronze = EnumHelper.addArmorMaterial("bronze", 15, new int[] { 2, 5, 4, 1 }, 15);
 
         cobblestone = new BlockMaterial(Material.rock, Constants.rockTypes, "cobblestone", Constants.none, null, null)
             .setHardness(2.0F)
@@ -136,10 +154,34 @@ public class Materialis {
         hoe_head = new ItemMaterial(Constants.toolTypes, "hoe_head", Constants.hoeBlacklist);
         sword_blade = new ItemMaterial(Constants.toolTypes, "sword_blade", Constants.none);
         saw_blade = new ItemMaterial(Constants.toolTypes, "saw_blade", Constants.none);
-        flintAxe = new ItemPrimitiveAxe(toolFlint, "flint_axe");
-        flintPickaxe = new ItemPrimitivePickaxe(toolFlint, "flint_pickaxe");
-        flintShovel = new ItemPrimitiveShovel(toolFlint, "flint_shovel");
-        flintSword = new ItemPrimitiveShovel(toolFlint, "flint_sword");
+
+        bronze_helmet = new ItemMaterialArmor(
+            armorBronze,
+            "bronze_helmet",
+            Materialis.proxy.getArmorIndex("bronze"),
+            0);
+        bronze_chestplate = new ItemMaterialArmor(
+            armorBronze,
+            "bronze_chestplate",
+            Materialis.proxy.getArmorIndex("bronze"),
+            1);
+        bronze_leggings = new ItemMaterialArmor(
+            armorBronze,
+            "bronze_leggings",
+            Materialis.proxy.getArmorIndex("bronze"),
+            2);
+        bronze_boots = new ItemMaterialArmor(armorBronze, "bronze_boots", Materialis.proxy.getArmorIndex("bronze"), 3);
+
+        flint_axe = new ItemMaterialAxe(toolFlint, "flint_axe");
+        flint_pickaxe = new ItemMaterialPickaxe(toolFlint, "flint_pickaxe");
+        flint_shovel = new ItemMaterialShovel(toolFlint, "flint_shovel");
+        flint_sword = new ItemMaterialShovel(toolFlint, "flint_sword");
+        bronze_axe = new ItemMaterialAxe(toolBronze, "bronze_axe");
+        bronze_pickaxe = new ItemMaterialPickaxe(toolBronze, "bronze_pickaxe");
+        bronze_shovel = new ItemMaterialShovel(toolBronze, "bronze_shovel");
+        bronze_hoe = new ItemMaterialHoe(toolBronze, "bronze_hoe");
+        bronze_sword = new ItemMaterialSword(toolBronze, "bronze_sword");
+
         GameRegistry.registerItem(gem, "gem");
         GameRegistry.registerItem(ingot, "ingot");
         GameRegistry.registerItem(nugget, "nugget");
@@ -148,15 +190,24 @@ public class Materialis {
         GameRegistry.registerItem(plate, "plate");
         GameRegistry.registerItem(cast, "cast");
         GameRegistry.registerItem(misc, "item");
+        GameRegistry.registerItem(bronze_helmet, "bronze_helmet");
+        GameRegistry.registerItem(bronze_chestplate, "bronze_chestplate");
+        GameRegistry.registerItem(bronze_leggings, "bronze_leggings");
+        GameRegistry.registerItem(bronze_boots, "bronze_boots");
+        GameRegistry.registerItem(flint_axe, "flint_axe");
+        GameRegistry.registerItem(flint_pickaxe, "flint_pickaxe");
+        GameRegistry.registerItem(flint_shovel, "flint_shovel");
+        GameRegistry.registerItem(bronze_axe, "bronze_axe");
+        GameRegistry.registerItem(bronze_pickaxe, "bronze_pickaxe");
+        GameRegistry.registerItem(bronze_shovel, "bronze_shovel");
+        GameRegistry.registerItem(bronze_hoe, "bronze_hoe");
+        GameRegistry.registerItem(bronze_sword, "bronze_sword");
         GameRegistry.registerItem(pickaxe_head, "pickaxe_head");
         GameRegistry.registerItem(axe_head, "axe_head");
         GameRegistry.registerItem(shovel_head, "shovel_head");
         GameRegistry.registerItem(hoe_head, "hoe_head");
         GameRegistry.registerItem(sword_blade, "sword_blade");
         GameRegistry.registerItem(saw_blade, "saw_blade");
-        GameRegistry.registerItem(flintAxe, "flint_axe");
-        GameRegistry.registerItem(flintPickaxe, "flint_pickaxe");
-        GameRegistry.registerItem(flintShovel, "flint_shovel");
         GameRegistry.registerBlock(cobblestone, ItemBlockMaterial.class, "cobblestone");
         GameRegistry.registerBlock(
             cobblestone_slab,

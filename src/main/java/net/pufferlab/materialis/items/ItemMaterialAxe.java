@@ -1,17 +1,17 @@
 package net.pufferlab.materialis.items;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemSpade;
+import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemPrimitiveShovel extends ItemSpade {
+public class ItemMaterialAxe extends ItemAxe {
 
     String toolName;
 
-    public ItemPrimitiveShovel(ToolMaterial tool, String name) {
+    public ItemMaterialAxe(ToolMaterial tool, String name) {
         super(tool);
 
         toolName = name;
@@ -27,4 +27,5 @@ public class ItemPrimitiveShovel extends ItemSpade {
     public String getUnlocalizedName(ItemStack stack) {
         return "item.materialis." + toolName;
     }
+
 }
