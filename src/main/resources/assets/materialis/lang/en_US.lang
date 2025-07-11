@@ -21,6 +21,7 @@ item.materialis.boots_cast.name=Boots Cast
 item.materialis.flint_axe.name=Flint Axe
 item.materialis.flint_shovel.name=Flint Shovel
 item.materialis.flint_pickaxe.name=Flint Pickaxe
+item.materialis.flint_sword.name=Flint Knife
 
 item.materialis.bronze_helmet.name=Bronze Helmet
 item.materialis.bronze_chestplate.name=Bronze Chestplate

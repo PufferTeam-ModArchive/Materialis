@@ -201,7 +201,7 @@ public class Materialis {
         flint_axe = new ItemMaterialAxe(toolFlint, "flint_axe");
         flint_pickaxe = new ItemMaterialPickaxe(toolFlint, "flint_pickaxe");
         flint_shovel = new ItemMaterialShovel(toolFlint, "flint_shovel");
-        flint_sword = new ItemMaterialShovel(toolFlint, "flint_sword");
+        flint_sword = new ItemMaterialSword(toolFlint, "flint_sword");
         bronze_axe = new ItemMaterialAxe(toolBronze, "bronze_axe");
         bronze_pickaxe = new ItemMaterialPickaxe(toolBronze, "bronze_pickaxe");
         bronze_shovel = new ItemMaterialShovel(toolBronze, "bronze_shovel");
@@ -232,6 +232,7 @@ public class Materialis {
         GameRegistry.registerItem(flint_axe, "flint_axe");
         GameRegistry.registerItem(flint_pickaxe, "flint_pickaxe");
         GameRegistry.registerItem(flint_shovel, "flint_shovel");
+        GameRegistry.registerItem(flint_sword, "flint_sword");
         GameRegistry.registerItem(bronze_axe, "bronze_axe");
         GameRegistry.registerItem(bronze_pickaxe, "bronze_pickaxe");
         GameRegistry.registerItem(bronze_shovel, "bronze_shovel");
