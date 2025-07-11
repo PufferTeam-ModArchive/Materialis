@@ -1,3 +1,5 @@
+item.materialis.error.name=Invalid Item
+
 item.materialis.cinnabar_gem.name=Cinnabar 
 item.materialis.slag_gem.name=Slag 
 item.materialis.rich_slag_gem.name=Rich Slag 
@@ -29,6 +31,16 @@ item.materialis.bronze_pickaxe.name=Bronze Pickaxe
 item.materialis.bronze_shovel.name=Bronze Shovel
 item.materialis.bronze_hoe.name=Bronze Hoe
 item.materialis.bronze_sword.name=Bronze Sword
+
+item.materialis.steel_helmet.name=Steel Helmet
+item.materialis.steel_chestplate.name=Steel Chestplate
+item.materialis.steel_leggings.name=Steel Leggings
+item.materialis.steel_boots.name=Steel Boots
+item.materialis.steel_axe.name=Steel Axe
+item.materialis.steel_pickaxe.name=Steel Pickaxe
+item.materialis.steel_shovel.name=Steel Shovel
+item.materialis.steel_hoe.name=Steel Hoe
+item.materialis.steel_sword.name=Steel Sword
 
 item.materialis.bronze_pickaxe_head.name=Bronze Pickaxe Head
 item.materialis.gold_pickaxe_head.name=Gold Pickaxe Head

@@ -46,8 +46,6 @@ public class BlockMaterial extends Block {
         for (int i = 0; i < elements.length; i++) {
             if (!Utils.containsExactMatch(elementsBlacklist, elements[i])) {
                 icons[i] = register.registerIcon("materialis:" + elements[i] + "_" + name);
-            } else {
-                icons[i] = register.registerIcon("materialis:error");
             }
         }
     }
@@ -64,7 +62,7 @@ public class BlockMaterial extends Block {
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
         if (meta >= elements.length || Utils.containsExactMatch(elementsBlacklist, elements[meta])) {
-            return icons[0];
+            return null;
         }
         return icons[meta];
     }

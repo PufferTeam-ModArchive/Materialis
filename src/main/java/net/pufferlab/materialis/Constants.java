@@ -32,7 +32,7 @@ public class Constants {
         "electrum", "invar", "constantan", "platinum" };
     public static final String[] blockTools = new String[] { "pickaxe", "pickaxe", "pickaxe", "pickaxe", "pickaxe",
         "pickaxe", "pickaxe", "pickaxe", "pickaxe", "pickaxe" };
-    public static final int[] blockLevels = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+    public static final int[] blockLevels = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
     public static final String[] rockTypes = new String[] { "andesite", "diorite", "granite", "limestone", "marble" };
 
