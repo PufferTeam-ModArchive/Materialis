@@ -26,7 +26,7 @@ public class Constants {
         "mithril", "bauxite" };
     public static final String[] oreTools = new String[] { "pickaxe", "pickaxe", "pickaxe", "pickaxe", "pickaxe",
         "pickaxe", "pickaxe", "pickaxe" };
-    public static final int[] oreLevels = new int[] { 1, 1, 2, 2, 2, 3, 3, 1 };
+    public static final int[] oreLevels = new int[] { 0, 0, 2, 2, 2, 3, 3, 1 };
 
     public static final String[] blockTypes = new String[] { "copper", "tin", "silver", "lead", "nickel", "bronze",
         "electrum", "invar", "constantan", "platinum" };
