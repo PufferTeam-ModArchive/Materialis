@@ -1,5 +1,8 @@
 item.materialis.error.name=Invalid Item
 
+tc.research_category.BLOODMAGIC=Blood Magic
+tc.research_category.BOTANY=Botany
+
 item.materialis.cinnabar_gem.name=Cinnabar 
 item.materialis.slag_gem.name=Slag 
 item.materialis.rich_slag_gem.name=Rich Slag 
