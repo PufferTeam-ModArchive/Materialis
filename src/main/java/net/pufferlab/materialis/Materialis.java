@@ -11,6 +11,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.OreDictionary;
 import net.pufferlab.materialis.blocks.BlockMaterial;
 import net.pufferlab.materialis.blocks.BlockSlabMaterial;
+import net.pufferlab.materialis.blocks.BlockStairsMaterial;
 import net.pufferlab.materialis.itemblocks.ItemBlockMaterial;
 import net.pufferlab.materialis.itemblocks.ItemBlockSlabMaterial;
 import net.pufferlab.materialis.items.ItemMaterial;
@@ -52,6 +53,11 @@ public class Materialis {
     public static Block cobblestone;
     public static Block cobblestone_slab_double;
     public static Block cobblestone_slab;
+    public static Block andesite_stairs;
+    public static Block diorite_stairs;
+    public static Block granite_stairs;
+    public static Block limestone_stairs;
+    public static Block marble_stairs;
     public static Block storage;
     public static Block ore;
     public static Item ingot;
@@ -76,6 +82,7 @@ public class Materialis {
     public static Item hoe_head;
     public static Item sword_blade;
     public static Item saw_blade;
+    public static Item chisel_head;
     public static Item flint_axe;
     public static Item flint_pickaxe;
     public static Item flint_shovel;
@@ -135,6 +142,13 @@ public class Materialis {
             null).setHardness(2.0F)
                 .setResistance(10.0F)
                 .setStepSound(soundTypePiston);
+
+        andesite_stairs = new BlockStairsMaterial(Materialis.cobblestone, 0, "andesite_cobblestone");
+        diorite_stairs = new BlockStairsMaterial(Materialis.cobblestone, 1, "diorite_cobblestone");
+        granite_stairs = new BlockStairsMaterial(Materialis.cobblestone, 2, "granite_cobblestone");
+        limestone_stairs = new BlockStairsMaterial(Materialis.cobblestone, 3, "limestone_cobblestone");
+        marble_stairs = new BlockStairsMaterial(Materialis.cobblestone, 4, "marble_cobblestone");
+
         ore = new BlockMaterial(
             Material.rock,
             Constants.oreTypes,
@@ -167,6 +181,7 @@ public class Materialis {
         hoe_head = new ItemMaterial(Constants.toolTypes, "hoe_head", Constants.hoeBlacklist);
         sword_blade = new ItemMaterial(Constants.toolTypes, "sword_blade", Constants.none);
         saw_blade = new ItemMaterial(Constants.toolTypes, "saw_blade", Constants.none);
+        chisel_head = new ItemMaterial(Constants.toolTypes, "chisel_head", Constants.none);
 
         bronze_helmet = new ItemMaterialArmor(
             armorBronze,
@@ -249,6 +264,7 @@ public class Materialis {
         GameRegistry.registerItem(hoe_head, "hoe_head");
         GameRegistry.registerItem(sword_blade, "sword_blade");
         GameRegistry.registerItem(saw_blade, "saw_blade");
+        GameRegistry.registerItem(chisel_head, "chisel_head");
         GameRegistry.registerBlock(cobblestone, ItemBlockMaterial.class, "cobblestone");
         GameRegistry.registerBlock(
             cobblestone_slab,
@@ -264,6 +280,11 @@ public class Materialis {
             Materialis.cobblestone_slab,
             Materialis.cobblestone_slab_double,
             true);
+        GameRegistry.registerBlock(andesite_stairs, "andesite_cobblestone_stairs");
+        GameRegistry.registerBlock(diorite_stairs, "diorite_cobblestone_stairs");
+        GameRegistry.registerBlock(granite_stairs, "granite_cobblestone_stairs");
+        GameRegistry.registerBlock(limestone_stairs, "limestone_cobblestone_stairs");
+        GameRegistry.registerBlock(marble_stairs, "marble_cobblestone_stairs");
         GameRegistry.registerBlock(ore, ItemBlockMaterial.class, "ore");
         GameRegistry.registerBlock(storage, ItemBlockMaterial.class, "block");
     }

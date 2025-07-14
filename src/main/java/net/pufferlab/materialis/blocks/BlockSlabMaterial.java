@@ -11,7 +11,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
 import net.pufferlab.materialis.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -19,6 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockSlabMaterial extends BlockSlab {
 
+    private boolean elementIsDouble;
     private Block elementBlock;
     private Block elementSlabBlock;
     private String[] elements;
@@ -29,11 +29,15 @@ public class BlockSlabMaterial extends BlockSlab {
         String type, String[] blacklist, String[] tools, int[] levels) {
         super(doubleSlab, material);
         this.useNeighborBrightness = true;
+        if (!doubleSlab) {
+            this.setCreativeTab(CreativeTabs.tabBlock);
+        }
         elements = materials;
         name = type;
         elementsBlacklist = blacklist;
         elementBlock = block;
         elementSlabBlock = slabBlock;
+        elementIsDouble = doubleSlab;
 
         for (int i = 0; i < elements.length; i++) {
             if (!Utils.containsExactMatch(elementsBlacklist, elements[i]) && tools != null) {
@@ -47,14 +51,6 @@ public class BlockSlabMaterial extends BlockSlab {
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {}
-
-    public Block idDropped(int par1, Random par2Random, int par3) {
-        return elementSlabBlock;
-    }
-
-    public Item getItemDropped(int meta, Random random, int fortune) {
-        return Item.getItemFromBlock(elementSlabBlock);
-    }
 
     @Override
     public ItemStack createStackedBlock(int meta) {
@@ -90,8 +86,13 @@ public class BlockSlabMaterial extends BlockSlab {
         return super.getUnlocalizedName() + "." + elements[p_150002_1_];
     }
 
-    public Item getItem(World worldIn, int x, int y, int z) {
-        return Item.getItemFromBlock(elementSlabBlock);
+    @Override
+    public Item getItemDropped(int meta, Random random, int fortune) {
+        if (elementIsDouble) {
+            return Item.getItemFromBlock(elementSlabBlock);
+        } else {
+            return Item.getItemFromBlock(this);
+        }
     }
 
     public String[] getElements() {

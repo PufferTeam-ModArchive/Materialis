@@ -88,6 +88,13 @@ item.materialis.steel_saw_blade.name=Steel Saw Blade
 item.materialis.thaumium_saw_blade.name=Thaumium Saw Blade
 item.materialis.manasteel_saw_blade.name=Manasteel Saw Blade
 
+item.materialis.bronze_chisel_head.name=Bronze Chisel Head
+item.materialis.gold_chisel_head.name=Gold Chisel Head
+item.materialis.iron_chisel_head.name=Iron Chisel Head
+item.materialis.steel_chisel_head.name=Steel Chisel Head
+item.materialis.thaumium_chisel_head.name=Thaumium Chisel Head
+item.materialis.manasteel_chisel_head.name=Manasteel Chisel Head
+
 item.materialis.flint_shard_item.name=Flint Shard
 tile.materialis.andesite_cobblestone.name=Cobbled Andesite
 tile.materialis.diorite_cobblestone.name=Cobbled Diorite
@@ -100,6 +107,12 @@ tile.materialis.diorite_cobblestone_slab.name=Cobbled Diorite Slab
 tile.materialis.granite_cobblestone_slab.name=Cobbled Granite Slab
 tile.materialis.limestone_cobblestone_slab.name=Cobbled Limestone Slab
 tile.materialis.marble_cobblestone_slab.name=Cobbled Marble Slab
+
+tile.materialis.andesite_cobblestone_stairs.name=Cobbled Andesite Stairs
+tile.materialis.diorite_cobblestone_stairs.name=Cobbled Diorite Stairs
+tile.materialis.granite_cobblestone_stairs.name=Cobbled Granite Stairs
+tile.materialis.limestone_cobblestone_stairs.name=Cobbled Limestone Stairs
+tile.materialis.marble_cobblestone_stairs.name=Cobbled Marble Stairs
 
 tile.materialis.copper_ore.name=Copper Ore
 tile.materialis.tin_ore.name=Tin Ore
