@@ -4,7 +4,6 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.pufferlab.materialis.Materialis;
 import net.pufferlab.materialis.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -13,10 +12,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ItemMaterialArmor extends ItemArmor {
 
     String armorName;
+    ArmorMaterial armorMaterial;
 
     public ItemMaterialArmor(ArmorMaterial armor, String name, int renderIndex, int armorType) {
         super(armor, renderIndex, armorType);
 
+        armorMaterial = armor;
         armorName = name;
     }
 
@@ -39,16 +40,9 @@ public class ItemMaterialArmor extends ItemArmor {
     }
 
     @Override
-    public boolean getIsRepairable(ItemStack stack1, ItemStack stack2) {
-        return Utils.equalsWildcard(getRepairStack(), stack2) ? true : super.getIsRepairable(stack1, stack2);
-    }
-
-    private ItemStack getRepairStack() {
-        if (getArmorMaterial() == Materialis.armorBronze) {
-            return new ItemStack(Materialis.ingot, 1, 7);
-        }
-
-        return new ItemStack(getArmorMaterial().func_151685_b());
+    public boolean getIsRepairable(ItemStack damagedItem, ItemStack repairMaterial) {
+        String material = armorMaterial.name();
+        return Utils.containsOreDict(repairMaterial, Utils.getOreDictionaryName("ingot", material));
     }
 
 }

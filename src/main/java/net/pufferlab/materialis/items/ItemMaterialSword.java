@@ -3,6 +3,7 @@ package net.pufferlab.materialis.items;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.pufferlab.materialis.Utils;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -10,10 +11,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ItemMaterialSword extends ItemSword {
 
     String toolName;
+    ToolMaterial toolMaterial;
 
     public ItemMaterialSword(ToolMaterial tool, String name) {
         super(tool);
 
+        toolMaterial = tool;
         toolName = name;
     }
 
@@ -26,5 +29,11 @@ public class ItemMaterialSword extends ItemSword {
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         return "item.materialis." + toolName;
+    }
+
+    @Override
+    public boolean getIsRepairable(ItemStack damagedItem, ItemStack repairMaterial) {
+        String material = toolMaterial.name();
+        return Utils.containsOreDict(repairMaterial, Utils.getOreDictionaryName("ingot", material));
     }
 }
