@@ -18,7 +18,7 @@ public class Constants {
 
     public static final String[] ingotBlacklist = new String[] { "iron", "gold", "osmium", "thaumium", "manasteel",
         "terrasteel" };
-    public static final String[] nuggetBlacklist = new String[] { "gold", "osmium", "thaumium", "manasteel",
+    public static final String[] nuggetBlacklist = new String[] { "iron", "gold", "osmium", "thaumium", "manasteel",
         "terrasteel" };
     public static final String[] miscBlacklist = new String[] { "pig_iron" };
 
