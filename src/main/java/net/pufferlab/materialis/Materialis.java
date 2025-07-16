@@ -1,5 +1,7 @@
 package net.pufferlab.materialis;
 
+import net.pufferlab.materialis.scripts.ScriptRegistry;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,10 +24,12 @@ public class Materialis {
     public static CommonProxy proxy;
     public static Registry registry = new Registry();
     public static OreDictionaryRegistry oreDictRegistry = new OreDictionaryRegistry();
+    public static ScriptRegistry scriptRegistry = new ScriptRegistry();
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
+
         registry.preInit();
     }
 
@@ -36,6 +40,8 @@ public class Materialis {
         proxy.init(event);
 
         oreDictRegistry.init();
+
+        scriptRegistry.init();
     }
 
     @Mod.EventHandler

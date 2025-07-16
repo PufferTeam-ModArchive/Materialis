@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.pufferlab.materialis.researches.Research;
+import net.pufferlab.materialis.researches.ResearchRegistry;
 
 import org.lwjgl.opengl.Display;
 
@@ -48,7 +48,7 @@ public class CommonProxy {
     // this." (Remove if not needed)
     public void postInit(FMLPostInitializationEvent event) {
         if (Loader.isModLoaded("Thaumcraft")) {
-            Research.init();
+            ResearchRegistry.init();
         }
     }
 
