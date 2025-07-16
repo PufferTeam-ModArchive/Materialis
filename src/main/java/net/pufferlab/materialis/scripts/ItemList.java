@@ -12,4 +12,5 @@ public class ItemList {
     public static final ItemStack torch = new ItemStack(Blocks.torch, 1, 0);
     public static final ItemStack feather = new ItemStack(Items.feather, 1, 0);
     public static final ItemStack paper = new ItemStack(Items.paper, 1, 0);
+    public static final ItemStack clock = new ItemStack(Items.clock, 1, 0);
 }

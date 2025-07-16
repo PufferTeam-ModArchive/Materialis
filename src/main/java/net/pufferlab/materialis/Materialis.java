@@ -40,8 +40,6 @@ public class Materialis {
         proxy.init(event);
 
         oreDictRegistry.init();
-
-        scriptRegistry.init();
     }
 
     @Mod.EventHandler
@@ -49,6 +47,8 @@ public class Materialis {
     // this." (Remove if not needed)
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
+
+        scriptRegistry.init();
     }
 
     @Mod.EventHandler

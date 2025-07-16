@@ -28,6 +28,39 @@ public class ScriptWood implements IScript {
         ItemStack seatback2 = ModItems.getModItem("bibliocraft", "seat_back_2", wood, 1);
 
         addShapedRecipe(
+            ModItems.getModItem("base", "fence", wood, 4),
+            "BLB",
+            "BLB",
+            'L',
+            lumber,
+            'B',
+            planks);
+
+        addShapedRecipe(
+            ModItems.getModItem("base", "fence_gate", wood, 1),
+            "BLB",
+            "BLB",
+            'B',
+            lumber,
+            'L',
+            planks);
+
+        addShapedRecipe(
+            ModItems.getModItem("base", "door", wood, 1),
+            "LL",
+            "LL",
+            "LL",
+            'L',
+            lumber);
+
+        addShapedRecipe(
+            ModItems.getModItem("base", "trapdoor", wood, 2),
+            "LLL",
+            "LLL",
+            'L',
+            lumber);
+
+        addShapedRecipe(
             ModItems.getModItem("bibliocraft", "bookcase", wood, 1),
             "BLB",
             "BLB",
@@ -249,5 +282,17 @@ public class ScriptWood implements IScript {
             seatback2);
 
         addShapedRecipe(ModItems.getModItem("bibliocraft", "seat_back_4", wood, 1), "W", "B", 'B', slab, 'W', wool);
+
+        addShapedRecipe(
+            ModItems.getModItem("bibliocraft", "fancy_clock", wood, 1),
+            "LBL",
+            "LPL",
+            "BBB",
+            'L',
+            lumber,
+            'B',
+            slab,
+            'P',
+            clock);
     }
 }

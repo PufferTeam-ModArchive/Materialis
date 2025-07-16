@@ -8,6 +8,8 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.pufferlab.materialis.Utils;
+import ganymedes01.etfuturum.recipes.crafting.ShapedEtFuturumRecipe;
+import ganymedes01.etfuturum.recipes.crafting.ShapelessEtFuturumRecipe;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

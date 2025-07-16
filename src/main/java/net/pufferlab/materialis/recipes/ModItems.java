@@ -26,7 +26,7 @@ public class ModItems {
 
     public static final String[] BiblioBlocks = new String[] { "bookcase", "potion_shelf", "shelf", "tool_rack",
         "glass_case", "wood_label", "desk", "table", "seat", "map_frame", "fancy_sign", "fancy_workbench",
-        "painting_t0", "painting_t1", "painting_t2", "painting_t3", "painting_t4", "clock" };
+        "painting_t0", "painting_t1", "painting_t2", "painting_t3", "painting_t4", "fancy_clock" };
     public static final Block[] BiblioBlocksVanilla = new Block[] { BlockLoader.bookcase, BlockLoader.potionShelf,
         BlockLoader.genericShelf, BlockLoader.toolRack, BlockLoader.weaponCase, BlockLoader.woodLabel,
         BlockLoader.writingDesk, BlockLoader.table, BlockLoader.seat, BlockLoader.mapFrame, BlockLoader.fancySign,
@@ -80,14 +80,18 @@ public class ModItems {
     }
 
     public static ItemStack getModItem(String mod, String name, String wood, int number) {
+        boolean isBopWood = Utils.containsExactMatch(Constants.bopWoodTypes, wood);
+        boolean isVanillaWood = Utils.containsExactMatch(Constants.woodTypes, wood);
+        boolean isOak = wood.equals("oak");
+
         if (mod.equals("bibliocraft")) {
             if (Utils.containsExactMatch(BiblioBlocks, name)) {
-                if (Utils.containsExactMatch(Constants.bopWoodTypes, wood)) {
+                if (isBopWood) {
                     return new ItemStack(
                         Utils.getItemFromArray(BiblioBlocks, BiblioBlocksBOP, name),
                         number,
                         Utils.getItemFromArray(bopWoodTypes_Biblio_IDs, Constants.bopWoodTypes, wood));
-                } else if (Utils.containsExactMatch(Constants.woodTypes, wood)) {
+                } else if (isVanillaWood) {
                     return new ItemStack(
                         Utils.getItemFromArray(BiblioBlocks, BiblioBlocksVanilla, name),
                         number,
@@ -95,12 +99,12 @@ public class ModItems {
                 }
             }
             if (Utils.containsExactMatch(BiblioItems, name)) {
-                if (Utils.containsExactMatch(Constants.bopWoodTypes, wood)) {
+                if (isBopWood) {
                     return new ItemStack(
                         Utils.getItemFromArray(BiblioItems, BiblioItemsBOP, name),
                         number,
                         Utils.getItemFromArray(bopWoodTypes_Biblio_IDs, Constants.bopWoodTypes, wood));
-                } else if (Utils.containsExactMatch(Constants.woodTypes, wood)) {
+                } else if (isVanillaWood) {
                     return new ItemStack(
                         Utils.getItemFromArray(BiblioItems, BiblioItemsVanilla, name),
                         number,
@@ -111,7 +115,7 @@ public class ModItems {
 
         if (mod.equals("base")) {
             if (name.equals("log")) {
-                if (Utils.containsExactMatch(Constants.bopWoodTypes, wood)) {
+                if (isBopWood) {
                     return new ItemStack(
                         Utils.getItemFromArray(
                             BaseWoodBlocks,
@@ -119,7 +123,7 @@ public class ModItems {
                             getSpecialMetaString(Constants.bopLogTypes, wood, "log", 4)),
                         number,
                         getSpecialMeta(Constants.bopLogTypes, wood, 4));
-                } else if (Utils.containsExactMatch(Constants.woodTypes, wood)) {
+                } else if (isVanillaWood) {
                     return new ItemStack(
                         Utils.getItemFromArray(
                             BaseWoodBlocks,
@@ -130,12 +134,12 @@ public class ModItems {
                 }
             }
             if (name.equals("planks")) {
-                if (Utils.containsExactMatch(Constants.bopWoodTypes, wood)) {
+                if (isBopWood) {
                     return new ItemStack(
                         Utils.getItemFromArray(BaseWoodBlocks, BaseWoodBlocksBOP, name),
                         number,
                         Utils.getItemFromArray(Constants.bopPlankTypes, wood));
-                } else if (Utils.containsExactMatch(Constants.woodTypes, wood)) {
+                } else if (isVanillaWood) {
                     return new ItemStack(
                         Utils.getItemFromArray(BaseWoodBlocks, BaseWoodBlocksVanilla, name),
                         number,
@@ -143,7 +147,7 @@ public class ModItems {
                 }
             }
             if (name.equals("slab")) {
-                if (Utils.containsExactMatch(Constants.bopWoodTypes, wood)) {
+                if (isBopWood) {
                     return new ItemStack(
                         Utils.getItemFromArray(
                             BaseWoodBlocks,
@@ -151,7 +155,7 @@ public class ModItems {
                             getSpecialMetaString(Constants.bopWoodTypes, wood, "slab", 8)),
                         number,
                         getSpecialMeta(Constants.bopWoodTypes, wood, 8));
-                } else if (Utils.containsExactMatch(Constants.woodTypes, wood)) {
+                } else if (isVanillaWood) {
                     return new ItemStack(
                         Utils.getItemFromArray(
                             BaseWoodBlocks,
@@ -164,11 +168,59 @@ public class ModItems {
             if (name.equals("lumber")) {
                 return ModItems.get("TConstruct", wood + "_lumber", 0, number);
             }
+            if (name.equals("fence")) {
+                if (isBopWood) {
+                    return ModItems.get("etfuturum", "bop_wood_fence", Utils.getItemFromArray(Constants.bopPlankTypes, wood), number);
+                } else if (isVanillaWood) {
+                    if(isOak) {
+                        return ModItems.get("minecraft", "fence", 0, 1);
+                    } else {
+                        return ModItems.get("etfuturum", "fence_" + wood, 0, number);
+                    }
+                }
+            }
+            if (name.equals("fence_gate")) {
+                if (isBopWood) {
+                    return ModItems.get("etfuturum", "bop_" + wood + "_fence_gate", 0, number);
+                } else if (isVanillaWood) {
+                    if(isOak) {
+                        return ModItems.get("minecraft", "fence_gate", 0, 1);
+                    } else {
+                        return ModItems.get("etfuturum", "fence_gate_" + wood, 0, number);
+                    }
+                }
+            }
+            if (name.equals("door")) {
+                if (isBopWood) {
+                    return ModItems.get("etfuturum", "bop_" + wood + "_door", 0, number);
+                } else if (isVanillaWood) {
+                    if(isOak) {
+                        return ModItems.get("minecraft", "wooden_door", 0, number);
+                    } else {
+                        return ModItems.get("etfuturum", "door_" + wood, 0, number);
+                    }
+                }
+            }
+            if (name.equals("trapdoor")) {
+                if (isBopWood) {
+                    return ModItems.get("etfuturum", "bop_" + wood + "_trapdoor", 0, number);
+                } else if (isVanillaWood) {
+                    if(isOak) {
+                        return ModItems.get("minecraft", "trapdoor", 0, number);
+                    } else {
+                        return ModItems.get("etfuturum", "trapdoor_" + wood, 0, number);
+                    }
+                }
+            }
             if (name.equals("sign")) {
-                if (Utils.containsExactMatch(Constants.bopWoodTypes, wood)) {
+                if (isBopWood) {
                     return ModItems.get("etfuturum", "bop_" + wood + "_sign", 0, number);
-                } else if (Utils.containsExactMatch(Constants.woodTypes, wood)) {
-                    return ModItems.get("etfuturum", "item_sign_" + wood, 0, number);
+                } else if (isVanillaWood) {
+                    if(isOak) {
+                        return ModItems.get("minecraft", "sign", 0, number);
+                    } else {
+                        return ModItems.get("etfuturum", "item_sign_" + wood, 0, number);
+                    }
                 }
             }
         }
