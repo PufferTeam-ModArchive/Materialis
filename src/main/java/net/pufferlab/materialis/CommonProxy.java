@@ -83,7 +83,7 @@ public class CommonProxy {
                 int blockMeta = event.world.getBlockMetadata(event.x, event.y, event.z);
                 if (block.getHarvestTool(blockMeta) == "pickaxe") {
                     int heldItemSlot = event.entityPlayer.inventory.currentItem;
-                    ItemStack outputItem = new ItemStack(Materialis.misc, 2, 0);
+                    ItemStack outputItem = new ItemStack(Registry.misc, 2, 0);
                     // EntityItem entityitem = new EntityItem(event.world, event.x, event.y + 1, event.z, outputItem);
                     // event.world.spawnEntityInWorld(entityitem);
                     event.entityPlayer.inventory.decrStackSize(heldItemSlot, 1);
