@@ -27,6 +27,7 @@ public class Utils {
             }
 
             if (wild.getItem() == check.getItem() && (wild.getItemDamage() == OreDictionary.WILDCARD_VALUE
+                || check.getItemDamage() == OreDictionary.WILDCARD_VALUE
                 || wild.getItemDamage() == check.getItemDamage())) {
                 return true;
             }
@@ -34,10 +35,29 @@ public class Utils {
         return false;
     }
 
+    public static boolean containsStack(ItemStack wild, ItemStack check) {
+        if (wild == null || check == null) {
+            return check == wild;
+        }
+
+        if (wild.getItem() == check.getItem() && (wild.getItemDamage() == OreDictionary.WILDCARD_VALUE
+            || check.getItemDamage() == OreDictionary.WILDCARD_VALUE
+            || wild.getItemDamage() == check.getItemDamage())) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isStackValid(ItemStack aStack) {
+        return (aStack != null) && aStack.getItem() != null && aStack.stackSize >= 0;
+    }
+
+    // From GTUtility may not work
     public static boolean areStacksEqual(ItemStack aStack1, ItemStack aStack2) {
         return areStacksEqual(aStack1, aStack2, false);
     }
 
+    // From GTUtility may not work
     public static boolean areStacksEqual(ItemStack aStack1, ItemStack aStack2, boolean aIgnoreNBT) {
         return aStack1 != null && aStack2 != null
             && aStack1.getItem() == aStack2.getItem()

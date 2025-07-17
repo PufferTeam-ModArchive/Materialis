@@ -171,7 +171,8 @@ public class TCHelper {
         return aspectList;
     }
 
-    public static void addResearch(final String research, final String category, String aspects, final int x, final int y, int complexity, ItemStack icon) {
+    public static void addResearch(final String research, final String category, String aspects, final int x,
+        final int y, int complexity, ItemStack icon) {
         AspectList aspectList = stringToAspectList(aspects);
         new ResearchItem(research, category, aspectList, x, y, complexity, icon).registerResearchItem();
     }
@@ -297,6 +298,7 @@ public class TCHelper {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public static void removeArcaneRecipe(final ItemStack output) {
         ThaumcraftApi.getCraftingRecipes()
             .removeIf(recipe -> {
@@ -306,6 +308,7 @@ public class TCHelper {
             });
     }
 
+    @SuppressWarnings("unchecked")
     public static void removeCrucibleRecipe(final ItemStack output) {
         ThaumcraftApi.getCraftingRecipes()
             .removeIf(recipe -> {
@@ -315,6 +318,7 @@ public class TCHelper {
             });
     }
 
+    @SuppressWarnings("unchecked")
     public static void removeInfusionRecipe(final ItemStack output) {
         ThaumcraftApi.getCraftingRecipes()
             .removeIf(recipe -> {
@@ -325,6 +329,7 @@ public class TCHelper {
             });
     }
 
+    @SuppressWarnings("unchecked")
     public static void removeInfusionEnchantmentRecipe(final int effectID) {
         ThaumcraftApi.getCraftingRecipes()
             .removeIf(recipe -> {

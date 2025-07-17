@@ -12,7 +12,7 @@ public class ScriptResearch implements IScript {
         "GADOMANCY.PSEUDO.ESSENTIARESERVOIR", "GADOMANCY.PSEUDO.INFUSIONENCHANTMENT", "GADOMANCY.PSEUDO.WANDPED",
         "GADOMANCY.PSEUDO.VOIDMETAL", "GADOMANCY.PSEUDO.OCULUS", "GADOMANCY.PSEUDO.COREGUARD",
         "GADOMANCY.PSEUDO.COREHARVEST", "ENCHANTER", "JARSEAL", "FIRE_IGNIS", "FIRE_AQUA", "FIRE_TERRA", "FIRE_ORDO",
-        "FIRE_AER", "FIRE_PERDITIO" };
+        "FIRE_AER", "FIRE_PERDITIO", "greatwoodBoat", "thaumiumBoat" };
 
     public void run() {
         for (String s : researchesToRemove) {

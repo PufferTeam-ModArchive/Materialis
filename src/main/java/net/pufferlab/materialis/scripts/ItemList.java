@@ -21,5 +21,4 @@ public class ItemList {
     public static final ItemStack leadNugget = new ItemStack(Registry.nugget, 1, 5);
     public static final ItemStack nickelNugget = new ItemStack(Registry.nugget, 1, 6);
 
-
 }

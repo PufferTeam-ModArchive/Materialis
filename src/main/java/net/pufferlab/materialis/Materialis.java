@@ -1,6 +1,9 @@
 package net.pufferlab.materialis;
 
+import net.minecraftforge.common.MinecraftForge;
+import net.pufferlab.materialis.events.EventHandler;
 import net.pufferlab.materialis.researches.ResearchTabsRegistry;
+import net.pufferlab.materialis.scripts.ScriptNEIConfig;
 import net.pufferlab.materialis.scripts.ScriptRegistry;
 import net.pufferlab.materialis.scripts.ScriptRemove;
 
@@ -26,6 +29,8 @@ public class Materialis {
     public static ResearchTabsRegistry researchTabsRegistry = new ResearchTabsRegistry();
     public static ScriptRegistry scriptRegistry = new ScriptRegistry();
     public static ScriptRemove scriptRemove = new ScriptRemove();
+    public static ScriptNEIConfig scriptNEI = new ScriptNEIConfig();
+    public static EventHandler eventHandler = new EventHandler();
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -37,6 +42,7 @@ public class Materialis {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
+        MinecraftForge.EVENT_BUS.register(eventHandler);
 
         oreDictRegistry.init();
     }
@@ -46,11 +52,13 @@ public class Materialis {
         proxy.postInit(event);
 
         researchTabsRegistry.init();
-        scriptRemove.run();
+        scriptRemove.init();
+        scriptNEI.loadConfig();
     }
 
     @Mod.EventHandler
     public void completeInit(FMLLoadCompleteEvent event) {
+        scriptRemove.postInit();
         scriptRegistry.init();
     }
 

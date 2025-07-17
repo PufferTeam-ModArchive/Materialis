@@ -10,10 +10,11 @@ import java.io.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import net.pufferlab.materialis.Constants;
+import net.pufferlab.materialis.Registry;
 import net.pufferlab.materialis.Utils;
 
 import biomesoplenty.api.content.BOPCBlocks;
@@ -61,7 +62,7 @@ public class ModItems {
         } else if (GameRegistry.findBlock(mod, item) != null) {
             return new ItemStack(GameRegistry.findBlock(mod, item), number, meta);
         }
-        return new ItemStack(Items.apple, 0, 1);
+        return new ItemStack(Registry.ingot, 1, 1);
     }
 
     public static ItemStack getItem(String s) {
@@ -70,10 +71,22 @@ public class ModItems {
         String item = array[1];
         int meta = 0;
         if (array.length > 2) {
-            meta = Integer.parseInt(array[2]);
+            if (array[2].equals("*")) {
+                meta = OreDictionary.WILDCARD_VALUE;
+            } else {
+                meta = Integer.parseInt(array[2]);
+            }
+        }
+        int number = 1;
+        if (array.length > 3) {
+            if (array[3].equals("*")) {
+                number = OreDictionary.WILDCARD_VALUE;
+            } else {
+                number = Integer.parseInt(array[3]);
+            }
         }
 
-        return ModItems.getItem(mod, item, meta, 1);
+        return getItem(mod, item, meta, number);
     }
 
     public static String getSpecialMetaString(String[] blocks, String block, String type, int metaCap) {
@@ -239,7 +252,7 @@ public class ModItems {
             }
         }
 
-        return new ItemStack(Items.apple, 0, 1);
+        return new ItemStack(Registry.ingot, 1, 1);
     }
 
 }

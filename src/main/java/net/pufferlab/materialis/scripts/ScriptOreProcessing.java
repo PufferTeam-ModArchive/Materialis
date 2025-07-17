@@ -1,12 +1,11 @@
 package net.pufferlab.materialis.scripts;
 
-import net.pufferlab.materialis.recipes.TCHelper;
-
-import net.pufferlab.materialis.recipes.ModItems;
-
 import static net.pufferlab.materialis.scripts.ItemList.*;
 
-public class ScriptOreProcessing implements IScript{
+import net.pufferlab.materialis.recipes.ModItems;
+import net.pufferlab.materialis.recipes.TCHelper;
+
+public class ScriptOreProcessing implements IScript {
 
     public void run() {
         TCHelper.orphanResearch("METALLURGICPERFECTION_CLUSTERS");

@@ -1,9 +1,11 @@
 package net.pufferlab.materialis.recipes;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
@@ -37,5 +39,19 @@ public class RecipesHelper {
 
     public static void addShapelessRecipe(ItemStack output, Object... recipe) {
         GameRegistry.addRecipe(new ShapelessOreRecipe(output, recipe));
+    }
+
+    public static boolean removeFurnaceSmelting(ItemStack aInput) {
+        final Map<ItemStack, ItemStack> furnaceRecipe = FurnaceRecipes.smelting()
+            .getSmeltingList();
+        if (aInput != null) {
+            for (ItemStack tInput : furnaceRecipe.keySet()) {
+                if (Utils.isStackValid(tInput) && Utils.areStacksEqual(aInput, tInput, true)) {
+                    furnaceRecipe.remove(tInput);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

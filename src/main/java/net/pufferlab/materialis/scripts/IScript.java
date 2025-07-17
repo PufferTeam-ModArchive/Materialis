@@ -2,6 +2,7 @@ package net.pufferlab.materialis.scripts;
 
 import java.util.ArrayList;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.pufferlab.materialis.Materialis;
 import net.pufferlab.materialis.recipes.OreDictHelper;
@@ -13,16 +14,43 @@ public interface IScript {
         try {
             RecipesHelper.removeRecipe(toRemove);
         } catch (Exception e) {
-            Materialis.LOG.error("RemoveOreDict went wrong:");
+            Materialis.LOG.error("RemoveRecipe went wrong:");
             e.printStackTrace();
         }
     }
 
     default void removeOreDict(ItemStack toRemove, String oreDict) {
         try {
-            OreDictHelper.removeOreDict(oreDict, toRemove);
+            OreDictHelper.removeOreDict(toRemove, oreDict);
         } catch (Exception e) {
             Materialis.LOG.error("RemoveOreDict went wrong:");
+            e.printStackTrace();
+        }
+    }
+
+    default void removeAllOreDict(ItemStack toRemove) {
+        try {
+            OreDictHelper.removeAllOreDict(toRemove);
+        } catch (Exception e) {
+            Materialis.LOG.error("RemoveAllOreDict went wrong:");
+            e.printStackTrace();
+        }
+    }
+
+    default void addOreDict(ItemStack toAdd, String oreDict) {
+        try {
+            OreDictHelper.addOreDict(toAdd, oreDict);
+        } catch (Exception e) {
+            Materialis.LOG.error("AddOreDict went wrong:");
+            e.printStackTrace();
+        }
+    }
+
+    default void addOreDict(Item toAdd, String oreDict) {
+        try {
+            OreDictHelper.addOreDict(toAdd, oreDict);
+        } catch (Exception e) {
+            Materialis.LOG.error("AddOreDict went wrong:");
             e.printStackTrace();
         }
     }

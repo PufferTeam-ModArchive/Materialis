@@ -1,8 +1,5 @@
 package net.pufferlab.materialis;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.pufferlab.materialis.events.EventHandler;
-
 import org.lwjgl.opengl.Display;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -32,9 +29,7 @@ public class CommonProxy {
 
     // load "Do your mod setup. Build whatever data structures you care about.
     // Register recipes." (Remove if not needed)
-    public void init(FMLInitializationEvent event) {
-        MinecraftForge.EVENT_BUS.register(EventHandler.class);
-    }
+    public void init(FMLInitializationEvent event) {}
 
     // postInit "Handle interaction with other mods, complete your setup based on
     // this." (Remove if not needed)
