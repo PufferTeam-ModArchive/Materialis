@@ -1,16 +1,15 @@
 package net.pufferlab.materialis;
 
+import net.pufferlab.materialis.researches.ResearchTabsRegistry;
 import net.pufferlab.materialis.scripts.ScriptRegistry;
+import net.pufferlab.materialis.scripts.ScriptRemove;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.event.*;
 
 @Mod(modid = Materialis.MODID, version = Tags.VERSION, name = "Materialis", acceptedMinecraftVersions = "[1.7.10]")
 public class Materialis {
@@ -24,7 +23,9 @@ public class Materialis {
     public static CommonProxy proxy;
     public static Registry registry = new Registry();
     public static OreDictionaryRegistry oreDictRegistry = new OreDictionaryRegistry();
+    public static ResearchTabsRegistry researchTabsRegistry = new ResearchTabsRegistry();
     public static ScriptRegistry scriptRegistry = new ScriptRegistry();
+    public static ScriptRemove scriptRemove = new ScriptRemove();
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -34,8 +35,6 @@ public class Materialis {
     }
 
     @Mod.EventHandler
-    // load "Do your mod setup. Build whatever data structures you care about.
-    // Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
 
@@ -43,16 +42,19 @@ public class Materialis {
     }
 
     @Mod.EventHandler
-    // postInit "Handle interaction with other mods, complete your setup based on
-    // this." (Remove if not needed)
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
 
+        researchTabsRegistry.init();
+        scriptRemove.run();
+    }
+
+    @Mod.EventHandler
+    public void completeInit(FMLLoadCompleteEvent event) {
         scriptRegistry.init();
     }
 
     @Mod.EventHandler
-    // register server commands in this event handler (Remove if not needed)
     public void serverStarting(FMLServerStartingEvent event) {
         proxy.serverStarting(event);
     }

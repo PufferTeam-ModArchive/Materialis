@@ -18,7 +18,7 @@ public class Utils {
         return false;
     }
 
-    public static boolean containsWildcard(ItemStack wild, ArrayList<ItemStack> checkList) {
+    public static boolean containsStack(ItemStack wild, ArrayList<ItemStack> checkList) {
         for (int i = 0; i < checkList.size(); i++) {
             ItemStack check = checkList.get(i);
 
@@ -31,17 +31,22 @@ public class Utils {
                 return true;
             }
         }
-
         return false;
     }
 
-    public static boolean equalsWildcard(ItemStack wild, ItemStack check) {
-        if (wild == null || check == null) {
-            return check == wild;
-        }
+    public static boolean areStacksEqual(ItemStack aStack1, ItemStack aStack2) {
+        return areStacksEqual(aStack1, aStack2, false);
+    }
 
-        return wild.getItem() == check.getItem()
-            && (wild.getItemDamage() == OreDictionary.WILDCARD_VALUE || wild.getItemDamage() == check.getItemDamage());
+    public static boolean areStacksEqual(ItemStack aStack1, ItemStack aStack2, boolean aIgnoreNBT) {
+        return aStack1 != null && aStack2 != null
+            && aStack1.getItem() == aStack2.getItem()
+            && (aStack1.getItemDamage() == aStack2.getItemDamage()
+                || aStack1.getItemDamage() == OreDictionary.WILDCARD_VALUE
+                || aStack2.getItemDamage() == OreDictionary.WILDCARD_VALUE)
+            && (aIgnoreNBT || (((aStack1.getTagCompound() == null) == (aStack2.getTagCompound() == null))
+                && (aStack1.getTagCompound() == null || aStack1.getTagCompound()
+                    .equals(aStack2.getTagCompound()))));
     }
 
     public static Block getItemFromArray(String[] array, Block[] blockArray, String targetString) {

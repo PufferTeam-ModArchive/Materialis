@@ -4,39 +4,44 @@ import java.util.ArrayList;
 
 import net.minecraft.item.ItemStack;
 import net.pufferlab.materialis.Materialis;
+import net.pufferlab.materialis.recipes.OreDictHelper;
+import net.pufferlab.materialis.recipes.RecipesHelper;
 
 public interface IScript {
 
-    default boolean removeRecipe(ArrayList<ItemStack> toRemove) {
+    default void removeRecipe(ArrayList<ItemStack> toRemove) {
         try {
-            net.pufferlab.materialis.recipes.VanillaRecipes.removeRecipe(toRemove);
+            RecipesHelper.removeRecipe(toRemove);
         } catch (Exception e) {
-            Materialis.LOG.error("RemoveRecipe went wrong:");
+            Materialis.LOG.error("RemoveOreDict went wrong:");
             e.printStackTrace();
-            return false;
         }
-        return true;
     }
 
-    default boolean addShapedRecipe(ItemStack aOutput, Object... inputs) {
+    default void removeOreDict(ItemStack toRemove, String oreDict) {
         try {
-            net.pufferlab.materialis.recipes.VanillaRecipes.addShapedRecipe(aOutput, inputs);
+            OreDictHelper.removeOreDict(oreDict, toRemove);
+        } catch (Exception e) {
+            Materialis.LOG.error("RemoveOreDict went wrong:");
+            e.printStackTrace();
+        }
+    }
+
+    default void addShapedRecipe(ItemStack aOutput, Object... inputs) {
+        try {
+            RecipesHelper.addShapedRecipe(aOutput, inputs);
         } catch (Exception e) {
             Materialis.LOG.error("ShapedRecipe went wrong:");
             e.printStackTrace();
-            return false;
         }
-        return true;
     }
 
-    default boolean addShapelessRecipe(ItemStack aOutput, Object... inputs) {
+    default void addShapelessRecipe(ItemStack aOutput, Object... inputs) {
         try {
-            net.pufferlab.materialis.recipes.VanillaRecipes.addShapelessRecipe(aOutput, inputs);
+            RecipesHelper.addShapelessRecipe(aOutput, inputs);
         } catch (Exception e) {
-            Materialis.LOG.error("ShapedRecipe went wrong:");
+            Materialis.LOG.error("ShapelessRecipe went wrong:");
             e.printStackTrace();
-            return false;
         }
-        return true;
     }
 }

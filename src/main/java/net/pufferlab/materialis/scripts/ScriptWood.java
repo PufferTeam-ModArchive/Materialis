@@ -19,7 +19,7 @@ public class ScriptWood implements IScript {
     }
 
     public void addSpecialWoodRecipes(String wood) {
-        ItemStack lumber = ModItems.get("TConstruct", wood + "_lumber", 0, 1);
+        ItemStack lumber = ModItems.getItem("TConstruct", wood + "_lumber", 0, 1);
         ItemStack slab = ModItems.getModItem("base", "slab", wood, 1);
         ItemStack planks = ModItems.getModItem("base", "planks", wood, 1);
         ItemStack sign = ModItems.getModItem("base", "sign", wood, 1);
@@ -27,38 +27,13 @@ public class ScriptWood implements IScript {
         ItemStack woodlabel = ModItems.getModItem("bibliocraft", "wood_label", wood, 1);
         ItemStack seatback2 = ModItems.getModItem("bibliocraft", "seat_back_2", wood, 1);
 
-        addShapedRecipe(
-            ModItems.getModItem("base", "fence", wood, 4),
-            "BLB",
-            "BLB",
-            'L',
-            lumber,
-            'B',
-            planks);
+        addShapedRecipe(ModItems.getModItem("base", "fence", wood, 4), "BLB", "BLB", 'L', lumber, 'B', planks);
 
-        addShapedRecipe(
-            ModItems.getModItem("base", "fence_gate", wood, 1),
-            "BLB",
-            "BLB",
-            'B',
-            lumber,
-            'L',
-            planks);
+        addShapedRecipe(ModItems.getModItem("base", "fence_gate", wood, 1), "BLB", "BLB", 'B', lumber, 'L', planks);
 
-        addShapedRecipe(
-            ModItems.getModItem("base", "door", wood, 1),
-            "LL",
-            "LL",
-            "LL",
-            'L',
-            lumber);
+        addShapedRecipe(ModItems.getModItem("base", "door", wood, 1), "LL", "LL", "LL", 'L', lumber);
 
-        addShapedRecipe(
-            ModItems.getModItem("base", "trapdoor", wood, 2),
-            "LLL",
-            "LLL",
-            'L',
-            lumber);
+        addShapedRecipe(ModItems.getModItem("base", "trapdoor", wood, 2), "LLL", "LLL", 'L', lumber);
 
         addShapedRecipe(
             ModItems.getModItem("bibliocraft", "bookcase", wood, 1),
@@ -285,14 +260,18 @@ public class ScriptWood implements IScript {
 
         addShapedRecipe(
             ModItems.getModItem("bibliocraft", "fancy_clock", wood, 1),
-            "LBL",
             "LPL",
-            "BBB",
+            "LSL",
+            "BGB",
             'L',
             lumber,
             'B',
             slab,
             'P',
-            clock);
+            clock,
+            'S',
+            "stickWood",
+            'G',
+            "ingotGold");
     }
 }
