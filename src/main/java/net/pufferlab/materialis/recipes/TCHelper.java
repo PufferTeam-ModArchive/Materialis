@@ -13,6 +13,7 @@ import net.pufferlab.materialis.Utils;
 import org.apache.commons.lang3.ArrayUtils;
 
 import thaumcraft.api.ThaumcraftApi;
+import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.IArcaneRecipe;
@@ -96,7 +97,13 @@ public class TCHelper {
             .setPages();
     }
 
-    public static void addResearchPage(final String research, ResearchPage page) {
+    public static void addPage(final String research, String text) {
+        ResearchPage page = new ResearchPage(text);
+        ResearchItem ri = ResearchCategories.getResearch(research);
+        ri.setPages(ArrayUtils.add(ri.getPages(), page));
+    }
+
+    public static void addPage(final String research, ResearchPage page) {
         ResearchItem ri = ResearchCategories.getResearch(research);
         ri.setPages(ArrayUtils.add(ri.getPages(), page));
     }
@@ -145,6 +152,28 @@ public class TCHelper {
     public static void setSecondary(final String research, boolean secondary) {
         ResearchCategories.getResearch(research)
             .setSecondary();
+    }
+
+    public static void setConcealed(final String research, boolean secondary) {
+        ResearchCategories.getResearch(research)
+            .setConcealed();
+    }
+
+    public static AspectList stringToAspectList(String aspects) {
+        AspectList aspectList = new AspectList();
+        String[] array = aspects.split(", ");
+        for (int i = 0; i < array.length; i++) {
+            String[] arrayCurrentElement = array[i].split(" ");
+            String aspect = arrayCurrentElement[0];
+            int number = Integer.parseInt(arrayCurrentElement[1]);
+            aspectList.add(Aspect.getAspect(aspect), number);
+        }
+        return aspectList;
+    }
+
+    public static void addResearch(final String research, final String category, String aspects, final int x, final int y, int complexity, ItemStack icon) {
+        AspectList aspectList = stringToAspectList(aspects);
+        new ResearchItem(research, category, aspectList, x, y, complexity, icon).registerResearchItem();
     }
 
     public static void refreshResearchPages(final String research) {

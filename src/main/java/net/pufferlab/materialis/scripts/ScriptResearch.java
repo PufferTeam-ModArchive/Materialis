@@ -11,7 +11,8 @@ public class ScriptResearch implements IScript {
         "GADOMANCY.PSEUDO.BELLOWS", "GADOMANCY.PSEUDO.GOLEMTALLOW", "GADOMANCY.PSEUDO.JARLABEL",
         "GADOMANCY.PSEUDO.ESSENTIARESERVOIR", "GADOMANCY.PSEUDO.INFUSIONENCHANTMENT", "GADOMANCY.PSEUDO.WANDPED",
         "GADOMANCY.PSEUDO.VOIDMETAL", "GADOMANCY.PSEUDO.OCULUS", "GADOMANCY.PSEUDO.COREGUARD",
-        "GADOMANCY.PSEUDO.COREHARVEST", "ENCHANTER" };
+        "GADOMANCY.PSEUDO.COREHARVEST", "ENCHANTER", "JARSEAL", "FIRE_IGNIS", "FIRE_AQUA", "FIRE_TERRA", "FIRE_ORDO",
+        "FIRE_AER", "FIRE_PERDITIO" };
 
     public void run() {
         for (String s : researchesToRemove) {
@@ -19,23 +20,19 @@ public class ScriptResearch implements IScript {
             TCHelper.removeResearch(s);
         }
 
-        TCHelper.orphanResearch("GADOMANCY.STICKYJAR");
         TCHelper.moveResearch("GADOMANCY.STICKYJAR", "ALCHEMY", 6, -3);
         TCHelper.clearPrereqs("GADOMANCY.STICKYJAR");
         TCHelper.addPrereq("GADOMANCY.STICKYJAR", "JARLABEL", false);
 
-        TCHelper.orphanResearch("GADOMANCY.REMOTEJAR");
         TCHelper.moveResearch("GADOMANCY.REMOTEJAR", "ALCHEMY", 8, -4);
         TCHelper.clearPrereqs("GADOMANCY.REMOTEJAR");
         TCHelper.addPrereq("GADOMANCY.REMOTEJAR", "MIRRORESSENTIA", false);
         TCHelper.addPrereq("GADOMANCY.REMOTEJAR", "GADOMANCY.STICKYJAR", false);
 
-        TCHelper.orphanResearch("FUNNEL");
         TCHelper.moveResearch("FUNNEL", "ALCHEMY", 10, -1);
         TCHelper.clearPrereqs("FUNNEL");
         TCHelper.addPrereq("FUNNEL", "TUBEFILTER", false);
 
-        TCHelper.orphanResearch("GADOMANCY.GOLEMSILVERWOOD");
         TCHelper.moveResearch("GADOMANCY.GOLEMSILVERWOOD", "GOLEMANCY", 6, 6);
         TCHelper.clearPrereqs("GADOMANCY.GOLEMSILVERWOOD");
         TCHelper.addPrereq("GADOMANCY.GOLEMSILVERWOOD", "GOLEMTALLOW", false);
@@ -43,14 +40,12 @@ public class ScriptResearch implements IScript {
 
         TCHelper.moveResearch("COREFISHING", "GOLEMANCY", 0, 6);
 
-        TCHelper.orphanResearch("GADOMANCY.GOLEMCOREBODYGUARD");
         TCHelper.moveResearch("GADOMANCY.GOLEMCOREBODYGUARD", "GOLEMANCY", -5, 7);
         TCHelper.clearPrereqs("GADOMANCY.GOLEMCOREBODYGUARD");
         TCHelper.addPrereq("GADOMANCY.GOLEMCOREBODYGUARD", "COREGUARD", false);
         TCHelper.addPrereq("GADOMANCY.GOLEMCOREBODYGUARD", "BOOTSTRAVELLER", false);
         TCHelper.addPrereq("GADOMANCY.GOLEMCOREBODYGUARD", "ELEMENTALSWORD", false);
 
-        TCHelper.orphanResearch("GADOMANCY.GOLEMCOREBREAK");
         TCHelper.moveResearch("GADOMANCY.GOLEMCOREBREAK", "GOLEMANCY", -2, 9);
         TCHelper.clearPrereqs("GADOMANCY.GOLEMCOREBREAK");
         TCHelper.addPrereq("GADOMANCY.GOLEMCOREBREAK", "CORELUMBER", false);
@@ -58,7 +53,6 @@ public class ScriptResearch implements IScript {
         TCHelper.addPrereq("GADOMANCY.GOLEMCOREBREAK", "ELEMENTALSWORD", false);
         TCHelper.addPrereq("GADOMANCY.GOLEMCOREBREAK", "ELEMENTALPICK", false);
 
-        TCHelper.orphanResearch("GADOMANCY.ARCANEDROPPER");
         TCHelper.moveResearch("GADOMANCY.ARCANEDROPPER", "ARTIFICE", -6, -4);
         TCHelper.clearPrereqs("GADOMANCY.ARCANEDROPPER");
         TCHelper.addPrereq("GADOMANCY.ARCANEDROPPER", "BELLOWS", false);
@@ -173,18 +167,13 @@ public class ScriptResearch implements IScript {
         TCHelper.moveResearch("NITORLIGHT", "ARTIFICE", -5, 1);
         TCHelper.addPrereq("ARCANELAMP", "NITORLIGHT", false);
 
-        TCHelper.orphanResearch("INFERNALBLASTFURNACE");
         TCHelper.moveResearch("INFERNALBLASTFURNACE", "ARTIFICE", -4, -3);
         TCHelper.clearPrereqs("INFERNALBLASTFURNACE");
         TCHelper.addPrereq("INFERNALBLASTFURNACE", "INFERNALFURNACE", false);
 
-        TCHelper.orphanResearch("MIRRORPUMP");
         TCHelper.moveResearch("MIRRORPUMP", "ARTIFICE", 1, 11);
         TCHelper.clearPrereqs("MIRRORPUMP");
         TCHelper.addPrereq("MIRRORPUMP", "MIRRORESSENTIA", false);
-
-        TCHelper.orphanResearch("JARSEAL");
-        TCHelper.removeResearch("JARSEAL");
 
         TCHelper.moveResearch("DISLOCATOR", "ARTIFICE", 3, 11);
         TCHelper.clearPrereqs("DISLOCATOR");
@@ -204,12 +193,10 @@ public class ScriptResearch implements IScript {
         TCHelper.addPrereq("CRUCSOULS", "INFUSION", false);
         TCHelper.addPrereq("CRUCSOULS", "FLESHCURE", true);
 
-        TCHelper.orphanResearch("FLOATCANDLE");
         TCHelper.moveResearch("FLOATCANDLE", "ALCHEMY", -2, 1);
         TCHelper.clearPrereqs("FLOATCANDLE");
         TCHelper.addPrereq("FLOATCANDLE", "TALLOW", false);
 
-        TCHelper.orphanResearch("SAUNASTOVE");
         TCHelper.moveResearch("SAUNASTOVE", "ALCHEMY", -8, -5);
         TCHelper.clearPrereqs("SAUNASTOVE");
         TCHelper.addPrereq("SAUNASTOVE", "ARCANESPA", false);
@@ -243,22 +230,18 @@ public class ScriptResearch implements IScript {
         TCHelper.moveResearch("PHIAL", "ALCHEMY", 0, 1);
         TCHelper.addPrereq("PHIAL", "CRUCIBLE", false);
 
-        TCHelper.orphanResearch("LABELLIB");
         TCHelper.moveResearch("LABELLIB", "ALCHEMY", 3, -5);
         TCHelper.clearPrereqs("LABELLIB");
         TCHelper.addPrereq("LABELLIB", "JARLABEL", false);
 
-        TCHelper.orphanResearch("GASEOUS_LIGHT");
         TCHelper.moveResearch("GASEOUS_LIGHT", "ALCHEMY", 0, -2);
         TCHelper.clearPrereqs("GASEOUS_LIGHT");
         TCHelper.addPrereq("GASEOUS_LIGHT", "NITOR", false);
 
-        TCHelper.orphanResearch("GASEOUS_SHADOW");
         TCHelper.moveResearch("GASEOUS_SHADOW", "ALCHEMY", -1, -4);
         TCHelper.clearPrereqs("GASEOUS_SHADOW");
         TCHelper.addPrereq("GASEOUS_SHADOW", "GASEOUS_LIGHT", false);
 
-        TCHelper.orphanResearch("GAS_REMOVER");
         TCHelper.moveResearch("GAS_REMOVER", "ALCHEMY", -1, -5);
         TCHelper.clearPrereqs("GAS_REMOVER");
         TCHelper.addPrereq("GAS_REMOVER", "GASEOUS_SHADOW", false);
@@ -266,24 +249,6 @@ public class ScriptResearch implements IScript {
         TCHelper.moveResearch("BRIGHT_NITOR", "ALCHEMY", 1, -4);
         TCHelper.clearPrereqs("BRIGHT_NITOR");
         TCHelper.addPrereq("BRIGHT_NITOR", "GASEOUS_LIGHT", false);
-
-        TCHelper.orphanResearch("FIRE_IGNIS");
-        TCHelper.removeResearch("FIRE_IGNIS");
-
-        TCHelper.orphanResearch("FIRE_AQUA");
-        TCHelper.removeResearch("FIRE_AQUA");
-
-        TCHelper.orphanResearch("FIRE_TERRA");
-        TCHelper.removeResearch("FIRE_TERRA");
-
-        TCHelper.orphanResearch("FIRE_ORDO");
-        TCHelper.removeResearch("FIRE_ORDO");
-
-        TCHelper.orphanResearch("FIRE_AER");
-        TCHelper.removeResearch("FIRE_AER");
-
-        TCHelper.orphanResearch("FIRE_PERDITIO");
-        TCHelper.removeResearch("FIRE_PERDITIO");
 
         TCHelper.moveResearch("INFUSED_POTIONS", "ALCHEMY", 1, -6);
         TCHelper.clearPrereqs("INFUSED_POTIONS");
@@ -294,12 +259,10 @@ public class ScriptResearch implements IScript {
         TCHelper.clearPrereqs("FLESHCURE");
         TCHelper.addPrereq("FLESHCURE", "TALLOW", false);
 
-        TCHelper.orphanResearch("INTERFACE");
         TCHelper.moveResearch("INTERFACE", "ALCHEMY", 8, 3);
         TCHelper.clearPrereqs("INTERFACE");
         TCHelper.addPrereq("INTERFACE", "CENTRIFUGE", false);
 
-        TCHelper.orphanResearch("TRASHJAR");
         TCHelper.moveResearch("TRASHJAR", "ALCHEMY", 7, -6);
         TCHelper.clearPrereqs("TRASHJAR");
         TCHelper.addPrereq("TRASHJAR", "JARVOID", false);
@@ -328,12 +291,10 @@ public class ScriptResearch implements IScript {
 
         // TCHelper.moveResearch("BANNERS", "ARTIFICE", 2, -1);
 
-        TCHelper.orphanResearch("AGEINGSTONE");
         TCHelper.moveResearch("AGEINGSTONE", "ARTIFICE", 3, -3);
         TCHelper.clearPrereqs("AGEINGSTONE");
         TCHelper.addPrereq("AGEINGSTONE", "PAVEWARD", false);
 
-        TCHelper.orphanResearch("ETHEREALWALL");
         TCHelper.moveResearch("ETHEREALWALL", "ARTIFICE", 2, -5);
         TCHelper.clearPrereqs("ETHEREALWALL");
         TCHelper.addPrereq("ETHEREALWALL", "PAVEWARD", false);
@@ -364,7 +325,6 @@ public class ScriptResearch implements IScript {
         TCHelper.clearPrereqs("PLATFORM");
         TCHelper.addPrereq("PLATFORM", "LEVITATOR", false);
 
-        TCHelper.orphanResearch("LEVITATOR_LOCOMOTIVE");
         TCHelper.moveResearch("LEVITATOR_LOCOMOTIVE", "ARTIFICE", 0, -5);
         TCHelper.clearPrereqs("LEVITATOR_LOCOMOTIVE");
         TCHelper.addPrereq("LEVITATOR_LOCOMOTIVE", "PLATFORM", false);
@@ -398,7 +358,6 @@ public class ScriptResearch implements IScript {
         TCHelper.moveResearch("REPAIRER", "ARTIFICE", -2, 12);
         TCHelper.addPrereq("REPAIRER", "ARCANEBORE", false);
 
-        TCHelper.orphanResearch("MAGNETS");
         TCHelper.moveResearch("MAGNETS", "ARTIFICE", -1, 14);
         TCHelper.clearPrereqs("MAGNETS");
         TCHelper.addPrereq("MAGNETS", "FOCUS_TELEKINESIS", false);
