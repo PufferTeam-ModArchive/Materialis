@@ -4,24 +4,29 @@ import static net.pufferlab.materialis.scripts.ItemList.*;
 
 import net.minecraft.item.ItemStack;
 import net.pufferlab.materialis.Constants;
+import net.pufferlab.materialis.Utils;
 import net.pufferlab.materialis.recipes.ModItems;
 
 public class ScriptWood implements IScript {
 
     public void run() {
-        for (int i = 0; i < Constants.woodTypes.length; i++) {
-            addModernWoodRecipes(Constants.woodTypes[i]);
-            addBibliocraftWoodRecipes(Constants.woodTypes[i]);
+        for (String s : Constants.woodTypes) {
+            addModernWoodRecipes(s);
+            addBibliocraftWoodRecipes(s);
         }
 
-        for (int i = 0; i < Constants.bopWoodTypes.length; i++) {
-            addModernWoodRecipes(Constants.bopWoodTypes[i]);
-            addBibliocraftWoodRecipes(Constants.bopWoodTypes[i]);
+        for (String s : Constants.bopWoodTypes) {
+            addModernWoodRecipes(s);
+            addBibliocraftWoodRecipes(s);
+        }
+
+        for (String s : Constants.thaumcraftWoodTypes) {
+            addModernWoodRecipes(s);
         }
     }
 
     public void addBibliocraftWoodRecipes(String wood) {
-        ItemStack lumber = ModItems.getItem("TConstruct", wood + "_lumber", 0, 1);
+        ItemStack lumber = ModItems.getModItem("base", "lumber", wood, 1);
         ItemStack slab = ModItems.getModItem("base", "slab", wood, 1);
         ItemStack planks = ModItems.getModItem("base", "planks", wood, 1);
         ItemStack sign = ModItems.getModItem("base", "sign", wood, 1);
@@ -270,8 +275,37 @@ public class ScriptWood implements IScript {
     }
 
     public void addModernWoodRecipes(String wood) {
-        ItemStack lumber = ModItems.getItem("TConstruct", wood + "_lumber", 0, 1);
+        ItemStack lumber = ModItems.getModItem("base", "lumber", wood, 1);
         ItemStack planks = ModItems.getModItem("base", "planks", wood, 1);
+
+        addShapelessRecipe(
+            ModItems.getModItem("base", "lumber", wood, 4),
+            Utils.getOreDictionaryName("logWood", wood),
+            "toolSaw");
+
+        addShapedRecipe(
+            ModItems.getModItem("base", "sign", wood, 4),
+            "LLL",
+            "LLL",
+            " S ",
+            'L',
+            lumber,
+            'S',
+            "stickWood");
+
+        addShapedRecipe(ModItems.getModItem("base", "button", wood, 1), "P", 'P', planks);
+
+        addShapedRecipe(ModItems.getModItem("base", "pressure_plate", wood, 1), "PP", 'P', planks);
+
+        addShapedRecipe(planks, "LL", "LL", 'L', lumber);
+
+        addSlabRecipe(ModItems.getModItem("base", "slab", wood, 6), planks);
+
+        addShapedRecipe(ModItems.getModItem("base", "slab", wood, 1), "LL", 'L', lumber);
+
+        addStairsRecipe(ModItems.getModItem("base", "stairs", wood, 8), planks);
+
+        addShapedRecipe(ModItems.getModItem("base", "stairs", wood, 1), "L ", "LL", 'L', lumber);
 
         addShapedRecipe(ModItems.getModItem("base", "fence", wood, 4), "BLB", "BLB", 'L', lumber, 'B', planks);
 

@@ -1,6 +1,7 @@
 package net.pufferlab.materialis;
 
 import net.minecraftforge.common.MinecraftForge;
+import net.pufferlab.materialis.events.DropHandler;
 import net.pufferlab.materialis.events.EventHandler;
 import net.pufferlab.materialis.researches.ResearchTabsRegistry;
 import net.pufferlab.materialis.scripts.ScriptNEIConfig;
@@ -31,6 +32,7 @@ public class Materialis {
     public static ScriptRemove scriptRemove = new ScriptRemove();
     public static ScriptNEIConfig scriptNEI = new ScriptNEIConfig();
     public static EventHandler eventHandler = new EventHandler();
+    public static DropHandler dropHandler = new DropHandler();
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -43,6 +45,7 @@ public class Materialis {
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
         MinecraftForge.EVENT_BUS.register(eventHandler);
+        MinecraftForge.EVENT_BUS.register(dropHandler);
 
         oreDictRegistry.init();
     }

@@ -15,11 +15,11 @@ public class ScriptNEIConfig implements IConfigureNEI {
     public ArrayList<ItemStack> show = new ArrayList<ItemStack>();
 
     public static final String[] itemsToHide = new String[] { "materialis:double_cobblestone_slab:*",
-        "AWWayofTime:bloodLight", "AWWayofTime:spectralContainer", "AWWayofTime:blockSchemSaver",
-        "AWWayofTime:blockMimic", "chisel:amber", "BiomesOPlenty:woodenDoubleSlab1:*",
-        "BiomesOPlenty:woodenDoubleSlab2:*", "BiomesOPlenty:fruitBop:*", "BiblioCraft:BiblioClipboard",
-        "BiblioCraft:BookcaseFilled", "Botania:buriedPetals:*", "Botania:manaFlame", "Botania:fakeAir",
-        "Botania:gaiaHeadBlock", "Botania:quartzSlabDarkFull:*", "Botania:quartzSlabManaFull:*",
+        "AWWayofTime:bloodLight:*", "AWWayofTime:spectralContainer:*", "AWWayofTime:blockSchemSaver:*",
+        "AWWayofTime:blockMimic:*", "chisel:amber", "BiomesOPlenty:woodenDoubleSlab1:*",
+        "BiomesOPlenty:woodenDoubleSlab2:*", "BiomesOPlenty:fruitBop:*", "BiomesOPlenty:stoneDoubleSlab:*",
+        "BiblioCraft:BiblioClipboard", "BiblioCraft:BookcaseFilled:*", "Botania:buriedPetals:*", "Botania:manaFlame",
+        "Botania:fakeAir", "Botania:gaiaHeadBlock", "Botania:quartzSlabDarkFull:*", "Botania:quartzSlabManaFull:*",
         "Botania:quartzSlabBlazeFull:*", "Botania:quartzSlabLavenderFull:*", "Botania:quartzSlabRedFull:*",
         "Botania:quartzSlabElfFull:*", "Botania:quartzSlabSunnyFull:*", "Botania:livingwood0SlabFull:*",
         "Botania:livingwood1SlabFull:*", "Botania:livingrock0SlabFull:*", "Botania:livingrock1SlabFull:*",
@@ -52,23 +52,32 @@ public class ScriptNEIConfig implements IConfigureNEI {
         "netherlicious:netherlicious.foxfireSignWall:*", "netherlicious:FurnaceBlackstoneLit:*",
         "netherlicious:DevilishMaize:0", "netherlicious:HellderBerryBush:0", "netherlicious:AbyssalOat:0",
         "netherlicious:CrimsonWartCrop:0", "netherlicious:WarpedWartCrop:0", "netherlicious:SoggyWartCrop:0",
-        "WitchingGadgets:WG_CustomAir:*", "ThaumicHorizons:vat:*", "ThaumicHorizons:vatSolid:*",
-        "ThaumicHorizons:vatInterior:*", "ThaumicHorizons:light:*", "ThaumicHorizons:lightSolar:*",
-        "ThaumicHorizons:cloudTH:*", "ThaumicHorizons:cloudGlowingTH:*", "ThaumicHorizons:brainTH:*",
-        "ThaumicHorizons:dustTH:*", "ThaumicHorizons:eyeTH:*", "ThaumicHorizons:boneTH:*", "ThaumicHorizons:fleshTH:*",
-        "ThaumicHorizons:spikeTH:*", "ThaumicHorizons:spikeWoodTH:*", "ThaumicHorizons:spikeToothTH:*",
-        "ThaumicHorizons:crystalTH:*", "ThaumicHorizons:crystalDeep:*", "ThaumicHorizons:leviathanTH:*",
-        "ThaumicHorizons:portalTH:*", "ThaumicHorizons:gatewayTH:*", "ThaumicHorizons:infusionCheat:*",
+        "netherlicious:FullWood:6", "netherlicious:FullWood:7", "netherlicious:ShroomLight:1",
+        "netherlicious:Wartblock:4", "WitchingGadgets:WG_CustomAir:*", "ThaumicHorizons:vat:*",
+        "ThaumicHorizons:vatSolid:*", "ThaumicHorizons:vatInterior:*", "ThaumicHorizons:light:*",
+        "ThaumicHorizons:lightSolar:*", "ThaumicHorizons:cloudTH:*", "ThaumicHorizons:cloudGlowingTH:*",
+        "ThaumicHorizons:brainTH:*", "ThaumicHorizons:dustTH:*", "ThaumicHorizons:eyeTH:*", "ThaumicHorizons:boneTH:*",
+        "ThaumicHorizons:fleshTH:*", "ThaumicHorizons:spikeTH:*", "ThaumicHorizons:spikeWoodTH:*",
+        "ThaumicHorizons:spikeToothTH:*", "ThaumicHorizons:crystalTH:*", "ThaumicHorizons:crystalDeep:*",
+        "ThaumicHorizons:leviathanTH:*", "ThaumicHorizons:portalTH:*", "ThaumicHorizons:gatewayTH:*",
+        "ThaumicHorizons:infusionCheat:*", "ThaumicHorizons:voidTH", "ThaumicHorizons:dummyVat",
         "ThaumicHorizons:infusionSelfCheat:*", "ThaumicTinkerer:infusedGrainBlock", "ThaumicTinkerer:gaseousLight:*",
         "ThaumicTinkerer:gaseousShadow:*", "ThaumicTinkerer:nitorGas:*", "ThaumicTinkerer:forcefield:*",
         "ThaumicTinkerer:darkQuartzSlabFull:*", "ForbiddenMagic:ArcaneCake:*", "ImmersiveEngineering:hemp:*",
         "ImmersiveEngineering:fakeLight:*", "ImmersiveEngineering:fakeIcon:*",
-        "ImmersiveEngineering:woodenDecoration:4" };
+        "ImmersiveEngineering:woodenDecoration:4", };
 
-    public static final String[] itemsToShow = new String[] { "BiomesOPlenty:woodenSingleSlab2:5" };
+    public static final String[] itemsToShow = new String[] { "BiomesOPlenty:woodenSingleSlab2:0",
+        "BiomesOPlenty:woodenSingleSlab2:1", "BiomesOPlenty:woodenSingleSlab2:2", "BiomesOPlenty:woodenSingleSlab2:3",
+        "BiomesOPlenty:woodenSingleSlab2:4", "BiomesOPlenty:woodenSingleSlab2:5" };
+
+    // All meta ids in ForgeMicroblocks. Not used
+    public static final int[] FMPpartsToProcess = new int[] { 1, 2, 4, 257, 258, 260, 513, 514, 516, 769, 770 };
 
     @Override
     public void loadConfig() {
+        API.hideItem("ForgeMicroblock:microblock");
+
         for (String s : itemsToHide) {
             hide.add(ModItems.getItem(s));
         }

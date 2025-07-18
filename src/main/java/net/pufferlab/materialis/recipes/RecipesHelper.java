@@ -54,4 +54,12 @@ public class RecipesHelper {
         }
         return false;
     }
+
+    public static void addSlabRecipe(ItemStack slab, ItemStack block) {
+        addShapedRecipe(slab, "PPP", 'P', block);
+    }
+
+    public static void addStairsRecipe(ItemStack stairs, ItemStack block) {
+        addShapedRecipe(stairs, "P  ", "PP ", "PPP", 'P', block);
+    }
 }

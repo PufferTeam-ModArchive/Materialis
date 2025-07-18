@@ -2,7 +2,6 @@ package net.pufferlab.materialis.scripts;
 
 import java.util.ArrayList;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.pufferlab.materialis.Materialis;
 import net.pufferlab.materialis.recipes.OreDictHelper;
@@ -46,15 +45,6 @@ public interface IScript {
         }
     }
 
-    default void addOreDict(Item toAdd, String oreDict) {
-        try {
-            OreDictHelper.addOreDict(toAdd, oreDict);
-        } catch (Exception e) {
-            Materialis.LOG.error("AddOreDict went wrong:");
-            e.printStackTrace();
-        }
-    }
-
     default void addShapedRecipe(ItemStack aOutput, Object... inputs) {
         try {
             RecipesHelper.addShapedRecipe(aOutput, inputs);
@@ -69,6 +59,24 @@ public interface IScript {
             RecipesHelper.addShapelessRecipe(aOutput, inputs);
         } catch (Exception e) {
             Materialis.LOG.error("ShapelessRecipe went wrong:");
+            e.printStackTrace();
+        }
+    }
+
+    default void addSlabRecipe(ItemStack aOutput, ItemStack input) {
+        try {
+            RecipesHelper.addSlabRecipe(aOutput, input);
+        } catch (Exception e) {
+            Materialis.LOG.error("ShapedRecipe for Slab went wrong:");
+            e.printStackTrace();
+        }
+    }
+
+    default void addStairsRecipe(ItemStack aOutput, ItemStack input) {
+        try {
+            RecipesHelper.addStairsRecipe(aOutput, input);
+        } catch (Exception e) {
+            Materialis.LOG.error("ShapedRecipe for Stairs went wrong:");
             e.printStackTrace();
         }
     }

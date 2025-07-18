@@ -3,6 +3,7 @@ package net.pufferlab.materialis.scripts;
 import java.util.ArrayList;
 
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import net.pufferlab.materialis.Constants;
 import net.pufferlab.materialis.recipes.ModItems;
 import net.pufferlab.materialis.recipes.RecipesHelper;
@@ -13,18 +14,33 @@ public class ScriptRemove implements IScript {
     ArrayList<ItemStack> remove = new ArrayList<ItemStack>();
 
     public static final String[] itemsToRemove = new String[] { "minecraft:fence:0:*", "minecraft:fence_gate:0:*",
-        "minecraft:wooden_door:0:*", "minecraft:trapdoor:0:*", "minecraft:sign:0:*" };
+        "minecraft:wooden_door:0:*", "minecraft:trapdoor:0:*", "minecraft:sign:0:*",
+        "minecraft:wooden_pressure_plate:0:*", "minecraft:wooden_button:0:*" };
 
     public static final String[] itemsToRemoveAndHide = new String[] { "minecraft:wooden_sword:*:*",
         "minecraft:wooden_shovel:*:*", "minecraft:wooden_pickaxe:*:*", "minecraft:wooden_axe:*:*",
         "minecraft:wooden_hoe:*:*", "minecraft:stone_sword:*:*", "minecraft:stone_shovel:*:*",
         "minecraft:stone_pickaxe:*:*", "minecraft:stone_axe:*:*", "minecraft:stone_hoe:*:*",
-        "BiblioCraft:BiblioPaneler:0", "BiblioCraft:BiblioPaneler:1", "BiblioCraft:BiblioPaneler:2",
-        "BiblioCraft:BiblioPaneler:3", "BiblioCraft:BiblioPaneler:4", "BiblioCraft:BiblioPaneler:5",
-        "BiblioCraft:item.SlottedBook:0:*", "VillageNames:sea_lantern:0:*", "VillageNames:prismarine:0:*",
-        "VillageNames:prismarine:1:*", "VillageNames:prismarine:2:*", "VillageNames:prismarine_crystals:0:*",
-        "VillageNames:prismarine_shard:0:*", "WitchingGadgets:WG_MetalDevice:0:*",
-        "WitchingGadgets:WG_MetalDevice:1:*", };
+        "BiomesOPlenty:swordMud:*:*", "BiomesOPlenty:shovelMud:*:*", "BiomesOPlenty:pickaxeMud:*:*",
+        "BiomesOPlenty:axeMud:*:*", "BiomesOPlenty:hoeMud:*:*", "BiomesOPlenty:scytheMud:*:*",
+        "BiomesOPlenty:helmetMud:*:*", "BiomesOPlenty:chestplateMud:*:*", "BiomesOPlenty:leggingsMud:*:*",
+        "BiomesOPlenty:bootsMud:*:*", "BiomesOPlenty:scytheWood:*:*", "BiomesOPlenty:scytheStone:*:*",
+        "TConstruct:metalPattern:*:*", "TConstruct:clayPattern:*:*", "BiblioCraft:BiblioPaneler:0",
+        "BiblioCraft:BiblioPaneler:1", "BiblioCraft:BiblioPaneler:2", "BiblioCraft:BiblioPaneler:3",
+        "BiblioCraft:BiblioPaneler:4", "BiblioCraft:BiblioPaneler:5", "BiblioCraft:item.SlottedBook:0:*",
+        "VillageNames:sea_lantern:0:*", "VillageNames:prismarine:0:*", "VillageNames:prismarine:1:*",
+        "VillageNames:prismarine:2:*", "VillageNames:prismarine_crystals:0:*", "VillageNames:prismarine_shard:0:*",
+        "WitchingGadgets:WG_MetalDevice:0:*", "WitchingGadgets:WG_MetalDevice:1:*", "Thaumcraft:blockWoodenDevice:6:*",
+        "Thaumcraft:blockWoodenDevice:7:*", "Botania:stone:0:*", "Botania:stone:1:*", "Botania:stone:2:*",
+        "Botania:stone:3:*", "Botania:stone:4:*", "Botania:stone:3:*", "Botania:stone:4:*", "Botania:stone:5:*",
+        "Botania:stone:6:*", "Botania:stone:7:*", "Botania:stone:8:*", "Botania:stone:9:*", "Botania:stone:10:*",
+        "Botania:stone:11:*", "Botania:stone:12:*", "Botania:stone:13:*", "Botania:stone:14:*", "Botania:stone:15:*",
+        "Botania:stone1Stairs:0:*", "Botania:stone1Slab:0:*", "Botania:stone9Stairs:0:*", "Botania:stone0Slab:0:*",
+        "Botania:stone0Wall:1:*", "Botania:stone0Wall:0:*", "Botania:stone0Wall:2:*", "Botania:stone0Wall:3:*",
+        "Botania:stone0Stairs:0:*", "Botania:stone0Slab:0:*", "Botania:stone2Stairs:0:*", "Botania:stone2Slab:0:*",
+        "Botania:stone3Stairs:0:*", "Botania:stone3Slab:0:*", "Botania:stone8Stairs:0:*", "Botania:stone8Slab:0:*",
+        "Botania:stone9Stairs:0:*", "Botania:stone9Slab:0:*", "Botania:stone10Stairs:0:*", "Botania:stone10Slab:0:*",
+        "Botania:stone11Stairs:0:*", "Botania:stone11Slab:0:*", };
 
     public static final String[] metalItemsToRemoveAndHide = new String[] { "netherlicious:Nugget:0:*",
         "etfuturum:nugget_iron:0:*", "Mekanism:Dust:0:*", "Mekanism:Dust:1:*", "Mekanism:Dust:2:*", "Mekanism:Dust:3:*",
@@ -59,12 +75,18 @@ public class ScriptRemove implements IScript {
             remove.add(ModItems.getItem(s));
         }
 
-        for (int i = 0; i < Constants.woodTypes.length; i++) {
-            removeBibliocraftWoodRecipes(Constants.woodTypes[i]);
+        for (String s : Constants.woodTypes) {
+            removeModernWoodRecipes(s);
+            removeBibliocraftWoodRecipes(s);
         }
 
-        for (int i = 0; i < Constants.bopWoodTypes.length; i++) {
-            removeBibliocraftWoodRecipes(Constants.bopWoodTypes[i]);
+        for (String s : Constants.bopWoodTypes) {
+            removeModernWoodRecipes(s);
+            removeBibliocraftWoodRecipes(s);
+        }
+
+        for (String s : Constants.thaumcraftWoodTypes) {
+            removeModernWoodRecipes(s);
         }
 
         // Remove at the end
@@ -92,5 +114,11 @@ public class ScriptRemove implements IScript {
         for (int i = 0; i < ModItems.BiblioItems.length; i++) {
             remove.add(ModItems.getModItem("bibliocraft", ModItems.BiblioItems[i], wood, 1));
         }
+    }
+
+    public void removeModernWoodRecipes(String wood) {
+        remove.add(ModItems.getModItem("base", "planks", wood, OreDictionary.WILDCARD_VALUE));
+        remove.add(ModItems.getModItem("base", "stairs", wood, OreDictionary.WILDCARD_VALUE));
+        remove.add(ModItems.getModItem("base", "slab", wood, OreDictionary.WILDCARD_VALUE));
     }
 }

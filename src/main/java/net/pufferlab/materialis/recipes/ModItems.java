@@ -19,9 +19,11 @@ import net.pufferlab.materialis.Utils;
 
 import biomesoplenty.api.content.BOPCBlocks;
 import cpw.mods.fml.common.registry.GameRegistry;
+import ganymedes01.etfuturum.ModBlocks;
 import jds.bibliocraft.blocks.BlockLoader;
 import jds.bibliocraft.items.ItemLoader;
 import jds.bibliowood.bopwood.WoodsLoader;
+import thaumcraft.common.config.ConfigBlocks;
 
 public class ModItems {
 
@@ -47,11 +49,24 @@ public class ModItems {
         WoodsLoader.seatBack3, WoodsLoader.seatBack4 };
 
     public static final String[] BaseWoodBlocks = new String[] { "log1", "log2", "log3", "log4", "planks", "slab1",
-        "slab2" };
+        "slab2", "log_stripped1", "log_stripped2", "log_stripped3", "log_stripped4", "wood1", "wood2", "wood3", "wood4",
+        "wood_stripped1", "wood_stripped2", "wood_stripped3", "wood_stripped4" };
     public static final Block[] BaseWoodBlocksVanilla = new Block[] { Blocks.log, Blocks.log2, null, null,
-        Blocks.planks, Blocks.wooden_slab, null };
+        Blocks.planks, Blocks.wooden_slab, null, ModBlocks.LOG_STRIPPED.get(), ModBlocks.LOG2_STRIPPED.get(), null,
+        null, ModBlocks.BARK.get(), ModBlocks.BARK2.get(), null, null, ModBlocks.WOOD_STRIPPED.get(),
+        ModBlocks.WOOD2_STRIPPED.get(), null, null };
     public static final Block[] BaseWoodBlocksBOP = new Block[] { BOPCBlocks.logs1, BOPCBlocks.logs2, BOPCBlocks.logs3,
-        BOPCBlocks.logs4, BOPCBlocks.planks, BOPCBlocks.woodenSingleSlab1, BOPCBlocks.woodenSingleSlab2 };
+        BOPCBlocks.logs4, BOPCBlocks.planks, BOPCBlocks.woodenSingleSlab1, BOPCBlocks.woodenSingleSlab2,
+        ModBlocks.BOP_LOG_STRIPPED.get(), ModBlocks.BOP_LOG_STRIPPED2.get(), ModBlocks.BOP_LOG_STRIPPED3.get(),
+        ModBlocks.BOP_LOG_STRIPPED4.get(), ModBlocks.BOP_WOOD.get(), ModBlocks.BOP_WOOD2.get(),
+        ModBlocks.BOP_WOOD3.get(), ModBlocks.BOP_WOOD4.get(), ModBlocks.BOP_WOOD_STRIPPED.get(),
+        ModBlocks.BOP_WOOD_STRIPPED2.get(), ModBlocks.BOP_WOOD_STRIPPED3.get(), ModBlocks.BOP_WOOD_STRIPPED4.get() };
+    public static final Block[] BaseWoodBlocksThaumcraft = new Block[] { ConfigBlocks.blockMagicalLog, null, null, null,
+        GameRegistry.findBlock("salisarcana", "blockCustomPlank"), ConfigBlocks.blockSlabWood, null,
+        ModBlocks.THAUMCRAFT_LOG_STRIPPED.get(), null, null, null, ModBlocks.THAUMCRAFT_WOOD.get(), null, null, null,
+        ModBlocks.THAUMCRAFT_WOOD_STRIPPED.get(), null, null, null };
+
+    public static final String[] BaseWoodLogs = new String[] { "log", "log_stripped", "wood", "wood_stripped" };
 
     public static final int[] bopWoodTypes_Biblio_IDs = new int[] { 0, 1, 2, 3, 5, 7, 8, 9, 11, 12, 10, 4, 6, 13 };
     public static final int[] bopWoodTypes_Drawer_IDs = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14 };
@@ -104,6 +119,7 @@ public class ModItems {
 
     public static ItemStack getModItem(String mod, String name, String wood, int number) {
         boolean isBopWood = Utils.containsExactMatch(Constants.bopWoodTypes, wood);
+        boolean isTCWood = Utils.containsExactMatch(Constants.thaumcraftWoodTypes, wood);
         boolean isVanillaWood = Utils.containsExactMatch(Constants.woodTypes, wood);
         boolean isOak = wood.equals("oak");
 
@@ -137,13 +153,13 @@ public class ModItems {
         }
 
         if (mod.equals("base")) {
-            if (name.equals("log")) {
+            if (Utils.containsExactMatch(BaseWoodLogs, name)) {
                 if (isBopWood) {
                     return new ItemStack(
                         Utils.getItemFromArray(
                             BaseWoodBlocks,
                             BaseWoodBlocksBOP,
-                            getSpecialMetaString(Constants.bopLogTypes, wood, "log", 4)),
+                            getSpecialMetaString(Constants.bopLogTypes, wood, name, 4)),
                         number,
                         getSpecialMeta(Constants.bopLogTypes, wood, 4));
                 } else if (isVanillaWood) {
@@ -151,9 +167,17 @@ public class ModItems {
                         Utils.getItemFromArray(
                             BaseWoodBlocks,
                             BaseWoodBlocksVanilla,
-                            getSpecialMetaString(Constants.woodTypes, wood, "log", 4)),
+                            getSpecialMetaString(Constants.woodTypes, wood, name, 4)),
                         number,
                         getSpecialMeta(Constants.woodTypes, wood, 4));
+                } else if (isTCWood) {
+                    return new ItemStack(
+                        Utils.getItemFromArray(
+                            BaseWoodBlocks,
+                            BaseWoodBlocksThaumcraft,
+                            getSpecialMetaString(Constants.thaumcraftWoodTypes, wood, name, 4)),
+                        number,
+                        getSpecialMeta(Constants.thaumcraftWoodTypes, wood, 4));
                 }
             }
             if (name.equals("planks")) {
@@ -167,6 +191,11 @@ public class ModItems {
                         Utils.getItemFromArray(BaseWoodBlocks, BaseWoodBlocksVanilla, name),
                         number,
                         Utils.getItemFromArray(Constants.woodTypes, wood));
+                } else if (isTCWood) {
+                    return new ItemStack(
+                        Utils.getItemFromArray(BaseWoodBlocks, BaseWoodBlocksThaumcraft, name),
+                        number,
+                        Utils.getItemFromArray(Constants.thaumcraftWoodTypes, wood));
                 }
             }
             if (name.equals("slab")) {
@@ -186,6 +215,27 @@ public class ModItems {
                             getSpecialMetaString(Constants.woodTypes, wood, "slab", 8)),
                         number,
                         getSpecialMeta(Constants.woodTypes, wood, 8));
+                } else if (isTCWood) {
+                    return new ItemStack(
+                        Utils.getItemFromArray(
+                            BaseWoodBlocks,
+                            BaseWoodBlocksThaumcraft,
+                            getSpecialMetaString(Constants.thaumcraftWoodTypes, wood, "slab", 8)),
+                        number,
+                        getSpecialMeta(Constants.thaumcraftWoodTypes, wood, 8));
+                }
+            }
+            if (name.equals("stairs")) {
+                if (isBopWood) {
+                    if (wood.equals("hellbark")) {
+                        wood = "hellBark";
+                    }
+                    return ModItems.getItem("BiomesOPlenty", wood + "Stairs", 0, number);
+                } else if (isVanillaWood) {
+                    return ModItems.getItem("minecraft", wood + "_stairs", 0, number);
+                } else if (isTCWood) {
+                    return ModItems
+                        .getItem("BiomesOPlenty", Utils.getOreDictionaryName("blockStairs", wood), 0, number);
                 }
             }
             if (name.equals("lumber")) {
@@ -204,6 +254,12 @@ public class ModItems {
                     } else {
                         return ModItems.getItem("etfuturum", "fence_" + wood, 0, number);
                     }
+                } else if (isTCWood) {
+                    return ModItems.getItem(
+                        "etfuturum",
+                        "thaumcraft_wood_fence",
+                        Utils.getItemFromArray(Constants.thaumcraftWoodTypes, wood),
+                        number);
                 }
             }
             if (name.equals("fence_gate")) {
@@ -215,6 +271,8 @@ public class ModItems {
                     } else {
                         return ModItems.getItem("etfuturum", "fence_gate_" + wood, 0, number);
                     }
+                } else if (isTCWood) {
+                    return ModItems.getItem("etfuturum", "thaumcraft_" + wood + "_fence_gate", 0, number);
                 }
             }
             if (name.equals("door")) {
@@ -226,6 +284,8 @@ public class ModItems {
                     } else {
                         return ModItems.getItem("etfuturum", "door_" + wood, 0, number);
                     }
+                } else if (isTCWood) {
+                    return ModItems.getItem("etfuturum", "thaumcraft_" + wood + "_door", 0, number);
                 }
             }
             if (name.equals("trapdoor")) {
@@ -237,6 +297,34 @@ public class ModItems {
                     } else {
                         return ModItems.getItem("etfuturum", "trapdoor_" + wood, 0, number);
                     }
+                } else if (isTCWood) {
+                    return ModItems.getItem("etfuturum", "thaumcraft_" + wood + "_trapdoor", 0, number);
+                }
+            }
+            if (name.equals("pressure_plate")) {
+                if (isBopWood) {
+                    return ModItems.getItem("etfuturum", "bop_" + wood + "_pressure_plate", 0, number);
+                } else if (isVanillaWood) {
+                    if (isOak) {
+                        return ModItems.getItem("minecraft", "wooden_pressure_plate", 0, number);
+                    } else {
+                        return ModItems.getItem("etfuturum", "pressure_plate_" + wood, 0, number);
+                    }
+                } else if (isTCWood) {
+                    return ModItems.getItem("etfuturum", "thaumcraft_" + wood + "_pressure_plate", 0, number);
+                }
+            }
+            if (name.equals("button")) {
+                if (isBopWood) {
+                    return ModItems.getItem("etfuturum", "bop_" + wood + "_button", 0, number);
+                } else if (isVanillaWood) {
+                    if (isOak) {
+                        return ModItems.getItem("minecraft", "wooden_button", 0, number);
+                    } else {
+                        return ModItems.getItem("etfuturum", "button_" + wood, 0, number);
+                    }
+                } else if (isTCWood) {
+                    return ModItems.getItem("etfuturum", "thaumcraft_" + wood + "_button", 0, number);
                 }
             }
             if (name.equals("sign")) {
@@ -248,6 +336,8 @@ public class ModItems {
                     } else {
                         return ModItems.getItem("etfuturum", "item_sign_" + wood, 0, number);
                     }
+                } else if (isTCWood) {
+                    return ModItems.getItem("etfuturum", "thaumcraft_" + wood + "_sign", 0, number);
                 }
             }
         }
