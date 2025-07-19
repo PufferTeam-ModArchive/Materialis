@@ -171,6 +171,14 @@ public class TCHelper {
         return aspectList;
     }
 
+    public static void setAspects(String item, String aspects) {
+        ThaumcraftApi.registerObjectTag(ModItems.getItem(item), stringToAspectList(aspects));
+    }
+
+    public static void setEntityAspects(String entity, String aspects) {
+        ThaumcraftApi.registerEntityTag(entity, stringToAspectList(aspects));
+    }
+
     public static void addResearch(final String research, final String category, String aspects, final int x,
         final int y, int complexity, ItemStack icon) {
         AspectList aspectList = stringToAspectList(aspects);
