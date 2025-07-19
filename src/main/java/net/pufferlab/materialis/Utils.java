@@ -18,6 +18,15 @@ public class Utils {
         return false;
     }
 
+    public static boolean containsExactMatch(Block[] array, Block block) {
+        for (Block element : array) {
+            if (element == block) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean containsStack(ItemStack wild, ArrayList<ItemStack> checkList) {
         for (int i = 0; i < checkList.size(); i++) {
             ItemStack check = checkList.get(i);
@@ -78,7 +87,26 @@ public class Utils {
         return blockArray[0];
     }
 
+    public static String getItemFromArray(String[] names, Block[] array, int[] meta, Block targetBlock,
+        int targetMeta) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == targetBlock && meta[i] == targetMeta) {
+                return names[i];
+            }
+        }
+        return null;
+    }
+
     public static Item getItemFromArray(String[] array, Item[] blockArray, String targetString) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(targetString)) {
+                return blockArray[i];
+            }
+        }
+        return blockArray[0];
+    }
+
+    public static String getItemFromArray(String[] array, String[] blockArray, String targetString) {
         for (int i = 0; i < array.length; i++) {
             if (array[i].equals(targetString)) {
                 return blockArray[i];
@@ -90,6 +118,15 @@ public class Utils {
     public static int getItemFromArray(int[] ids, String[] woodType, String wood) {
         for (int i = 0; i < woodType.length; i++) {
             if (woodType[i].equals(wood)) {
+                return ids[i];
+            }
+        }
+        return ids[0];
+    }
+
+    public static int getItemFromArray(int[] ids, Block[] blockType, Block block) {
+        for (int i = 0; i < blockType.length; i++) {
+            if (blockType[i] == block) {
                 return ids[i];
             }
         }

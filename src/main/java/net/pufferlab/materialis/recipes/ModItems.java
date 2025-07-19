@@ -66,6 +66,27 @@ public class ModItems {
         ModBlocks.THAUMCRAFT_LOG_STRIPPED.get(), null, null, null, ModBlocks.THAUMCRAFT_WOOD.get(), null, null, null,
         ModBlocks.THAUMCRAFT_WOOD_STRIPPED.get(), null, null, null };
 
+    public static final String[] BaseOreBlocksName = new String[] { "iron", "gold", "copper", "tin", "silver", "lead",
+        "nickel", "platinum", "bauxite", "cinnabar" };
+
+    public static final Block[] BaseOreBlocks = new Block[] { Blocks.iron_ore, Blocks.gold_ore, Registry.ore,
+        Registry.ore, Registry.ore, Registry.ore, Registry.ore, Registry.ore, Registry.ore,
+        ConfigBlocks.blockCustomOre };
+
+    public static final Block[] BaseDeepslateOreBlocks = new Block[] { ModBlocks.DEEPSLATE_IRON_ORE.get(),
+        ModBlocks.DEEPSLATE_GOLD_ORE.get(), ModBlocks.DEEPSLATE_COPPER_ORE.get(), ModBlocks.MODDED_DEEPSLATE_ORE.get(),
+        ModBlocks.MODDED_DEEPSLATE_ORE.get(), ModBlocks.MODDED_DEEPSLATE_ORE.get(),
+        ModBlocks.MODDED_DEEPSLATE_ORE.get(), ModBlocks.MODDED_DEEPSLATE_ORE.get(),
+        ModBlocks.MODDED_DEEPSLATE_ORE.get(), ModBlocks.DEEPSLATE_THAUMCRAFT_ORE.get() };
+
+    public static final int[] BaseOreBlocks_IDs = new int[] { 0, 0, 0, 1, 2, 3, 4, 5, 7, 0 };
+    public static final int[] BaseDeepslateBlocks_IDs = new int[] { 0, 0, 0, 1, 2, 3, 4, 5, 0, 0 };
+
+    public static final String[] BaseRawOreItems = new String[] { "etfuturum:raw_ore:1:1", "etfuturum:raw_ore:2:1",
+        "etfuturum:raw_ore:0:1", "etfuturum:modded_raw_ore:1:1", "etfuturum:modded_raw_ore:2:1",
+        "etfuturum:modded_raw_ore:3:1", "etfuturum:modded_raw_ore:4:1", "etfuturum:modded_raw_ore:5:1",
+        "etfuturum:modded_raw_ore:0:1", "materialis:gem:0:1" };
+
     public static final String[] BaseWoodLogs = new String[] { "log", "log_stripped", "wood", "wood_stripped" };
 
     public static final int[] bopWoodTypes_Biblio_IDs = new int[] { 0, 1, 2, 3, 5, 7, 8, 9, 11, 12, 10, 4, 6, 13 };
