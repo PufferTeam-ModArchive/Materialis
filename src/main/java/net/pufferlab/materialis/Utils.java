@@ -115,22 +115,20 @@ public class Utils {
 
     public static boolean containsOreDict(Block block, String oreDict) {
         ItemStack b = new ItemStack(Item.getItemFromBlock(block));
-        boolean isWood = false;
         for (int id1 : OreDictionary.getOreIDs(b)) {
             if (id1 == OreDictionary.getOreID(oreDict)) {
-                isWood = true;
+                return true;
             }
         }
-        return isWood;
+        return false;
     }
 
     public static boolean containsOreDict(ItemStack b, String oreDict) {
-        boolean isWood = false;
         for (int id1 : OreDictionary.getOreIDs(b)) {
             if (id1 == OreDictionary.getOreID(oreDict)) {
-                isWood = true;
+                return true;
             }
         }
-        return isWood;
+        return false;
     }
 }
