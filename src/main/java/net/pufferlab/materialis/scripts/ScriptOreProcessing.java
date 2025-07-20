@@ -4,6 +4,8 @@ import static net.pufferlab.materialis.scripts.ItemList.*;
 
 import net.minecraft.item.ItemStack;
 import net.pufferlab.materialis.Constants;
+import net.pufferlab.materialis.recipes.IEHelper;
+import net.pufferlab.materialis.recipes.MekanismHelper;
 import net.pufferlab.materialis.recipes.ModItems;
 import net.pufferlab.materialis.recipes.TCHelper;
 
@@ -23,12 +25,25 @@ public class ScriptOreProcessing implements IScript {
         ItemStack block = ModItems.getModItem("metal", "block", metal, 1);
         ItemStack ingot = ModItems.getModItem("metal", "ingot", metal, 1);
         ItemStack nugget = ModItems.getModItem("metal", "nugget", metal, 1);
+        ItemStack dust = ModItems.getModItem("metal", "dust", metal, 1);
+        ItemStack plate = ModItems.getModItem("metal", "plate", metal, 1);
+        ItemStack gear = ModItems.getModItem("metal", "gear", metal, 1);
 
         if (ore != null) {
-            addFurnaceSmelting(
-                ModItems.getModItem("metal", "ingot", metal, 1),
-                ModItems.getModItem("metal", "raw_ore", metal, 1),
-                0);
+            addFurnaceSmelting(ModItems.getModItem("metal", "ingot", metal, 1), ore, 0);
+        }
+        if (dust != null) {
+            MekanismHelper.addCrusherRecipe(ModItems.getModItem("metal", "dust", metal, 1), ingot);
+        }
+        if (plate != null) {
+            IEHelper.addPressRecipe(ModItems.getModItem("metal", "plate", metal, 1), ingot, plateMold, 500);
+        }
+        if (gear != null) {
+            IEHelper.addPressRecipe(
+                ModItems.getModItem("metal", "gear", metal, 1),
+                ModItems.getModItem("metal", "ingot", metal, 4),
+                gearMold,
+                500);
         }
 
         addShapedRecipe(ModItems.getModItem("metal", "block", metal, 1), "III", "III", "III", 'I', ingot);

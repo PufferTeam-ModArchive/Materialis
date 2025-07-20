@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.pufferlab.materialis.Constants;
-import net.pufferlab.materialis.recipes.ModItems;
-import net.pufferlab.materialis.recipes.RecipesHelper;
-import net.pufferlab.materialis.recipes.TCHelper;
+import net.pufferlab.materialis.recipes.*;
 
 public class ScriptRemove implements IScript {
 
@@ -121,6 +119,11 @@ public class ScriptRemove implements IScript {
             TCHelper.removeArcaneRecipe(s);
             TCHelper.removeCrucibleRecipe(s);
         }
+
+        IEHelper.removeAllPressRecipes();
+
+        MekanismHelper.removeAllCrusherRecipes();
+        MekanismHelper.removeAllEnrichmentRecipes();
     }
 
     public void removeMetalRecipes(String metal) {

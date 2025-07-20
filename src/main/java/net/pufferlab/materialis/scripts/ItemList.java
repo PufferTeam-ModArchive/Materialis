@@ -5,6 +5,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.pufferlab.materialis.Registry;
 
+import blusunrize.immersiveengineering.common.IEContent;
+
 public class ItemList {
 
     public static final ItemStack crafting_table = new ItemStack(Blocks.crafting_table, 1, 0);
@@ -20,5 +22,8 @@ public class ItemList {
     public static final ItemStack silverNugget = new ItemStack(Registry.nugget, 1, 4);
     public static final ItemStack leadNugget = new ItemStack(Registry.nugget, 1, 5);
     public static final ItemStack nickelNugget = new ItemStack(Registry.nugget, 1, 6);
+
+    public static final ItemStack plateMold = new ItemStack(IEContent.itemMold, 1, 0);
+    public static final ItemStack gearMold = new ItemStack(IEContent.itemMold, 1, 1);
 
 }

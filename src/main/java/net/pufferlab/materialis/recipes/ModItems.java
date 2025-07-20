@@ -414,9 +414,9 @@ public class ModItems {
                 return ModItems
                     .getItem(Utils.getItemFromArray(BaseOreBlocksName, BaseRawOreBlocks, wood) + ":" + number);
             } else if (name.equals("block")) {
-                return ModItems.getItem("materialis", name, Utils.getItemFromArray(Constants.blockTypes, wood), 1);
+                return ModItems.getItem("materialis", name, Utils.getItemFromArray(Constants.blockTypes, wood), number);
             } else {
-                return ModItems.getItem("materialis", name, Utils.getItemFromArray(Constants.metalTypes, wood), 1);
+                return ModItems.getItem("materialis", name, Utils.getItemFromArray(Constants.metalTypes, wood), number);
             }
         }
 
