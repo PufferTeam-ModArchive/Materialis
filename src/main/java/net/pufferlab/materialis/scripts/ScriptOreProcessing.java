@@ -2,12 +2,45 @@ package net.pufferlab.materialis.scripts;
 
 import static net.pufferlab.materialis.scripts.ItemList.*;
 
+import net.minecraft.item.ItemStack;
+import net.pufferlab.materialis.Constants;
 import net.pufferlab.materialis.recipes.ModItems;
 import net.pufferlab.materialis.recipes.TCHelper;
 
 public class ScriptOreProcessing implements IScript {
 
     public void run() {
+        addResearches();
+
+        for (String element : Constants.metalTypes) {
+            addRecipes(element);
+        }
+
+    }
+
+    public void addRecipes(String metal) {
+        ItemStack ore = ModItems.getModItem("metal", "raw_ore", metal, 1);
+        ItemStack block = ModItems.getModItem("metal", "block", metal, 1);
+        ItemStack ingot = ModItems.getModItem("metal", "ingot", metal, 1);
+        ItemStack nugget = ModItems.getModItem("metal", "nugget", metal, 1);
+
+        if (ore != null) {
+            addFurnaceSmelting(
+                ModItems.getModItem("metal", "ingot", metal, 1),
+                ModItems.getModItem("metal", "raw_ore", metal, 1),
+                0);
+        }
+
+        addShapedRecipe(ModItems.getModItem("metal", "block", metal, 1), "III", "III", "III", 'I', ingot);
+
+        addShapedRecipe(ModItems.getModItem("metal", "ingot", metal, 9), "I", 'I', block);
+
+        addShapedRecipe(ModItems.getModItem("metal", "ingot", metal, 1), "III", "III", "III", 'I', nugget);
+
+        addShapedRecipe(ModItems.getModItem("metal", "nugget", metal, 9), "I", 'I', ingot);
+    }
+
+    public void addResearches() {
         TCHelper.orphanResearch("METALLURGICPERFECTION_CLUSTERS");
         TCHelper.removeResearch("METALLURGICPERFECTION_CLUSTERS");
 

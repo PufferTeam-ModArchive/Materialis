@@ -1,6 +1,7 @@
 package net.pufferlab.materialis.recipes;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
 
 import net.minecraft.item.ItemStack;
@@ -41,18 +42,21 @@ public class RecipesHelper {
         GameRegistry.addRecipe(new ShapelessOreRecipe(output, recipe));
     }
 
-    public static boolean removeFurnaceSmelting(ItemStack aInput) {
-        final Map<ItemStack, ItemStack> furnaceRecipe = FurnaceRecipes.smelting()
+    public static void removeFurnaceSmelting(ItemStack resultItem) {
+        Map<ItemStack, ItemStack> recipes = FurnaceRecipes.smelting()
             .getSmeltingList();
-        if (aInput != null) {
-            for (ItemStack tInput : furnaceRecipe.keySet()) {
-                if (Utils.isStackValid(tInput) && Utils.areStacksEqual(aInput, tInput, true)) {
-                    furnaceRecipe.remove(tInput);
-                    return true;
-                }
+        for (Iterator<Map.Entry<ItemStack, ItemStack>> entries = recipes.entrySet()
+            .iterator(); entries.hasNext();) {
+            Map.Entry<ItemStack, ItemStack> entry = entries.next();
+            ItemStack result = entry.getValue();
+            if (Utils.containsStack(result, resultItem)) {
+                entries.remove();
             }
         }
-        return false;
+    }
+
+    public static void addFurnaceSmelting(ItemStack output, ItemStack input, float xp) {
+        GameRegistry.addSmelting(input, output, xp);
     }
 
     public static void addSlabRecipe(ItemStack slab, ItemStack block) {

@@ -12,6 +12,8 @@ import net.pufferlab.materialis.recipes.TCHelper;
 public class ScriptRemove implements IScript {
 
     ArrayList<ItemStack> remove = new ArrayList<ItemStack>();
+    ArrayList<ItemStack> removeSmelting = new ArrayList<ItemStack>();
+    ArrayList<ItemStack> removeArcane = new ArrayList<ItemStack>();
 
     public static final String[] itemsToRemove = new String[] { "minecraft:fence:0:*", "minecraft:fence_gate:0:*",
         "minecraft:wooden_door:0:*", "minecraft:trapdoor:0:*", "minecraft:sign:0:*",
@@ -40,7 +42,8 @@ public class ScriptRemove implements IScript {
         "Botania:stone0Stairs:0:*", "Botania:stone0Slab:0:*", "Botania:stone2Stairs:0:*", "Botania:stone2Slab:0:*",
         "Botania:stone3Stairs:0:*", "Botania:stone3Slab:0:*", "Botania:stone8Stairs:0:*", "Botania:stone8Slab:0:*",
         "Botania:stone9Stairs:0:*", "Botania:stone9Slab:0:*", "Botania:stone10Stairs:0:*", "Botania:stone10Slab:0:*",
-        "Botania:stone11Stairs:0:*", "Botania:stone11Slab:0:*", };
+        "Botania:stone11Stairs:0:*", "Botania:stone11Slab:0:*", "ForbiddenMagic:FMResource:2:*",
+        "ForbiddenMagic:FMResource:4:*", "etfuturum:copper_ore:0:*", "etfuturum:copper_ingot:0:*" };
 
     public static final String[] metalItemsToRemoveAndHide = new String[] { "netherlicious:Nugget:0:*",
         "etfuturum:nugget_iron:0:*", "Mekanism:Dust:0:*", "Mekanism:Dust:1:*", "Mekanism:Dust:2:*", "Mekanism:Dust:3:*",
@@ -55,8 +58,11 @@ public class ScriptRemove implements IScript {
         "ThaumicTinkerer:fireEarth:*:*", "ThaumicTinkerer:fireFire:*:*", "ThaumicTinkerer:fireOrder:*:*",
         "ThaumicTinkerer:fireWater:*:*", "ThaumicTinkerer:fireChaos:*:*", "ThaumicTinkerer:fireAir:*:*",
         "ThaumicTinkerer:enchanter:*:*", "ThaumicExploration:blankSeal:*:*", "ThaumicExploration:chestSeal:*:*",
-        "ThaumicExploration:chestSealLinked:*:*", "ThaumicExploration:jarSeal:*:*",
-        "ThaumicExploration:boundChest:*:*" };
+        "ThaumicExploration:chestSealLinked:*:*", "ThaumicExploration:jarSeal:*:*", "ThaumicExploration:boundChest:*:*",
+        "Thaumcraft:ItemNugget:21:*", "Thaumcraft:ItemNugget:16:*", "Thaumcraft:ItemNugget:31:*",
+        "Thaumcraft:ItemNugget:1:*", "Thaumcraft:ItemNugget:17:*", "Thaumcraft:ItemNugget:2:*",
+        "Thaumcraft:ItemNugget:18:*", "Thaumcraft:ItemNugget:3:*", "Thaumcraft:ItemNugget:19:*",
+        "Thaumcraft:ItemNugget:4:*", "Thaumcraft:ItemNugget:20:*" };
 
     public void init() {
         for (String s : itemsToRemove) {
@@ -69,10 +75,16 @@ public class ScriptRemove implements IScript {
 
         for (String s : metalItemsToRemoveAndHide) {
             remove.add(ModItems.getItem(s));
+            removeSmelting.add(ModItems.getItem(s));
         }
 
         for (String s : thaumcraftItemsToRemoveAndHide) {
             remove.add(ModItems.getItem(s));
+            removeArcane.add(ModItems.getItem(s));
+        }
+
+        for (String s : Constants.metalTypes) {
+            removeMetalRecipes(s);
         }
 
         for (String s : Constants.woodTypes) {
@@ -89,6 +101,10 @@ public class ScriptRemove implements IScript {
             removeModernWoodRecipes(s);
         }
 
+        for (ItemStack s : removeSmelting) {
+            RecipesHelper.removeFurnaceSmelting(s);
+        }
+
         // Remove at the end
         removeRecipe(remove);
     }
@@ -97,13 +113,30 @@ public class ScriptRemove implements IScript {
         // Remove at the end
         removeRecipe(remove);
 
-        for (String s : metalItemsToRemoveAndHide) {
-            RecipesHelper.removeFurnaceSmelting(ModItems.getItem(s));
+        for (ItemStack s : removeSmelting) {
+            RecipesHelper.removeFurnaceSmelting(s);
         }
 
-        for (String s : thaumcraftItemsToRemoveAndHide) {
-            TCHelper.removeArcaneRecipe(ModItems.getItem(s));
-            TCHelper.removeCrucibleRecipe(ModItems.getItem(s));
+        for (ItemStack s : removeArcane) {
+            TCHelper.removeArcaneRecipe(s);
+            TCHelper.removeCrucibleRecipe(s);
+        }
+    }
+
+    public void removeMetalRecipes(String metal) {
+        for (int i = 0; i < ModItems.BaseMetalItems.length; i++) {
+            ItemStack item = ModItems.getModItem("metal", ModItems.BaseMetalItems[i], metal, 1);
+            if (item != null) {
+                remove.add(item);
+                removeSmelting.add(item);
+            }
+        }
+        for (int i = 0; i < ModItems.BaseMetalOreItems.length; i++) {
+            ItemStack item = ModItems.getModItem("metal", ModItems.BaseMetalOreItems[i], metal, 1);
+            if (item != null) {
+                remove.add(item);
+                removeSmelting.add(item);
+            }
         }
     }
 

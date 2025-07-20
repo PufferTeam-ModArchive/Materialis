@@ -33,7 +33,11 @@ public class BlockMaterial extends Block {
             if (!Utils.containsExactMatch(elementsBlacklist, elements[i]) && tools != null) {
                 this.setHarvestLevel(tools[i], levels[i], i);
             } else {
-                this.setHarvestLevel("pickaxe", 0, i);
+                if (material == Material.rock) {
+                    this.setHarvestLevel("pickaxe", 0, i);
+                } else if (material == Material.wood) {
+                    this.setHarvestLevel("axe", 0, i);
+                }
             }
         }
 

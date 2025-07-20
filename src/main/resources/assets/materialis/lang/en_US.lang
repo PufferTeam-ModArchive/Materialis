@@ -1,8 +1,5 @@
 item.materialis.error.name=Invalid Item
 
-tc.research_category.BLOODMAGIC=Blood Magic
-tc.research_category.BOTANY=Botany
-
 item.materialis.cinnabar_gem.name=Cinnabar 
 item.materialis.slag_gem.name=Slag 
 item.materialis.rich_slag_gem.name=Rich Slag 
@@ -94,6 +91,22 @@ item.materialis.iron_chisel_head.name=Iron Chisel Head
 item.materialis.steel_chisel_head.name=Steel Chisel Head
 item.materialis.thaumium_chisel_head.name=Thaumium Chisel Head
 item.materialis.manasteel_chisel_head.name=Manasteel Chisel Head
+
+item.materialis.iron_cluster.name=Iron Cluster
+item.materialis.gold_cluster.name=Gold Cluster
+item.materialis.copper_cluster.name=Copper Cluster
+item.materialis.tin_cluster.name=Tin Cluster
+item.materialis.silver_cluster.name=Silver Cluster
+item.materialis.lead_cluster.name=Lead Cluster
+item.materialis.nickel_cluster.name=Nickel Cluster
+item.materialis.platinum_cluster.name=Platinum Cluster
+item.materialis.cinnabar_cluster.name=Cinnabar Cluster
+item.materialis.bauxite_cluster.name=Bauxite Cluster
+item.materialis.osmium_cluster.name=Osmium Cluster
+
+tile.materialis.greatwood_arcane_planks.name=Greatwood Planks
+tile.materialis.silverwood_arcane_planks.name=Silverwood Planks
+tile.materialis.magic_arcane_planks.name=Arcane Wood
 
 item.materialis.flint_shard_item.name=Flint Shard
 tile.materialis.andesite_cobblestone.name=Cobbled Andesite

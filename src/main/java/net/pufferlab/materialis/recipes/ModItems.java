@@ -1,11 +1,5 @@
 package net.pufferlab.materialis.recipes;
 
-import static biomesoplenty.api.content.BOPCBlocks.*;
-import static jds.bibliocraft.blocks.BlockLoader.*;
-import static jds.bibliocraft.items.ItemLoader.*;
-import static jds.bibliowood.bopwood.WoodsLoader.*;
-import static net.minecraft.init.Blocks.*;
-
 import java.io.*;
 
 import net.minecraft.block.Block;
@@ -23,6 +17,7 @@ import ganymedes01.etfuturum.ModBlocks;
 import jds.bibliocraft.blocks.BlockLoader;
 import jds.bibliocraft.items.ItemLoader;
 import jds.bibliowood.bopwood.WoodsLoader;
+import mekanism.common.MekanismBlocks;
 import thaumcraft.common.config.ConfigBlocks;
 
 public class ModItems {
@@ -62,30 +57,43 @@ public class ModItems {
         ModBlocks.BOP_WOOD3.get(), ModBlocks.BOP_WOOD4.get(), ModBlocks.BOP_WOOD_STRIPPED.get(),
         ModBlocks.BOP_WOOD_STRIPPED2.get(), ModBlocks.BOP_WOOD_STRIPPED3.get(), ModBlocks.BOP_WOOD_STRIPPED4.get() };
     public static final Block[] BaseWoodBlocksThaumcraft = new Block[] { ConfigBlocks.blockMagicalLog, null, null, null,
-        GameRegistry.findBlock("salisarcana", "blockCustomPlank"), ConfigBlocks.blockSlabWood, null,
-        ModBlocks.THAUMCRAFT_LOG_STRIPPED.get(), null, null, null, ModBlocks.THAUMCRAFT_WOOD.get(), null, null, null,
-        ModBlocks.THAUMCRAFT_WOOD_STRIPPED.get(), null, null, null };
+        Registry.arcane_planks, ConfigBlocks.blockSlabWood, null, ModBlocks.THAUMCRAFT_LOG_STRIPPED.get(), null, null,
+        null, ModBlocks.THAUMCRAFT_WOOD.get(), null, null, null, ModBlocks.THAUMCRAFT_WOOD_STRIPPED.get(), null, null,
+        null };
 
     public static final String[] BaseOreBlocksName = new String[] { "iron", "gold", "copper", "tin", "silver", "lead",
-        "nickel", "platinum", "bauxite", "cinnabar" };
+        "nickel", "platinum", "bauxite", "cinnabar", "osmium" };
 
     public static final Block[] BaseOreBlocks = new Block[] { Blocks.iron_ore, Blocks.gold_ore, Registry.ore,
-        Registry.ore, Registry.ore, Registry.ore, Registry.ore, Registry.ore, Registry.ore,
-        ConfigBlocks.blockCustomOre };
+        Registry.ore, Registry.ore, Registry.ore, Registry.ore, Registry.ore, Registry.ore, ConfigBlocks.blockCustomOre,
+        MekanismBlocks.OreBlock };
 
     public static final Block[] BaseDeepslateOreBlocks = new Block[] { ModBlocks.DEEPSLATE_IRON_ORE.get(),
         ModBlocks.DEEPSLATE_GOLD_ORE.get(), ModBlocks.DEEPSLATE_COPPER_ORE.get(), ModBlocks.MODDED_DEEPSLATE_ORE.get(),
         ModBlocks.MODDED_DEEPSLATE_ORE.get(), ModBlocks.MODDED_DEEPSLATE_ORE.get(),
         ModBlocks.MODDED_DEEPSLATE_ORE.get(), ModBlocks.MODDED_DEEPSLATE_ORE.get(),
-        ModBlocks.MODDED_DEEPSLATE_ORE.get(), ModBlocks.DEEPSLATE_THAUMCRAFT_ORE.get() };
+        ModBlocks.MODDED_DEEPSLATE_ORE.get(), ModBlocks.DEEPSLATE_THAUMCRAFT_ORE.get(),
+        MekanismBlocks.DeepslateOreBlock };
 
-    public static final int[] BaseOreBlocks_IDs = new int[] { 0, 0, 0, 1, 2, 3, 4, 5, 7, 0 };
-    public static final int[] BaseDeepslateBlocks_IDs = new int[] { 0, 0, 0, 1, 2, 3, 4, 5, 0, 0 };
+    public static final int[] BaseOreBlocks_IDs = new int[] { 0, 0, 0, 1, 2, 3, 4, 5, 7, 0, 0 };
+    public static final int[] BaseDeepslateBlocks_IDs = new int[] { 0, 0, 0, 1, 2, 3, 4, 5, 0, 0, 0 };
 
-    public static final String[] BaseRawOreItems = new String[] { "etfuturum:raw_ore:1:1", "etfuturum:raw_ore:2:1",
-        "etfuturum:raw_ore:0:1", "etfuturum:modded_raw_ore:1:1", "etfuturum:modded_raw_ore:2:1",
-        "etfuturum:modded_raw_ore:3:1", "etfuturum:modded_raw_ore:4:1", "etfuturum:modded_raw_ore:5:1",
-        "etfuturum:modded_raw_ore:0:1", "materialis:gem:0:1" };
+    public static final String[] BaseRawOreItems = new String[] { "etfuturum:raw_ore:1", "etfuturum:raw_ore:2",
+        "etfuturum:raw_ore:0", "etfuturum:modded_raw_ore:1", "etfuturum:modded_raw_ore:2", "etfuturum:modded_raw_ore:3",
+        "etfuturum:modded_raw_ore:4", "etfuturum:modded_raw_ore:5", "etfuturum:modded_raw_ore:0", "materialis:gem:0",
+        "Mekanism:RawOsmiumOre" };
+
+    public static final String[] BaseRawOreBlocks = new String[] { "etfuturum:raw_ore_block:1",
+        "etfuturum:raw_ore_block:2", "etfuturum:raw_ore_block:0", "etfuturum:modded_raw_ore_block:1",
+        "etfuturum:modded_raw_ore_block:2", "etfuturum:modded_raw_ore_block:3", "etfuturum:modded_raw_ore_block:4",
+        "etfuturum:modded_raw_ore_block:5", "etfuturum:modded_raw_ore_block:0", null, "Mekanism:BasicBlock2:10" };
+
+    public static final String[] BaseAlloyNames = new String[] { "bronze" };
+    public static final String[][] BaseAlloysMix = new String[][] { { "copper 1", "tin 3" } };
+
+    public static final String[] BaseMetalItems = new String[] { "block", "ingot", "nugget", "dust", "plate", "gear" };
+
+    public static final String[] BaseMetalOreItems = new String[] { "raw_ore", "raw_ore_block", "cluster" };
 
     public static final String[] BaseWoodLogs = new String[] { "log", "log_stripped", "wood", "wood_stripped" };
 
@@ -98,7 +106,7 @@ public class ModItems {
         } else if (GameRegistry.findBlock(mod, item) != null) {
             return new ItemStack(GameRegistry.findBlock(mod, item), number, meta);
         }
-        return new ItemStack(Registry.ingot, 1, 1);
+        return null;
     }
 
     public static ItemStack getItem(String s) {
@@ -127,7 +135,7 @@ public class ModItems {
 
     public static String getSpecialMetaString(String[] blocks, String block, String type, int metaCap) {
         int log = Utils.getItemFromArray(blocks, block);
-        int logType = (int) Math.floor((log + 1) / (metaCap + 1));
+        int logType = (int) Math.floor((double) (log) / (metaCap));
 
         return type + (logType + 1);
     }
@@ -255,8 +263,7 @@ public class ModItems {
                 } else if (isVanillaWood) {
                     return ModItems.getItem("minecraft", wood + "_stairs", 0, number);
                 } else if (isTCWood) {
-                    return ModItems
-                        .getItem("BiomesOPlenty", Utils.getOreDictionaryName("blockStairs", wood), 0, number);
+                    return ModItems.getItem("Thaumcraft", "blockStairs" + Utils.getCapitalized(wood), 0, number);
                 }
             }
             if (name.equals("lumber")) {
@@ -362,8 +369,57 @@ public class ModItems {
                 }
             }
         }
+        if (mod.equals("metal")) {
+            if (wood.equals("iron") && name.equals("ingot")) {
+                return ModItems.getItem("minecraft", "iron_ingot", 0, number);
+            } else if (wood.equals("iron") && name.equals("nugget")) {
+                return ModItems.getItem("Thaumcraft", "ItemNugget", 0, number);
+            }
+            if (wood.equals("iron") && name.equals("block")) {
+                return ModItems.getItem("minecraft", "iron_block", 0, number);
+            } else if (wood.equals("gold") && name.equals("ingot")) {
+                return ModItems.getItem("minecraft", "gold_ingot", 0, number);
+            } else if (wood.equals("gold") && name.equals("nugget")) {
+                return ModItems.getItem("minecraft", "gold_nugget", 0, number);
+            } else if (wood.equals("gold") && name.equals("block")) {
+                return ModItems.getItem("minecraft", "gold_block", 0, number);
+            } else if (wood.equals("thaumium") && name.equals("ingot")) {
+                return ModItems.getItem("Thaumcraft", "ItemResource", 2, number);
+            } else if (wood.equals("thaumium") && name.equals("nugget")) {
+                return ModItems.getItem("Thaumcraft", "ItemNugget", 6, number);
+            } else if (wood.equals("thaumium") && name.equals("block")) {
+                return ModItems.getItem("Thaumcraft", "blockCosmeticSolid", 4, number);
+            } else if (wood.equals("manasteel") && name.equals("ingot")) {
+                return ModItems.getItem("Botania", "manaResource", 0, number);
+            } else if (wood.equals("manasteel") && name.equals("nugget")) {
+                return ModItems.getItem("Botania", "manaResource", 17, number);
+            } else if (wood.equals("manasteel") && name.equals("block")) {
+                return ModItems.getItem("Botania", "storage", 0, number);
+            } else if (wood.equals("terrasteel") && name.equals("ingot")) {
+                return ModItems.getItem("Botania", "manaResource", 4, number);
+            } else if (wood.equals("terrasteel") && name.equals("nugget")) {
+                return ModItems.getItem("Botania", "manaResource", 18, number);
+            } else if (wood.equals("terrasteel") && name.equals("block")) {
+                return ModItems.getItem("Botania", "storage", 1, number);
+            } else if (wood.equals("steel") && name.equals("block")) {
+                return ModItems.getItem("ImmersiveEngineering", "storage", 1, number);
+            } else if (wood.equals("aluminum") && name.equals("block")) {
+                return ModItems.getItem("ImmersiveEngineering", "storage", 0, number);
+            } else if (wood.equals("osmium") && name.equals("block")) {
+                return ModItems.getItem("Mekanism", "BasicBlock", 0, number);
+            } else if (name.equals("raw_ore")) {
+                return ModItems
+                    .getItem(Utils.getItemFromArray(BaseOreBlocksName, BaseRawOreItems, wood) + ":" + number);
+            } else if (name.equals("raw_ore_block")) {
+                return ModItems
+                    .getItem(Utils.getItemFromArray(BaseOreBlocksName, BaseRawOreBlocks, wood) + ":" + number);
+            } else if (name.equals("block")) {
+                return ModItems.getItem("materialis", name, Utils.getItemFromArray(Constants.blockTypes, wood), 1);
+            } else {
+                return ModItems.getItem("materialis", name, Utils.getItemFromArray(Constants.metalTypes, wood), 1);
+            }
+        }
 
-        return new ItemStack(Registry.ingot, 1, 1);
+        return null;
     }
-
 }

@@ -63,6 +63,15 @@ public interface IScript {
         }
     }
 
+    default void addFurnaceSmelting(ItemStack output, ItemStack input, float xp) {
+        try {
+            RecipesHelper.addFurnaceSmelting(output, input, xp);
+        } catch (Exception e) {
+            Materialis.LOG.error("FurnaceSmelting went wrong:");
+            e.printStackTrace();
+        }
+    }
+
     default void addSlabRecipe(ItemStack aOutput, ItemStack input) {
         try {
             RecipesHelper.addSlabRecipe(aOutput, input);

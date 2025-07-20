@@ -1,7 +1,6 @@
 package net.pufferlab.materialis;
 
-import static net.minecraft.block.Block.soundTypeMetal;
-import static net.minecraft.block.Block.soundTypePiston;
+import static net.minecraft.block.Block.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -39,8 +38,10 @@ public class Registry {
     public static Block granite_stairs;
     public static Block limestone_stairs;
     public static Block marble_stairs;
+    public static Block arcane_planks;
     public static Block storage;
     public static Block ore;
+    public static Item cluster;
     public static Item ingot;
     public static Item nugget;
     public static Item dust;
@@ -122,6 +123,16 @@ public class Registry {
         limestone_stairs = new BlockStairsMaterial(Registry.cobblestone, 3, "limestone_cobblestone");
         marble_stairs = new BlockStairsMaterial(Registry.cobblestone, 4, "marble_cobblestone");
 
+        arcane_planks = new BlockMaterial(
+            Material.wood,
+            Constants.thaumcraftArcaneWoodTypes,
+            "arcane_planks",
+            Constants.none,
+            null,
+            null).setHardness(2.0F)
+                .setResistance(5.0F)
+                .setStepSound(soundTypeWood);
+
         ore = new BlockMaterial(
             Material.rock,
             Constants.oreTypes,
@@ -141,6 +152,7 @@ public class Registry {
                 .setResistance(10.0F)
                 .setStepSound(soundTypeMetal);
         gem = new ItemMaterial(Constants.gemTypes, "gem", Constants.none);
+        cluster = new ItemMaterial(Constants.moddedMetalTypes, "cluster", Constants.none);
         ingot = new ItemMaterial(Constants.metalTypes, "ingot", Constants.ingotBlacklist);
         nugget = new ItemMaterial(Constants.metalTypes, "nugget", Constants.nuggetBlacklist);
         dust = new ItemMaterial(Constants.metalTypes, "dust", Constants.miscBlacklist);
@@ -205,8 +217,9 @@ public class Registry {
         GameRegistry.registerItem(ingot, "ingot");
         GameRegistry.registerItem(nugget, "nugget");
         GameRegistry.registerItem(dust, "dust");
-        GameRegistry.registerItem(gear, "gear");
         GameRegistry.registerItem(plate, "plate");
+        GameRegistry.registerItem(gear, "gear");
+        GameRegistry.registerItem(cluster, "cluster");
         GameRegistry.registerItem(cast, "cast");
         GameRegistry.registerItem(misc, "item");
         GameRegistry.registerItem(bronze_helmet, "bronze_helmet");
@@ -238,6 +251,7 @@ public class Registry {
         GameRegistry.registerItem(sword_blade, "sword_blade");
         GameRegistry.registerItem(saw_blade, "saw_blade");
         GameRegistry.registerItem(chisel_head, "chisel_head");
+        GameRegistry.registerBlock(arcane_planks, ItemBlockMaterial.class, "arcane_planks");
         GameRegistry.registerBlock(cobblestone, ItemBlockMaterial.class, "cobblestone");
         GameRegistry.registerBlock(
             cobblestone_slab,

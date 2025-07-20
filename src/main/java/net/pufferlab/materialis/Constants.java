@@ -13,16 +13,19 @@ public class Constants {
     public static final String[] bopPlankTypes = new String[] { "sacredoak", "cherry", "dark", "fir", "ethereal",
         "magic", "mangrove", "palm", "redwood", "willow", "bamboo", "pine", "hellbark", "jacaranda", "mahogany" };
     public static final String[] thaumcraftWoodTypes = new String[] { "greatwood", "silverwood" };
+    public static final String[] thaumcraftArcaneWoodTypes = new String[] { "greatwood", "silverwood", "magic" };
 
     public static final String[] gemTypes = new String[] { "cinnabar", "slag", "rich_slag" };
 
+    public static final String[] moddedMetalTypes = new String[] { "iron", "gold", "copper", "tin", "silver", "lead",
+        "nickel", "platinum", "bauxite", "cinnabar", "osmium" };
     public static final String[] metalTypes = new String[] { "iron", "gold", "copper", "tin", "silver", "lead",
         "nickel", "bronze", "electrum", "invar", "constantan", "platinum", "steel", "aluminum", "osmium", "thaumium",
         "manasteel", "terrasteel" };
 
-    public static final String[] ingotBlacklist = new String[] { "iron", "gold", "osmium", "thaumium", "manasteel",
+    public static final String[] ingotBlacklist = new String[] { "iron", "gold", "thaumium", "manasteel",
         "terrasteel" };
-    public static final String[] nuggetBlacklist = new String[] { "iron", "gold", "osmium", "thaumium", "manasteel",
+    public static final String[] nuggetBlacklist = new String[] { "iron", "gold", "thaumium", "manasteel",
         "terrasteel" };
     public static final String[] miscBlacklist = new String[] { "pig_iron" };
 

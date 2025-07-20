@@ -80,11 +80,11 @@ public class Utils {
 
     public static Block getItemFromArray(String[] array, Block[] blockArray, String targetString) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i].equals(targetString)) {
+            if (targetString.equals(array[i])) {
                 return blockArray[i];
             }
         }
-        return blockArray[0];
+        return null;
     }
 
     public static String getItemFromArray(String[] names, Block[] array, int[] meta, Block targetBlock,
@@ -103,7 +103,7 @@ public class Utils {
                 return blockArray[i];
             }
         }
-        return blockArray[0];
+        return null;
     }
 
     public static String getItemFromArray(String[] array, String[] blockArray, String targetString) {
@@ -112,7 +112,16 @@ public class Utils {
                 return blockArray[i];
             }
         }
-        return blockArray[0];
+        return null;
+    }
+
+    public static String[] getItemFromArray(String[] array, String[][] blockArray, String targetString) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(targetString)) {
+                return blockArray[i];
+            }
+        }
+        return null;
     }
 
     public static int getItemFromArray(int[] ids, String[] woodType, String wood) {
@@ -148,6 +157,14 @@ public class Utils {
         suffix = String.join("", suffixArray);
 
         return prefix + suffix;
+    }
+
+    public static String getCapitalized(String string) {
+        String[] stringArray = string.split("");
+        stringArray[0] = stringArray[0].toUpperCase();
+        string = String.join("", stringArray);
+
+        return string;
     }
 
     public static boolean containsOreDict(Block block, String oreDict) {
