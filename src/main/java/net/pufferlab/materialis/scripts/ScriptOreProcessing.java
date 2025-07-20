@@ -3,11 +3,11 @@ package net.pufferlab.materialis.scripts;
 import static net.pufferlab.materialis.scripts.ItemList.*;
 
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.pufferlab.materialis.Constants;
-import net.pufferlab.materialis.recipes.IEHelper;
-import net.pufferlab.materialis.recipes.MekanismHelper;
-import net.pufferlab.materialis.recipes.ModItems;
-import net.pufferlab.materialis.recipes.TCHelper;
+import net.pufferlab.materialis.recipes.*;
 
 public class ScriptOreProcessing implements IScript {
 
@@ -28,6 +28,7 @@ public class ScriptOreProcessing implements IScript {
         ItemStack dust = ModItems.getModItem("metal", "dust", metal, 1);
         ItemStack plate = ModItems.getModItem("metal", "plate", metal, 1);
         ItemStack gear = ModItems.getModItem("metal", "gear", metal, 1);
+        Fluid fluid = FluidRegistry.getFluid(metal + ".molten");
 
         if (ore != null) {
             addFurnaceSmelting(ModItems.getModItem("metal", "ingot", metal, 1), ore, 0);
@@ -38,6 +39,11 @@ public class ScriptOreProcessing implements IScript {
         if (plate != null) {
             IEHelper.addPressRecipe(ModItems.getModItem("metal", "plate", metal, 1), ingot, plateMold, 500);
         }
+        if (fluid != null && block != null) {
+            TinkerHelper.addMeltingRecipe(new FluidStack(fluid, 144), ingot, 500, block);
+            TinkerHelper.addTableCastingRecipe(ingot, new FluidStack(fluid, 144), false, 10);
+        }
+
         if (gear != null) {
             IEHelper.addPressRecipe(
                 ModItems.getModItem("metal", "gear", metal, 1),

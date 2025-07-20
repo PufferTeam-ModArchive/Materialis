@@ -120,6 +120,9 @@ public class ScriptRemove implements IScript {
             TCHelper.removeCrucibleRecipe(s);
         }
 
+        TinkerHelper.removeAllMeltingRecipes();
+        TinkerHelper.removeAllCastingRecipes();
+
         IEHelper.removeAllPressRecipes();
 
         MekanismHelper.removeAllCrusherRecipes();
