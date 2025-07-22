@@ -64,6 +64,12 @@ public class ModItems {
     public static final String[] BaseOreBlocksName = new String[] { "iron", "gold", "copper", "tin", "silver", "lead",
         "nickel", "platinum", "bauxite", "cinnabar", "osmium" };
 
+    public static final String[] StoneBlocksName = new String[] { "andesite", "diorite", "granite", "limestone",
+        "marble" };
+    public static final String[] CobblestoneBlocks = new String[] { "materialis:cobblestone:0",
+        "materialis:cobblestone:1", "materialis:cobblestone:2", "materialis:cobblestone:3",
+        "materialis:cobblestone:4" };
+
     public static final Block[] BaseOreBlocks = new Block[] { Blocks.iron_ore, Blocks.gold_ore, Registry.ore,
         Registry.ore, Registry.ore, Registry.ore, Registry.ore, Registry.ore, Registry.ore, ConfigBlocks.blockCustomOre,
         MekanismBlocks.OreBlock };
@@ -419,7 +425,6 @@ public class ModItems {
                 return ModItems.getItem("materialis", name, Utils.getItemFromArray(Constants.metalTypes, wood), number);
             }
         }
-
         return null;
     }
 }

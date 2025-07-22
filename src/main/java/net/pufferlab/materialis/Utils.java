@@ -177,6 +177,30 @@ public class Utils {
         return false;
     }
 
+    public static boolean containsOreDict(Block block, String[] oreDict) {
+        ItemStack b = new ItemStack(Item.getItemFromBlock(block));
+        for (int id1 : OreDictionary.getOreIDs(b)) {
+            for (String id2 : oreDict) {
+                if (id1 == OreDictionary.getOreID(id2)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static String getOreDictInList(Block block, String[] oreDict) {
+        ItemStack b = new ItemStack(Item.getItemFromBlock(block));
+        for (int id1 : OreDictionary.getOreIDs(b)) {
+            for (int i = 0; i < oreDict.length; i++) {
+                if (id1 == OreDictionary.getOreID(oreDict[i])) {
+                    return oreDict[i];
+                }
+            }
+        }
+        return null;
+    }
+
     public static boolean containsOreDict(ItemStack b, String oreDict) {
         for (int id1 : OreDictionary.getOreIDs(b)) {
             if (id1 == OreDictionary.getOreID(oreDict)) {

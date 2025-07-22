@@ -7,11 +7,13 @@ public class ScriptRegistry {
     public static ScriptResearch research = new ScriptResearch();
     public static ScriptOreProcessing oreProcessing = new ScriptOreProcessing();
     public static ScriptAspects aspects = new ScriptAspects();
+    public static ScriptMisc misc = new ScriptMisc();
 
     public void init() {
         oreDict.run();
         aspects.run();
 
+        misc.run();
         wood.run();
         research.run();
         oreProcessing.run();

@@ -65,7 +65,7 @@ public class ScriptNEIConfig implements IConfigureNEI {
         "ThaumicTinkerer:gaseousShadow:*", "ThaumicTinkerer:nitorGas:*", "ThaumicTinkerer:forcefield:*",
         "ThaumicTinkerer:darkQuartzSlabFull:*", "ForbiddenMagic:ArcaneCake:*", "ImmersiveEngineering:hemp:*",
         "ImmersiveEngineering:fakeLight:*", "ImmersiveEngineering:fakeIcon:*",
-        "ImmersiveEngineering:woodenDecoration:4", };
+        "ImmersiveEngineering:woodenDecoration:4", "RealisticTorches:MovingLightSource" };
 
     public static final String[] itemsToShow = new String[] { "BiomesOPlenty:woodenSingleSlab2:0",
         "BiomesOPlenty:woodenSingleSlab2:1", "BiomesOPlenty:woodenSingleSlab2:2", "BiomesOPlenty:woodenSingleSlab2:3",

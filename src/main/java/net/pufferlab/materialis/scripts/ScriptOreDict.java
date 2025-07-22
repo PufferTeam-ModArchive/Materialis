@@ -6,8 +6,6 @@ import net.pufferlab.materialis.Constants;
 import net.pufferlab.materialis.Utils;
 import net.pufferlab.materialis.recipes.ModItems;
 
-import ganymedes01.etfuturum.ModBlocks;
-
 public class ScriptOreDict implements IScript {
 
     public static final String[] axes = new String[] { "minecraft:iron_axe", "minecraft:diamond_axe",
@@ -26,8 +24,9 @@ public class ScriptOreDict implements IScript {
             addOreDict(ModItems.getItem(s + ":*:1"), "toolSaw");
         }
 
-        ModBlocks.DEEPSLATE_COPPER_ORE.get()
-            .setHarvestLevel("pickaxe", 0);
+        for (String s : ModItems.StoneBlocksName) {
+            addOreDict(ModItems.getItem("chisel:" + s + ":0:1"), s);
+        }
 
         removeOreDict(ModItems.getItem("BiomesOPlenty:plants:8"), "stickWood");
         removeOreDict(ModItems.getItem("BiomesOPlenty:bamboo:0"), "stickWood");
