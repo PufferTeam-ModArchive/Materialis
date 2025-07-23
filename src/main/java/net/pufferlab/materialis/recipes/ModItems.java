@@ -64,6 +64,51 @@ public class ModItems {
     public static final String[] BaseOreBlocksName = new String[] { "iron", "gold", "copper", "tin", "silver", "lead",
         "nickel", "platinum", "bauxite", "cinnabar", "osmium" };
 
+    public static final String[] CuttingBlocksFull = new String[] { "etfuturum:smooth_stone:0", "minecraft:sandstone:0",
+        "minecraft:cobblestone:0", "minecraft:mossy_cobblestone:0", "minecraft:brick_block:0", "minecraft:stonebrick:0",
+        "minecraft:nether_brick:0", "minecraft:quartz_block:0", "netherlicious:QuartzBricks:1",
+        "netherlicious:QuartzBricks:0", "netherlicious:Blackstone:0", "netherlicious:Blackstone:1",
+        "netherlicious:Blackstone:3", "netherlicious:Netherbricks:2", "netherlicious:Netherbricks:5",
+        "netherlicious:Netherbricks:8", "netherlicious:NewNetherbrick2:0", "netherlicious:NewNetherbrick1:3",
+        "netherlicious:NewNetherbrick1:8", "netherlicious:NewNetherbrick1:13", "netherlicious:NewNetherbrick2:3",
+        "netherlicious:NewNetherbrick2:11"
+
+    };
+
+    public static final String[] CuttingBlocksSlab = new String[] { "minecraft:stone_slab:0", "minecraft:stone_slab:1",
+        "minecraft:stone_slab:3", "etfuturum:stone_slab:1", "minecraft:stone_slab:4", "minecraft:stone_slab:5",
+        "minecraft:stone_slab:6", "minecraft:stone_slab:7", "netherlicious:QuartzSingleSlab:1",
+        "netherlicious:QuartzSingleSlab:0", "netherlicious:BlackstoneSingleSlab:0",
+        "netherlicious:BlackstoneSingleSlab:1", "netherlicious:BlackstoneSingleSlab:2",
+        "netherlicious:BrickSingleSlab:0", "netherlicious:BrickSingleSlab:1", "netherlicious:BrickSingleSlab:2",
+        "netherlicious:BrickSingleSlab:3", "netherlicious:BrickSingleSlab2:0", "netherlicious:BrickSingleSlab2:1",
+        "netherlicious:BrickSingleSlab2:2", "netherlicious:BrickSingleSlab2:3", "netherlicious:BrickSingleSlab2:4"
+
+    };
+
+    public static final String[] CuttingBlocksStairs = new String[] { null, "minecraft:sandstone_stairs:0",
+        "minecraft:stone_stairs:0", "etfuturum:mossy_cobblestone_stairs:0", "minecraft:brick_stairs:0",
+        "minecraft:stone_brick_stairs:0", "minecraft:nether_brick_stairs:0", "minecraft:quartz_stairs:0",
+        "netherlicious:QuartzSmoothStairs:0", "netherlicious:QuartzBrickStairs:0", "netherlicious:BlackstoneStairs:0",
+        "netherlicious:PolishedBlackstoneStairs:0", "netherlicious:BlackstoneBrickStairs:0",
+        "netherlicious:RedWartbrickStairs:0", "netherlicious:WarpedWartbrickStairs:0",
+        "netherlicious:FoxfireWartbrickStairs:0", "netherlicious:BlackNetherbrickStairs:0",
+        "netherlicious:SmoothNetherbrickStairs:0", "netherlicious:SmoothRedNetherbrickStairs:0",
+        "netherlicious:SmoothWarpedNetherbrickStairs:0", "netherlicious:SmoothFoxfireNetherbrickStairs:0",
+        "netherlicious:SmoothBlackNetherbrickStairs:0"
+
+    };
+
+    public static final String[] CuttingBlocksWall = new String[] { null, "etfuturum:stone_wall:2",
+        "minecraft:cobblestone_wall:0", "minecraft:cobblestone_wall:1", "etfuturum:stone_wall:3",
+        "etfuturum:stone_wall:0", "netherlicious:NetherbrickWall:0", null, "netherlicious:QuartzWall:2",
+        "netherlicious:QuartzWall:1", "netherlicious:Wall:0", "netherlicious:Wall:1", "netherlicious:Wall:2",
+        "netherlicious:NetherbrickWall:1", "netherlicious:NetherbrickWall:2", "netherlicious:NetherbrickWall:3",
+        "netherlicious:NetherbrickWall:12", "netherlicious:NetherbrickWall:5", "netherlicious:NetherbrickWall:7",
+        "netherlicious:NetherbrickWall:9", "netherlicious:NetherbrickWall:11", "netherlicious:NetherbrickWall:14"
+
+    };
+
     public static final String[] StoneBlocksName = new String[] { "andesite", "diorite", "granite", "limestone",
         "marble" };
     public static final String[] CobblestoneBlocks = new String[] { "materialis:cobblestone:0",

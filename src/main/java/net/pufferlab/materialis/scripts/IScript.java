@@ -89,4 +89,14 @@ public interface IScript {
             e.printStackTrace();
         }
     }
+
+    default void addWallRecipe(ItemStack aOutput, ItemStack input) {
+        try {
+            RecipesHelper.addWallRecipe(aOutput, input);
+        } catch (Exception e) {
+            Materialis.LOG.error("ShapedRecipe for Wall went wrong:");
+            e.printStackTrace();
+        }
+    }
+
 }

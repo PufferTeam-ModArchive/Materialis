@@ -66,4 +66,8 @@ public class RecipesHelper {
     public static void addStairsRecipe(ItemStack stairs, ItemStack block) {
         addShapedRecipe(stairs, "P  ", "PP ", "PPP", 'P', block);
     }
+
+    public static void addWallRecipe(ItemStack wall, ItemStack block) {
+        addShapedRecipe(wall, "PPP", "PPP", 'P', block);
+    }
 }

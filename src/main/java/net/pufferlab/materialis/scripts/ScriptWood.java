@@ -303,9 +303,18 @@ public class ScriptWood implements IScript {
 
         addShapedRecipe(ModItems.getModItem("base", "slab", wood, 1), "LL", 'L', lumber);
 
+        addShapedRecipe(planks, "L", "L", 'L', ModItems.getModItem("base", "slab", wood, 1));
+
         addStairsRecipe(ModItems.getModItem("base", "stairs", wood, 8), planks);
 
         addShapedRecipe(ModItems.getModItem("base", "stairs", wood, 1), "L ", "LL", 'L', lumber);
+
+        addShapedRecipe(
+            ModItems.getModItem("base", "planks", wood, 3),
+            "LL",
+            "LL",
+            'L',
+            ModItems.getModItem("base", "stairs", wood, 1));
 
         addShapedRecipe(ModItems.getModItem("base", "fence", wood, 4), "BLB", "BLB", 'L', lumber, 'B', planks);
 

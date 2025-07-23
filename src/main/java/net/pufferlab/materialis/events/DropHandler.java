@@ -26,14 +26,20 @@ public class DropHandler {
                 oreName = Utils
                     .getItemFromArray(BaseOreBlocksName, BaseDeepslateOreBlocks, BaseDeepslateBlocks_IDs, block, meta);
             }
-            event.drops.clear();
-            event.drops.add(ModItems.getItem(Utils.getItemFromArray(BaseOreBlocksName, BaseRawOreItems, oreName)));
+            if (oreName != null) {
+                event.drops.clear();
+                event.drops.add(ModItems.getItem(Utils.getItemFromArray(BaseOreBlocksName, BaseRawOreItems, oreName)));
+            }
+
         }
         if (block instanceof BlockCarvable) {
             if (Utils.containsOreDict(block, StoneBlocksName)) {
                 String oreDict = Utils.getOreDictInList(block, StoneBlocksName);
-                event.drops.clear();
-                event.drops.add(ModItems.getItem(Utils.getItemFromArray(StoneBlocksName, CobblestoneBlocks, oreDict)));
+                if (oreDict != null) {
+                    event.drops.clear();
+                    event.drops
+                        .add(ModItems.getItem(Utils.getItemFromArray(StoneBlocksName, CobblestoneBlocks, oreDict)));
+                }
             }
         }
         if (block instanceof BlockTorchLit) {
