@@ -1,22 +1,11 @@
 package net.pufferlab.materialis.scripts;
 
-import java.util.ArrayList;
-
 import net.minecraft.item.ItemStack;
 import net.pufferlab.materialis.Materialis;
 import net.pufferlab.materialis.recipes.OreDictHelper;
 import net.pufferlab.materialis.recipes.RecipesHelper;
 
 public interface IScript {
-
-    default void removeRecipe(ArrayList<ItemStack> toRemove) {
-        try {
-            RecipesHelper.removeRecipe(toRemove);
-        } catch (Exception e) {
-            Materialis.LOG.error("RemoveRecipe went wrong:");
-            e.printStackTrace();
-        }
-    }
 
     default void removeOreDict(ItemStack toRemove, String oreDict) {
         try {

@@ -14,6 +14,7 @@ public class Constants {
         "magic", "mangrove", "palm", "redwood", "willow", "bamboo", "pine", "hellbark", "jacaranda", "mahogany" };
     public static final String[] thaumcraftWoodTypes = new String[] { "greatwood", "silverwood" };
     public static final String[] thaumcraftArcaneWoodTypes = new String[] { "greatwood", "silverwood", "magic" };
+    public static final String[] witcheryWoodTypes = new String[] { "rowan", "alder", "hawthorn" };
 
     public static final String[] gemTypes = new String[] { "cinnabar", "slag", "rich_slag" };
 

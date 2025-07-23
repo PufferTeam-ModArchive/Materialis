@@ -1,7 +1,5 @@
 package net.pufferlab.materialis;
 
-import java.util.ArrayList;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,23 +19,6 @@ public class Utils {
     public static boolean containsExactMatch(Block[] array, Block block) {
         for (Block element : array) {
             if (element == block) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean containsStack(ItemStack wild, ArrayList<ItemStack> checkList) {
-        for (int i = 0; i < checkList.size(); i++) {
-            ItemStack check = checkList.get(i);
-
-            if (wild == null || check == null) {
-                return check == wild;
-            }
-
-            if (wild.getItem() == check.getItem() && (wild.getItemDamage() == OreDictionary.WILDCARD_VALUE
-                || check.getItemDamage() == OreDictionary.WILDCARD_VALUE
-                || wild.getItemDamage() == check.getItemDamage())) {
                 return true;
             }
         }

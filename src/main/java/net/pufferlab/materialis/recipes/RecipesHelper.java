@@ -1,8 +1,6 @@
 package net.pufferlab.materialis.recipes;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -17,7 +15,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class RecipesHelper {
 
     public static void removeRecipe(ArrayList<ItemStack> toRemove) {
-        final ArrayList<IRecipe> recipes = (ArrayList<IRecipe>) CraftingManager.getInstance()
+        ArrayList<IRecipe> recipes = (ArrayList<IRecipe>) CraftingManager.getInstance()
             .getRecipeList();
         recipes.removeIf(r -> {
             ItemStack rCopy = r.getRecipeOutput();
@@ -27,11 +25,30 @@ public class RecipesHelper {
             if (rCopy.getItem() == null) {
                 return true;
             }
-            if (Utils.containsStack(rCopy, toRemove)) {
-                return true;
+            if (rCopy.stackTagCompound != null) {
+                rCopy = rCopy.copy();
+                rCopy.stackTagCompound = null;
+            }
+            for (ItemStack i : toRemove) {
+                if (Utils.containsStack(rCopy, i)) {
+                    return true;
+                }
             }
             return false;
         });
+    }
+
+    @Deprecated
+    public static void removeRecipe(ItemStack toRemove) {
+        ArrayList<IRecipe> recipes = (ArrayList<IRecipe>) CraftingManager.getInstance()
+            .getRecipeList();
+        for (int scan = 0; scan < recipes.size(); scan++) {
+            ItemStack rCopy = recipes.get(scan)
+                .getRecipeOutput();
+            if (Utils.containsStack(rCopy, toRemove)) {
+                recipes.remove(scan);
+            }
+        } ;
     }
 
     public static void addShapedRecipe(ItemStack output, Object... recipe) {
@@ -42,6 +59,22 @@ public class RecipesHelper {
         GameRegistry.addRecipe(new ShapelessOreRecipe(output, recipe));
     }
 
+    public static void removeFurnaceSmelting(ArrayList<ItemStack> toRemove) {
+        Map<ItemStack, ItemStack> recipes = FurnaceRecipes.smelting()
+            .getSmeltingList();
+        recipes.entrySet()
+            .removeIf(r -> {
+                ItemStack rCopy = r.getValue();
+                for (ItemStack i : toRemove) {
+                    if (Utils.containsStack(rCopy, i)) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+    }
+
+    @Deprecated
     public static void removeFurnaceSmelting(ItemStack resultItem) {
         Map<ItemStack, ItemStack> recipes = FurnaceRecipes.smelting()
             .getSmeltingList();

@@ -48,6 +48,10 @@ public class ScriptOreDict implements IScript {
             tagWood(s);
         }
 
+        for (String s : Constants.witcheryWoodTypes) {
+            tagWood(s);
+        }
+
         for (String s : ScriptRemove.metalItemsToRemoveAndHide) {
             removeAllOreDict(ModItems.getItem(s));
         }

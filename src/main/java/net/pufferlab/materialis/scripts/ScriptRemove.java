@@ -44,9 +44,13 @@ public class ScriptRemove implements IScript {
         "Botania:stone2Stairs:0:*", "Botania:stone2Slab:0:*", "Botania:stone3Stairs:0:*", "Botania:stone3Slab:0:*",
         "Botania:stone8Stairs:0:*", "Botania:stone8Slab:0:*", "Botania:stone9Stairs:0:*", "Botania:stone9Slab:0:*",
         "Botania:stone10Stairs:0:*", "Botania:stone10Slab:0:*", "Botania:stone11Stairs:0:*", "Botania:stone11Slab:0:*",
-        "ForbiddenMagic:FMResource:2:*", "ForbiddenMagic:FMResource:4:*", "etfuturum:copper_ore:0:*",
-        "etfuturum:copper_ingot:0:*", "netherlicious:NetherbrickWall:4", "netherlicious:NetherbrickWall:6",
-        "netherlicious:NetherbrickWall:8", "netherlicious:NetherbrickWall:10", "netherlicious:NetherbrickWall:13" };
+        "Botania:endStoneBrick:0:*", "Botania:endStoneBrick:1:*", "Botania:endStoneBrick:2:*",
+        "Botania:endStoneBrick:3:*", "Botania:endStoneBrick0Stairs:*:*", "endStoneBrick2Stairs:*:*",
+        "Botania:endStoneBrick0Slab:*:*", "endStoneBrick2Slab:*:*", "ForbiddenMagic:FMResource:2:*",
+        "ForbiddenMagic:FMResource:4:*", "etfuturum:copper_ore:0:*", "etfuturum:copper_ingot:0:*",
+        "netherlicious:NetherbrickWall:4:*", "netherlicious:NetherbrickWall:6:*", "netherlicious:NetherbrickWall:8:*",
+        "netherlicious:NetherbrickWall:10:*", "netherlicious:NetherbrickWall:13:*", "witchery:ingredient:52:*",
+        "witchery:ingredient:53:*", "witchery:ingredient:54:*", "witchery:ingredient:152:*" };
 
     public static final String[] metalItemsToRemoveAndHide = new String[] { "netherlicious:Nugget:0:*",
         "etfuturum:nugget_iron:0:*", "Mekanism:Dust:0:*", "Mekanism:Dust:1:*", "Mekanism:Dust:2:*", "Mekanism:Dust:3:*",
@@ -128,21 +132,14 @@ public class ScriptRemove implements IScript {
             removeModernWoodRecipes(s);
         }
 
-        for (ItemStack s : removeSmelting) {
-            RecipesHelper.removeFurnaceSmelting(s);
+        for (String s : Constants.witcheryWoodTypes) {
+            removeModernWoodRecipes(s);
         }
-
-        // Remove at the end
-        removeRecipe(remove);
     }
 
     public void postInit() {
-        // Remove at the end
-        removeRecipe(remove);
-
-        for (ItemStack s : removeSmelting) {
-            RecipesHelper.removeFurnaceSmelting(s);
-        }
+        RecipesHelper.removeRecipe(remove);
+        RecipesHelper.removeFurnaceSmelting(removeSmelting);
 
         for (ItemStack s : removeArcane) {
             TCHelper.removeArcaneRecipe(s);

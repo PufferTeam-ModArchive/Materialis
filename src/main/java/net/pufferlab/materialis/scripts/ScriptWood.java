@@ -23,6 +23,10 @@ public class ScriptWood implements IScript {
         for (String s : Constants.thaumcraftWoodTypes) {
             addModernWoodRecipes(s);
         }
+
+        for (String s : Constants.witcheryWoodTypes) {
+            addModernWoodRecipes(s);
+        }
     }
 
     public void addBibliocraftWoodRecipes(String wood) {
@@ -323,5 +327,21 @@ public class ScriptWood implements IScript {
         addShapedRecipe(ModItems.getModItem("base", "door", wood, 1), "LL", "LL", "LL", 'L', lumber);
 
         addShapedRecipe(ModItems.getModItem("base", "trapdoor", wood, 2), "LLL", "LLL", 'L', lumber);
+
+        addShapedRecipe(
+            ModItems.getModItem("base", "boat", wood, 1),
+            "L L",
+            "LLL",
+            'L',
+            ModItems.getModItem("base", "planks", wood, 1));
+
+        addShapedRecipe(
+            ModItems.getModItem("base", "chest_boat", wood, 1),
+            "C",
+            "L",
+            'L',
+            ModItems.getModItem("base", "boat", wood, 1),
+            'C',
+            chest);
     }
 }
