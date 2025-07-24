@@ -69,7 +69,11 @@ public class ScriptNEIConfig implements IConfigureNEI {
         "ThaumicTinkerer:forcefield:*", "ThaumicTinkerer:darkQuartzSlabFull:*", "ForbiddenMagic:ArcaneCake:*",
         "ImmersiveEngineering:hemp:*", "ImmersiveEngineering:fakeLight:*", "ImmersiveEngineering:fakeIcon:*",
         "ImmersiveEngineering:woodenDecoration:4", "RealisticTorches:MovingLightSource:*",
-        "witchery:witchwooddoubleslab:*" };
+        "witchery:witchwooddoubleslab:*", "HardcoreEnderExpansion:corrupted_energy_high:*",
+        "HardcoreEnderExpansion:corrupted_energy_low:*", "HardcoreEnderExpansion:enderman_head_block:*",
+        "HardcoreEnderExpansion:enhanced_brewing_stand_block:*", "HardcoreEnderExpansion:laser_beam:*",
+        "HardcoreEnderExpansion:obsidian_end:*", "HardcoreEnderExpansion:death_flower_pot:*",
+        "HardcoreEnderExpansion:item_special_effects:*" };
 
     public static final String[] itemsToShow = new String[] { "BiomesOPlenty:woodenSingleSlab2:0",
         "BiomesOPlenty:woodenSingleSlab2:1", "BiomesOPlenty:woodenSingleSlab2:2", "BiomesOPlenty:woodenSingleSlab2:3",

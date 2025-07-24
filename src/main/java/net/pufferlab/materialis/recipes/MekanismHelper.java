@@ -23,4 +23,17 @@ public class MekanismHelper {
         RecipeHandler.Recipe.CRUSHER.get()
             .clear();
     }
+
+    public static void addSawmillRecipe(ItemStack output, ItemStack input) {
+        RecipeHandler.addPrecisionSawmillRecipe(input, output);
+    }
+
+    public static void addSawmillRecipe(ItemStack output, ItemStack secondaryOutput, int chance, ItemStack input) {
+        RecipeHandler.addPrecisionSawmillRecipe(input, output, secondaryOutput, chance);
+    }
+
+    public static void removeAllSawmillRecipes() {
+        RecipeHandler.Recipe.PRECISION_SAWMILL.get()
+            .clear();
+    }
 }

@@ -76,7 +76,10 @@ public class ModItems {
         "netherlicious:Blackstone:3", "netherlicious:Netherbricks:2", "netherlicious:Netherbricks:5",
         "netherlicious:Netherbricks:8", "netherlicious:NewNetherbrick2:0", "netherlicious:NewNetherbrick1:3",
         "netherlicious:NewNetherbrick1:8", "netherlicious:NewNetherbrick1:13", "netherlicious:NewNetherbrick2:3",
-        "netherlicious:NewNetherbrick2:11"
+        "netherlicious:NewNetherbrick2:11", "netherlicious:SoulSandstone:0", "netherlicious:SoulSandstone:3",
+        "netherlicious:Basalt:0", "netherlicious:Basalt:1", "netherlicious:BasaltBricks:0",
+        "netherlicious:BasaltBricks:3", "netherlicious:BasaltBricks:6", "netherlicious:BasaltBricks:7",
+        "netherlicious:QuartzBricks:2", "netherlicious:QuartzBricks:4", "netherlicious:QuartzBricks:5"
 
     };
 
@@ -87,7 +90,11 @@ public class ModItems {
         "netherlicious:BlackstoneSingleSlab:1", "netherlicious:BlackstoneSingleSlab:2",
         "netherlicious:BrickSingleSlab:0", "netherlicious:BrickSingleSlab:1", "netherlicious:BrickSingleSlab:2",
         "netherlicious:BrickSingleSlab:3", "netherlicious:BrickSingleSlab2:0", "netherlicious:BrickSingleSlab2:1",
-        "netherlicious:BrickSingleSlab2:2", "netherlicious:BrickSingleSlab2:3", "netherlicious:BrickSingleSlab2:4"
+        "netherlicious:BrickSingleSlab2:2", "netherlicious:BrickSingleSlab2:3", "netherlicious:BrickSingleSlab2:4",
+        "netherlicious:SoulSandstoneSingleSlab:0", "netherlicious:SoulSandstoneSingleSlab:1",
+        "netherlicious:BasaltSingleSlab:0", "netherlicious:BasaltSingleSlab:1", "netherlicious:BasaltSingleSlab:2",
+        "netherlicious:BasaltSingleSlab:3", "netherlicious:BasaltSingleSlab:4", "netherlicious:BasaltSingleSlab:5",
+        "netherlicious:QuartzSingleSlab:2", "netherlicious:QuartzSingleSlab:3", "netherlicious:QuartzSingleSlab:4"
 
     };
 
@@ -100,7 +107,12 @@ public class ModItems {
         "netherlicious:FoxfireWartbrickStairs:0", "netherlicious:BlackNetherbrickStairs:0",
         "netherlicious:SmoothNetherbrickStairs:0", "netherlicious:SmoothRedNetherbrickStairs:0",
         "netherlicious:SmoothWarpedNetherbrickStairs:0", "netherlicious:SmoothFoxfireNetherbrickStairs:0",
-        "netherlicious:SmoothBlackNetherbrickStairs:0"
+        "netherlicious:SmoothBlackNetherbrickStairs:0", "netherlicious:SoulSandstoneStairs:0",
+        "netherlicious:SmoothSoulSandstoneStairs:0", "netherlicious:BasaltStairs:0",
+        "netherlicious:PolishedBasaltStairs:0", "netherlicious:BasaltBrickStairs:0",
+        "netherlicious:PolishedBasaltBrickStairs:0", "netherlicious:SmoothBasaltStairs:0",
+        "netherlicious:PolishedSmoothBasaltStairs:0", "netherlicious:QuartzVoidStairs:0",
+        "netherlicious:QuartzVoidBrickStairs:0", "netherlicious:QuartzVoidSmoothStairs:0"
 
     };
 
@@ -110,7 +122,11 @@ public class ModItems {
         "netherlicious:QuartzWall:1", "netherlicious:Wall:0", "netherlicious:Wall:1", "netherlicious:Wall:2",
         "netherlicious:NetherbrickWall:1", "netherlicious:NetherbrickWall:2", "netherlicious:NetherbrickWall:3",
         "netherlicious:NetherbrickWall:12", "netherlicious:NetherbrickWall:5", "netherlicious:NetherbrickWall:7",
-        "netherlicious:NetherbrickWall:9", "netherlicious:NetherbrickWall:11", "netherlicious:NetherbrickWall:14"
+        "netherlicious:NetherbrickWall:9", "netherlicious:NetherbrickWall:11", "netherlicious:NetherbrickWall:14",
+        "netherlicious:SoulSandstoneWall:0", "netherlicious:SoulSandstoneWall:1", "netherlicious:BasaltWall:0",
+        "netherlicious:BasaltWall:1", "netherlicious:BasaltWall:2", "netherlicious:BasaltWall:3",
+        "netherlicious:BasaltWall:4", "netherlicious:BasaltWall:5", null, "netherlicious:QuartzWall:4",
+        "netherlicious:QuartzWall:5"
 
     };
 
@@ -152,6 +168,10 @@ public class ModItems {
     public static final String[] BaseMetalOreItems = new String[] { "raw_ore", "raw_ore_block", "cluster" };
 
     public static final String[] BaseWoodLogs = new String[] { "log", "log_stripped", "wood", "wood_stripped" };
+
+    public static final String[] MetalToolsParts = new String[] { "helmet", "chestplate", "leggings", "boots",
+        "pickaxe", "sword", "shovel", "axe", "hoe" };
+    public static final String[] MetalToolsPartsModded = new String[] { "saw", "chisel" };
 
     public static final int[] bopWoodTypes_Biblio_IDs = new int[] { 0, 1, 2, 3, 5, 7, 8, 9, 11, 12, 10, 4, 6, 13 };
     public static final int[] bopWoodTypes_Drawer_IDs = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14 };
@@ -542,6 +562,48 @@ public class ModItems {
             } else {
                 return ModItems.getItem("materialis", name, Utils.getItemFromArray(Constants.metalTypes, wood), number);
             }
+        }
+        if (mod.equals("tool")) {
+            if (Utils.containsExactMatch(ModItems.MetalToolsParts, name)) {
+                if (wood.equals("bronze") || wood.equals("steel")) {
+                    return ModItems.getItem("materialis:" + wood + "_" + name);
+                } else if (wood.equals("iron") || wood.equals("diamond")) {
+                    return ModItems.getItem("minecraft:" + wood + "_" + name);
+                } else if (wood.equals("gold")) {
+                    return ModItems.getItem("minecraft:golden_" + name);
+                } else if (wood.equals("thaumium") && name.equals("pickaxe")) {
+                    return ModItems.getItem("Thaumcraft:ItemPick" + Utils.getCapitalized(wood));
+                } else if (wood.equals("thaumium")) {
+                    return ModItems
+                        .getItem("Thaumcraft:Item" + Utils.getCapitalized(name) + Utils.getCapitalized(wood));
+                } else if (wood.equals("manasteel") && name.equals("pickaxe")) {
+                    return ModItems.getItem("Botania:manasteelPick");
+                } else if (wood.equals("manasteel") && name.equals("helmet")) {
+                    return ModItems.getItem("Botania:manasteelHelm");
+                } else if (wood.equals("manasteel") && name.equals("chestplate")) {
+                    return ModItems.getItem("Botania:manasteelChest");
+                } else if (wood.equals("manasteel") && name.equals("leggings")) {
+                    return ModItems.getItem("Botania:manasteelLegs");
+                } else if (wood.equals("manasteel") && name.equals("boots")) {
+                    return ModItems.getItem("Botania:manasteelBoots");
+                } else if (wood.equals("manasteel")) {
+                    return ModItems.getItem("Botania:" + wood + Utils.getCapitalized(name));
+                }
+            }
+            if (name.equals("saw")) {
+                return ModItems.getItem("ForgeMicroblock", "saw" + Utils.getCapitalized(wood), 0, 1);
+            }
+            if (name.equals("chisel")) {
+                if (wood.equals("iron")) {
+                    return ModItems.getItem("chisel:chisel");
+                } else {
+                    return ModItems.getItem("chisel", wood + "Chisel", 0, 1);
+                }
+            }
+            if (Utils.containsExactMatch(Constants.headTypes, name)) {
+                return ModItems.getItem("materialis", name, Utils.getItemFromArray(Constants.toolTypes, wood), number);
+            }
+
         }
         return null;
     }

@@ -50,7 +50,8 @@ public class ScriptRemove implements IScript {
         "ForbiddenMagic:FMResource:4:*", "etfuturum:copper_ore:0:*", "etfuturum:copper_ingot:0:*",
         "netherlicious:NetherbrickWall:4:*", "netherlicious:NetherbrickWall:6:*", "netherlicious:NetherbrickWall:8:*",
         "netherlicious:NetherbrickWall:10:*", "netherlicious:NetherbrickWall:13:*", "witchery:ingredient:52:*",
-        "witchery:ingredient:53:*", "witchery:ingredient:54:*", "witchery:ingredient:152:*" };
+        "witchery:ingredient:53:*", "witchery:ingredient:54:*", "witchery:ingredient:152:*",
+        "GardenStuff:iron_nugget:0:*", "jaff:iron_nugget:0:*" };
 
     public static final String[] metalItemsToRemoveAndHide = new String[] { "netherlicious:Nugget:0:*",
         "etfuturum:nugget_iron:0:*", "Mekanism:Dust:0:*", "Mekanism:Dust:1:*", "Mekanism:Dust:2:*", "Mekanism:Dust:3:*",
@@ -135,6 +136,11 @@ public class ScriptRemove implements IScript {
         for (String s : Constants.witcheryWoodTypes) {
             removeModernWoodRecipes(s);
         }
+
+        for (String s : Constants.toolTypes) {
+            removeToolRecipes(s);
+        }
+        removeToolRecipes("diamond");
     }
 
     public void postInit() {
@@ -150,9 +156,11 @@ public class ScriptRemove implements IScript {
         TinkerHelper.removeAllCastingRecipes();
 
         IEHelper.removeAllPressRecipes();
+        IEHelper.removeAllCrusherRecipes();
 
         MekanismHelper.removeAllCrusherRecipes();
         MekanismHelper.removeAllEnrichmentRecipes();
+        MekanismHelper.removeAllSawmillRecipes();
     }
 
     public void removeMetalRecipes(String metal) {
@@ -186,5 +194,14 @@ public class ScriptRemove implements IScript {
         remove.add(ModItems.getModItem("base", "planks", wood, OreDictionary.WILDCARD_VALUE));
         remove.add(ModItems.getModItem("base", "stairs", wood, OreDictionary.WILDCARD_VALUE));
         remove.add(ModItems.getModItem("base", "slab", wood, OreDictionary.WILDCARD_VALUE));
+    }
+
+    public void removeToolRecipes(String metal) {
+        for (String s : ModItems.MetalToolsParts) {
+            remove.add(ModItems.getModItem("tool", s, metal, OreDictionary.WILDCARD_VALUE));
+        }
+        for (String s : ModItems.MetalToolsPartsModded) {
+            remove.add(ModItems.getModItem("tool", s, metal, OreDictionary.WILDCARD_VALUE));
+        }
     }
 }

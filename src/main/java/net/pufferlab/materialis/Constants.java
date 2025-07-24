@@ -47,6 +47,9 @@ public class Constants {
     public static final String[] castTypes = new String[] { "blank", "pickaxe", "shovel", "axe", "hoe", "sword", "saw",
         "hammer", "chisel", "helmet", "chestplate", "leggings", "boots" };
 
+    public static final String[] headTypes = new String[] { "pickaxe_head", "shovel_head", "axe_head", "hoe_head",
+        "sword_blade", "saw_blade", "chisel_head" };
+
     public static final String[] miscItems = new String[] { "flint_shard" };
 
     public static final String[] toolTypes = new String[] { "bronze", "iron", "steel", "gold", "thaumium",

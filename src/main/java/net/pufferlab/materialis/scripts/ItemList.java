@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.pufferlab.materialis.Registry;
 
 import blusunrize.immersiveengineering.common.IEContent;
+import mekanism.common.MekanismItems;
 
 public class ItemList {
 
@@ -27,4 +28,5 @@ public class ItemList {
     public static final ItemStack plateMold = new ItemStack(IEContent.itemMold, 1, 0);
     public static final ItemStack gearMold = new ItemStack(IEContent.itemMold, 1, 1);
 
+    public static final ItemStack sawdust = new ItemStack(MekanismItems.Sawdust, 1, 0);
 }

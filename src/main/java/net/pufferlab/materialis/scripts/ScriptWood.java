@@ -5,6 +5,7 @@ import static net.pufferlab.materialis.scripts.ItemList.*;
 import net.minecraft.item.ItemStack;
 import net.pufferlab.materialis.Constants;
 import net.pufferlab.materialis.Utils;
+import net.pufferlab.materialis.recipes.MekanismHelper;
 import net.pufferlab.materialis.recipes.ModItems;
 
 public class ScriptWood implements IScript {
@@ -286,9 +287,57 @@ public class ScriptWood implements IScript {
             ModItems.getModItem("base", "lumber", wood, 4),
             Utils.getOreDictionaryName("logWood", wood),
             "toolSaw");
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 8),
+            sawdust,
+            1,
+            ModItems.getModItem("base", "log", wood, 1));
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 8),
+            sawdust,
+            1,
+            ModItems.getModItem("base", "log_stripped", wood, 1));
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 8),
+            sawdust,
+            1,
+            ModItems.getModItem("base", "wood", wood, 1));
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 8),
+            sawdust,
+            1,
+            ModItems.getModItem("base", "wood_stripped", wood, 1));
+
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 2),
+            ModItems.getModItem("base", "sign", wood, 1));
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 4),
+            ModItems.getModItem("base", "button", wood, 1));
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 8),
+            ModItems.getModItem("base", "pressure_plate", wood, 1));
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 2),
+            ModItems.getModItem("base", "slab", wood, 1));
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 3),
+            ModItems.getModItem("base", "stairs", wood, 1));
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 4),
+            ModItems.getModItem("base", "fence", wood, 1));
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 4),
+            ModItems.getModItem("base", "fence_gate", wood, 1));
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 6),
+            ModItems.getModItem("base", "door", wood, 1));
+        MekanismHelper.addSawmillRecipe(
+            ModItems.getModItem("base", "lumber", wood, 3),
+            ModItems.getModItem("base", "trapdoor", wood, 1));
 
         addShapedRecipe(
-            ModItems.getModItem("base", "sign", wood, 4),
+            ModItems.getModItem("base", "sign", wood, 3),
             "LLL",
             "LLL",
             " S ",
