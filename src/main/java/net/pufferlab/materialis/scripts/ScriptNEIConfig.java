@@ -73,7 +73,7 @@ public class ScriptNEIConfig implements IConfigureNEI {
         "HardcoreEnderExpansion:corrupted_energy_low:*", "HardcoreEnderExpansion:enderman_head_block:*",
         "HardcoreEnderExpansion:enhanced_brewing_stand_block:*", "HardcoreEnderExpansion:laser_beam:*",
         "HardcoreEnderExpansion:obsidian_end:*", "HardcoreEnderExpansion:death_flower_pot:*",
-        "HardcoreEnderExpansion:item_special_effects:*" };
+        "HardcoreEnderExpansion:item_special_effects:*", "GardenCore:garden_proxy:*", "GardenCore:small_fire:*", };
 
     public static final String[] itemsToShow = new String[] { "BiomesOPlenty:woodenSingleSlab2:0",
         "BiomesOPlenty:woodenSingleSlab2:1", "BiomesOPlenty:woodenSingleSlab2:2", "BiomesOPlenty:woodenSingleSlab2:3",

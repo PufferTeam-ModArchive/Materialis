@@ -512,6 +512,30 @@ public class ModItems {
                     return ModItems.getItem("etfuturum", "witchery_" + wood + "_chest_boat", 0, number);
                 }
             }
+            if (name.equals("thin_log") || name.equals("thin_log_stripped")) {
+                if (isBopWood) {
+                    return ModItems.getItem(
+                        "GardenTrees",
+                        "bop_" + name,
+                        Utils.getItemFromArray(Constants.bopWoodTypes, wood),
+                        number);
+                } else if (isVanillaWood) {
+                    return ModItems
+                        .getItem("GardenTrees", name, Utils.getItemFromArray(Constants.woodTypes, wood), number);
+                } else if (isTCWood) {
+                    return ModItems.getItem(
+                        "GardenTrees",
+                        "thaumcraft_" + name,
+                        Utils.getItemFromArray(Constants.thaumcraftWoodTypes, wood),
+                        number);
+                } else if (isWIWood) {
+                    return ModItems.getItem(
+                        "GardenTrees",
+                        "witchery_" + name,
+                        Utils.getItemFromArray(Constants.witcheryWoodTypes, wood),
+                        number);
+                }
+            }
         }
         if (mod.equals("metal")) {
             if (wood.equals("iron") && name.equals("ingot")) {

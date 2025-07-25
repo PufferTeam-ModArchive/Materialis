@@ -1,6 +1,7 @@
 package net.pufferlab.materialis;
 
 import net.minecraftforge.common.MinecraftForge;
+import net.pufferlab.materialis.events.CraftingHandler;
 import net.pufferlab.materialis.events.DropHandler;
 import net.pufferlab.materialis.events.EventHandler;
 import net.pufferlab.materialis.nei.IMCSenderGTNH;
@@ -13,6 +14,7 @@ import net.pufferlab.materialis.scripts.ScriptRemove;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
@@ -36,6 +38,7 @@ public class Materialis {
     public static NEIConfig NEIConfig = new NEIConfig();
     public static EventHandler eventHandler = new EventHandler();
     public static DropHandler dropHandler = new DropHandler();
+    public static CraftingHandler craftingHandler = new CraftingHandler();
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -49,6 +52,10 @@ public class Materialis {
         proxy.init(event);
         MinecraftForge.EVENT_BUS.register(eventHandler);
         MinecraftForge.EVENT_BUS.register(dropHandler);
+        MinecraftForge.EVENT_BUS.register(craftingHandler);
+        FMLCommonHandler.instance()
+            .bus()
+            .register(craftingHandler);
         NEIConfig.loadConfig();
         IMCSenderGTNH.IMCSender();
 

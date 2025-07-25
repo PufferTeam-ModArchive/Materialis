@@ -287,6 +287,45 @@ public class ScriptWood implements IScript {
             ModItems.getModItem("base", "lumber", wood, 4),
             Utils.getOreDictionaryName("logWood", wood),
             "toolSaw");
+        addShapelessRecipe(
+            ModItems.getModItem("base", "log_stripped", wood, 1),
+            ModItems.getModItem("base", "log", wood, 1),
+            "toolAxe");
+        addShapelessRecipe(
+            ModItems.getModItem("base", "wood_stripped", wood, 1),
+            ModItems.getModItem("base", "wood", wood, 1),
+            "toolAxe");
+
+        addShapedRecipe(
+            ModItems.getModItem("base", "wood", wood, 4),
+            "LL",
+            "LL",
+            'L',
+            ModItems.getModItem("base", "log", wood, 1));
+        addShapedRecipe(
+            ModItems.getModItem("base", "wood_stripped", wood, 4),
+            "LL",
+            "LL",
+            'L',
+            ModItems.getModItem("base", "log_stripped", wood, 1));
+
+        addShapedRecipe(
+            ModItems.getModItem("base", "thin_log", wood, 8),
+            "L",
+            "L",
+            'L',
+            ModItems.getModItem("base", "log", wood, 1));
+        addShapelessRecipe(
+            ModItems.getModItem("base", "thin_log_stripped", wood, 1),
+            ModItems.getModItem("base", "thin_log", wood, 1),
+            "toolAxe");
+        addShapedRecipe(
+            ModItems.getModItem("base", "thin_log_stripped", wood, 8),
+            "L",
+            "L",
+            'L',
+            ModItems.getModItem("base", "log_stripped", wood, 1));
+
         MekanismHelper.addSawmillRecipe(
             ModItems.getModItem("base", "lumber", wood, 8),
             sawdust,

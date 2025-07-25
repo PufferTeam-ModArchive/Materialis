@@ -66,6 +66,10 @@ public class ScriptOreDict implements IScript {
             addOreDict(ModItems.getModItem("base", s, wood, 1), "logWood");
             addOreDict(ModItems.getModItem("base", s, wood, 1), Utils.getOreDictionaryName("logWood", wood));
         }
+        addOreDict(ModItems.getModItem("base", "thin_log", wood, 1), "thinLogWood");
+        addOreDict(ModItems.getModItem("base", "thin_log", wood, 1), Utils.getOreDictionaryName("thinLogWood", wood));
+        addOreDict(ModItems.getModItem("base", "thin_log_stripped", wood, 1), "thinLogWood");
+        addOreDict(ModItems.getModItem("base", "thin_log_stripped", wood, 1), Utils.getOreDictionaryName("thinLogWood", wood));
     }
 
 }

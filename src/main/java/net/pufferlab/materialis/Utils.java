@@ -148,6 +148,16 @@ public class Utils {
         return string;
     }
 
+    public static boolean containsOreDict(Item item, String oreDict) {
+        ItemStack b = new ItemStack(item);
+        for (int id1 : OreDictionary.getOreIDs(b)) {
+            if (id1 == OreDictionary.getOreID(oreDict)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean containsOreDict(Block block, String oreDict) {
         ItemStack b = new ItemStack(Item.getItemFromBlock(block));
         for (int id1 : OreDictionary.getOreIDs(b)) {
