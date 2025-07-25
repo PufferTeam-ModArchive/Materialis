@@ -27,6 +27,9 @@ public class ScriptOreProcessing implements IScript {
     int blockMB = ingotMB * 9;
     int energy = 500;
     int energyPress = 500;
+    int alloyingTime = 100;
+    int smeltingTime = 200;
+    int afEnergy = 512;
 
     public void addRecipes(String metal) {
         ItemStack ore = ModItems.getModItem("metal", "raw_ore", metal, 1);
@@ -184,18 +187,50 @@ public class ScriptOreProcessing implements IScript {
             new FluidStack(FluidRegistry.getFluid("bronze.molten"), nuggetMB * 4),
             new FluidStack(FluidRegistry.getFluid("copper.molten"), nuggetMB * 3),
             new FluidStack(FluidRegistry.getFluid("tin.molten"), nuggetMB));
+        IEHelper.addArcFurnaceRecipe(
+            "Alloying",
+            ModItems.getModItem("metal", "dust", "bronze", 4),
+            ModItems.getModItem("metal", "dust", "tin", 1),
+            null,
+            alloyingTime,
+            afEnergy,
+            ModItems.getModItem("metal", "dust", "copper", 3));
         TinkerHelper.addAlloying(
             new FluidStack(FluidRegistry.getFluid("electrum.molten"), nuggetMB * 2),
             new FluidStack(FluidRegistry.getFluid("gold.molten"), nuggetMB),
             new FluidStack(FluidRegistry.getFluid("silver.molten"), nuggetMB));
+        IEHelper.addArcFurnaceRecipe(
+            "Alloying",
+            ModItems.getModItem("metal", "dust", "electrum", 2),
+            ModItems.getModItem("metal", "dust", "gold", 1),
+            null,
+            alloyingTime,
+            afEnergy,
+            ModItems.getModItem("metal", "dust", "silver", 1));
         TinkerHelper.addAlloying(
             new FluidStack(FluidRegistry.getFluid("invar.molten"), nuggetMB * 3),
             new FluidStack(FluidRegistry.getFluid("iron.molten"), nuggetMB * 2),
             new FluidStack(FluidRegistry.getFluid("nickel.molten"), nuggetMB));
+        IEHelper.addArcFurnaceRecipe(
+            "Alloying",
+            ModItems.getModItem("metal", "dust", "invar", 3),
+            ModItems.getModItem("metal", "dust", "nickel", 1),
+            null,
+            alloyingTime,
+            afEnergy,
+            ModItems.getModItem("metal", "dust", "iron", 2));
         TinkerHelper.addAlloying(
             new FluidStack(FluidRegistry.getFluid("constantan.molten"), nuggetMB * 2),
             new FluidStack(FluidRegistry.getFluid("copper.molten"), nuggetMB),
             new FluidStack(FluidRegistry.getFluid("nickel.molten"), nuggetMB));
+        IEHelper.addArcFurnaceRecipe(
+            "Alloying",
+            ModItems.getModItem("metal", "dust", "constantan", 2),
+            ModItems.getModItem("metal", "dust", "copper", 1),
+            null,
+            alloyingTime,
+            afEnergy,
+            ModItems.getModItem("metal", "dust", "nickel", 1));
 
     }
 

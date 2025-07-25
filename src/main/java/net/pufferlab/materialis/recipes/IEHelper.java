@@ -2,6 +2,7 @@ package net.pufferlab.materialis.recipes;
 
 import net.minecraft.item.ItemStack;
 
+import blusunrize.immersiveengineering.api.crafting.ArcFurnaceRecipe;
 import blusunrize.immersiveengineering.api.crafting.CrusherRecipe;
 import blusunrize.immersiveengineering.api.crafting.MetalPressRecipe;
 
@@ -24,5 +25,20 @@ public class IEHelper {
 
     public static void removeAllCrusherRecipes() {
         CrusherRecipe.recipeList.clear();
+    }
+
+    public static void addArcFurnaceRecipe(ItemStack output, Object input, ItemStack slag, int time, int energyPerTick,
+        Object... additives) {
+        ArcFurnaceRecipe.addRecipe(output, input, (ItemStack) slag, time, energyPerTick, additives);
+    }
+
+    public static void addArcFurnaceRecipe(String recipeType, ItemStack output, Object input, ItemStack slag, int time,
+        int energyPerTick, Object... additives) {
+        ArcFurnaceRecipe.addRecipe(output, input, (ItemStack) slag, time, energyPerTick, additives)
+            .setSpecialRecipeType(recipeType);
+    }
+
+    public static void removeAllArcFurnaceRecipes() {
+        ArcFurnaceRecipe.recipeList.clear();
     }
 }

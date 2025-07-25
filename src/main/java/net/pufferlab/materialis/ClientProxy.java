@@ -10,5 +10,4 @@ public class ClientProxy extends CommonProxy {
     public int getArmorIndex(String string) {
         return RenderingRegistry.addNewArmourRendererPrefix(string);
     }
-
 }

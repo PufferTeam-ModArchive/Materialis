@@ -40,7 +40,15 @@ public class ItemList {
     public static final ItemStack nickelNugget = new ItemStack(
         Registry.nugget,
         1,
-        Utils.getItemFromArray(Constants.metalTypes, "nicklel"));
+        Utils.getItemFromArray(Constants.metalTypes, "nickel"));
+    public static final ItemStack slag = new ItemStack(
+        Registry.gem,
+        1,
+        Utils.getItemFromArray(Constants.gemTypes, "slag"));
+    public static final ItemStack richSlag = new ItemStack(
+        Registry.gem,
+        1,
+        Utils.getItemFromArray(Constants.gemTypes, "rich_slag"));
 
     public static final ItemStack plateCastSteel = ModItems
         .getItem("materialis", "cast_steel", Utils.getItemFromArray(Constants.castTypesAdvanced, "plate"), 1);

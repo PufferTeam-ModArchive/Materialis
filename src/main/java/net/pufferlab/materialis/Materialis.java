@@ -3,6 +3,8 @@ package net.pufferlab.materialis;
 import net.minecraftforge.common.MinecraftForge;
 import net.pufferlab.materialis.events.DropHandler;
 import net.pufferlab.materialis.events.EventHandler;
+import net.pufferlab.materialis.nei.IMCSenderGTNH;
+import net.pufferlab.materialis.nei.NEIConfig;
 import net.pufferlab.materialis.researches.ResearchTabsRegistry;
 import net.pufferlab.materialis.scripts.ScriptNEIConfig;
 import net.pufferlab.materialis.scripts.ScriptRegistry;
@@ -31,6 +33,7 @@ public class Materialis {
     public static ScriptRegistry scriptRegistry = new ScriptRegistry();
     public static ScriptRemove scriptRemove = new ScriptRemove();
     public static ScriptNEIConfig scriptNEI = new ScriptNEIConfig();
+    public static NEIConfig NEIConfig = new NEIConfig();
     public static EventHandler eventHandler = new EventHandler();
     public static DropHandler dropHandler = new DropHandler();
 
@@ -46,6 +49,8 @@ public class Materialis {
         proxy.init(event);
         MinecraftForge.EVENT_BUS.register(eventHandler);
         MinecraftForge.EVENT_BUS.register(dropHandler);
+        NEIConfig.loadConfig();
+        IMCSenderGTNH.IMCSender();
 
         oreDictRegistry.init();
     }
@@ -55,6 +60,7 @@ public class Materialis {
         proxy.postInit(event);
 
         researchTabsRegistry.init();
+
         scriptRemove.init();
         scriptNEI.loadConfig();
     }

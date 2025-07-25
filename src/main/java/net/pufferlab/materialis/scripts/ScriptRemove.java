@@ -159,6 +159,7 @@ public class ScriptRemove implements IScript {
 
         IEHelper.removeAllPressRecipes();
         IEHelper.removeAllCrusherRecipes();
+        IEHelper.removeAllArcFurnaceRecipes();
 
         MekanismHelper.removeAllCrusherRecipes();
         MekanismHelper.removeAllEnrichmentRecipes();
