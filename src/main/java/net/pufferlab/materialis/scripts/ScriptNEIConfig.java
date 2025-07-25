@@ -77,7 +77,7 @@ public class ScriptNEIConfig implements IConfigureNEI {
 
     public static final String[] itemsToShow = new String[] { "BiomesOPlenty:woodenSingleSlab2:0",
         "BiomesOPlenty:woodenSingleSlab2:1", "BiomesOPlenty:woodenSingleSlab2:2", "BiomesOPlenty:woodenSingleSlab2:3",
-        "BiomesOPlenty:woodenSingleSlab2:4", "BiomesOPlenty:woodenSingleSlab2:5" };
+        "BiomesOPlenty:woodenSingleSlab2:4", "BiomesOPlenty:woodenSingleSlab2:5", "minecraft:lava_bucket:0" };
 
     // All meta ids in ForgeMicroblocks. Not used
     public static final int[] FMPpartsToProcess = new int[] { 1, 2, 4, 257, 258, 260, 513, 514, 516, 769, 770 };

@@ -67,4 +67,5 @@ public class ScriptOreDict implements IScript {
             addOreDict(ModItems.getModItem("base", s, wood, 1), Utils.getOreDictionaryName("logWood", wood));
         }
     }
+
 }

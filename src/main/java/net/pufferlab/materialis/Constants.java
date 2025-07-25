@@ -23,6 +23,10 @@ public class Constants {
     public static final String[] metalTypes = new String[] { "iron", "gold", "copper", "tin", "silver", "lead",
         "nickel", "bronze", "electrum", "invar", "constantan", "platinum", "steel", "aluminum", "osmium", "thaumium",
         "manasteel", "terrasteel" };
+    public static final int[] metalTypesTemp = new int[] { 1538, 1064, 1084, 231, 961, 327, 1455, 900, 1032, 1427, 1250,
+        1768, 1540, 660, 3033, 1230, 1045, 1457 };
+    public static final String[] metalTypesByproduct = new String[] { "nickel", "copper", "gold", "iron", "lead",
+        "silver", "platinum", null, null, null, null };
 
     public static final String[] ingotBlacklist = new String[] { "iron", "gold", "thaumium", "manasteel",
         "terrasteel" };
@@ -46,6 +50,9 @@ public class Constants {
 
     public static final String[] castTypes = new String[] { "blank", "pickaxe", "shovel", "axe", "hoe", "sword", "saw",
         "hammer", "chisel", "helmet", "chestplate", "leggings", "boots" };
+
+    public static final String[] castTypesAdvanced = new String[] { "blank", "pickaxe", "shovel", "axe", "hoe", "sword",
+        "saw", "hammer", "chisel", "helmet", "chestplate", "leggings", "boots", "plate", "gear", "rod" };
 
     public static final String[] headTypes = new String[] { "pickaxe_head", "shovel_head", "axe_head", "hoe_head",
         "sword_blade", "saw_blade", "chisel_head" };

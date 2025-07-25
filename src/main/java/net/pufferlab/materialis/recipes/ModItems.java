@@ -153,7 +153,7 @@ public class ModItems {
     public static final String[] BaseRawOreItems = new String[] { "etfuturum:raw_ore:1", "etfuturum:raw_ore:2",
         "etfuturum:raw_ore:0", "etfuturum:modded_raw_ore:1", "etfuturum:modded_raw_ore:2", "etfuturum:modded_raw_ore:3",
         "etfuturum:modded_raw_ore:4", "etfuturum:modded_raw_ore:5", "etfuturum:modded_raw_ore:0", "materialis:gem:0",
-        "Mekanism:RawOsmiumOre" };
+        "Mekanism:RawOsmiumOre:0" };
 
     public static final String[] BaseRawOreBlocks = new String[] { "etfuturum:raw_ore_block:1",
         "etfuturum:raw_ore_block:2", "etfuturum:raw_ore_block:0", "etfuturum:modded_raw_ore_block:1",
@@ -559,6 +559,9 @@ public class ModItems {
                     .getItem(Utils.getItemFromArray(BaseOreBlocksName, BaseRawOreBlocks, wood) + ":" + number);
             } else if (name.equals("block")) {
                 return ModItems.getItem("materialis", name, Utils.getItemFromArray(Constants.blockTypes, wood), number);
+            } else if (name.equals("cluster")) {
+                return ModItems
+                    .getItem("materialis", name, Utils.getItemFromArray(Constants.moddedMetalTypes, wood), number);
             } else {
                 return ModItems.getItem("materialis", name, Utils.getItemFromArray(Constants.metalTypes, wood), number);
             }

@@ -18,6 +18,37 @@ item.materialis.chestplate_cast.name=Chestplate Cast
 item.materialis.leggings_cast.name=Leggings Cast
 item.materialis.boots_cast.name=Boots Cast
 
+item.materialis.blank_cast_clay.name=Blank Ceramic Cast
+item.materialis.pickaxe_cast_clay.name=Pickaxe Head Ceramic Cast
+item.materialis.shovel_cast_clay.name=Shovel Head Ceramic Cast
+item.materialis.axe_cast_clay.name=Axe Head Ceramic Cast
+item.materialis.hoe_cast_clay.name=Hoe Head Ceramic Cast
+item.materialis.sword_cast_clay.name=Sword Blade Ceramic Cast
+item.materialis.saw_cast_clay.name=Saw Blade Ceramic Cast
+item.materialis.hammer_cast_clay.name=Hammer Head Ceramic Cast
+item.materialis.chisel_cast_clay.name=Chisel Head Ceramic Cast
+item.materialis.helmet_cast_clay.name=Helmet Ceramic Cast
+item.materialis.chestplate_cast_clay.name=Chestplate Ceramic Cast
+item.materialis.leggings_cast_clay.name=Leggings Ceramic Cast
+item.materialis.boots_cast_clay.name=Boots Ceramic Cast
+
+item.materialis.blank_cast_steel.name=Blank Steel Cast
+item.materialis.pickaxe_cast_steel.name=Pickaxe Head Steel Cast
+item.materialis.shovel_cast_steel.name=Shovel Head Steel Cast
+item.materialis.axe_cast_steel.name=Axe Head Steel Cast
+item.materialis.hoe_cast_steel.name=Hoe Head Steel Cast
+item.materialis.sword_cast_steel.name=Sword Blade Steel Cast
+item.materialis.saw_cast_steel.name=Saw Blade Steel Cast
+item.materialis.hammer_cast_steel.name=Hammer Head Steel Cast
+item.materialis.chisel_cast_steel.name=Chisel Head Steel Cast
+item.materialis.helmet_cast_steel.name=Helmet Steel Cast
+item.materialis.chestplate_cast_steel.name=Chestplate Steel Cast
+item.materialis.leggings_cast_steel.name=Leggings Steel Cast
+item.materialis.boots_cast_steel.name=Boots Steel Cast
+item.materialis.plate_cast_steel.name=Plate Steel Cast
+item.materialis.gear_cast_steel.name=Gear Steel Cast
+item.materialis.rod_cast_steel.name=Rod Steel Cast
+
 item.materialis.flint_axe.name=Flint Axe
 item.materialis.flint_shovel.name=Flint Shovel
 item.materialis.flint_pickaxe.name=Flint Pickaxe

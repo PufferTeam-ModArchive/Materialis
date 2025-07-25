@@ -51,7 +51,8 @@ public class ScriptRemove implements IScript {
         "netherlicious:NetherbrickWall:4:*", "netherlicious:NetherbrickWall:6:*", "netherlicious:NetherbrickWall:8:*",
         "netherlicious:NetherbrickWall:10:*", "netherlicious:NetherbrickWall:13:*", "witchery:ingredient:52:*",
         "witchery:ingredient:53:*", "witchery:ingredient:54:*", "witchery:ingredient:152:*",
-        "GardenStuff:iron_nugget:0:*", "jaff:iron_nugget:0:*" };
+        "GardenStuff:iron_nugget:0:*", "jaff:iron_nugget:0:*", "ForgeMicroblock:sawStone:*:*",
+        "ImmersiveEngineering:mold:*:*" };
 
     public static final String[] metalItemsToRemoveAndHide = new String[] { "netherlicious:Nugget:0:*",
         "etfuturum:nugget_iron:0:*", "Mekanism:Dust:0:*", "Mekanism:Dust:1:*", "Mekanism:Dust:2:*", "Mekanism:Dust:3:*",
@@ -154,6 +155,7 @@ public class ScriptRemove implements IScript {
 
         TinkerHelper.removeAllMeltingRecipes();
         TinkerHelper.removeAllCastingRecipes();
+        TinkerHelper.removeAllAlloyingRecipes();
 
         IEHelper.removeAllPressRecipes();
         IEHelper.removeAllCrusherRecipes();
@@ -161,6 +163,8 @@ public class ScriptRemove implements IScript {
         MekanismHelper.removeAllCrusherRecipes();
         MekanismHelper.removeAllEnrichmentRecipes();
         MekanismHelper.removeAllSawmillRecipes();
+
+        WGHelper.removeAllInfernalBlastFurnaceRecipes();
     }
 
     public void removeMetalRecipes(String metal) {

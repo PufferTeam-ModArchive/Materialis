@@ -3,9 +3,11 @@ package net.pufferlab.materialis.scripts;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.pufferlab.materialis.Constants;
 import net.pufferlab.materialis.Registry;
+import net.pufferlab.materialis.Utils;
+import net.pufferlab.materialis.recipes.ModItems;
 
-import blusunrize.immersiveengineering.common.IEContent;
 import mekanism.common.MekanismItems;
 
 public class ItemList {
@@ -19,14 +21,33 @@ public class ItemList {
     public static final ItemStack paper = new ItemStack(Items.paper, 1, 0);
     public static final ItemStack clock = new ItemStack(Items.clock, 1, 0);
 
-    public static final ItemStack copperNugget = new ItemStack(Registry.nugget, 1, 2);
-    public static final ItemStack tinNugget = new ItemStack(Registry.nugget, 1, 3);
-    public static final ItemStack silverNugget = new ItemStack(Registry.nugget, 1, 4);
-    public static final ItemStack leadNugget = new ItemStack(Registry.nugget, 1, 5);
-    public static final ItemStack nickelNugget = new ItemStack(Registry.nugget, 1, 6);
+    public static final ItemStack copperNugget = new ItemStack(
+        Registry.nugget,
+        1,
+        Utils.getItemFromArray(Constants.metalTypes, "copper"));
+    public static final ItemStack tinNugget = new ItemStack(
+        Registry.nugget,
+        1,
+        Utils.getItemFromArray(Constants.metalTypes, "tin"));
+    public static final ItemStack silverNugget = new ItemStack(
+        Registry.nugget,
+        1,
+        Utils.getItemFromArray(Constants.metalTypes, "silver"));
+    public static final ItemStack leadNugget = new ItemStack(
+        Registry.nugget,
+        1,
+        Utils.getItemFromArray(Constants.metalTypes, "lead"));
+    public static final ItemStack nickelNugget = new ItemStack(
+        Registry.nugget,
+        1,
+        Utils.getItemFromArray(Constants.metalTypes, "nicklel"));
 
-    public static final ItemStack plateMold = new ItemStack(IEContent.itemMold, 1, 0);
-    public static final ItemStack gearMold = new ItemStack(IEContent.itemMold, 1, 1);
+    public static final ItemStack plateCastSteel = ModItems
+        .getItem("materialis", "cast_steel", Utils.getItemFromArray(Constants.castTypesAdvanced, "plate"), 1);
+    public static final ItemStack gearCastSteel = ModItems
+        .getItem("materialis", "cast_steel", Utils.getItemFromArray(Constants.castTypesAdvanced, "gear"), 1);
+    public static final ItemStack rodCastSteel = ModItems
+        .getItem("materialis", "cast_steel", Utils.getItemFromArray(Constants.castTypesAdvanced, "rod"), 1);
 
     public static final ItemStack sawdust = new ItemStack(MekanismItems.Sawdust, 1, 0);
 }

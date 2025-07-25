@@ -49,6 +49,8 @@ public class Registry {
     public static Item plate;
     public static Item gem;
     public static Item cast;
+    public static Item cast_clay;
+    public static Item cast_steel;
     public static Item misc;
     public static Item bronze_helmet;
     public static Item bronze_chestplate;
@@ -159,6 +161,8 @@ public class Registry {
         gear = new ItemMaterial(Constants.metalTypes, "gear", Constants.miscBlacklist);
         plate = new ItemMaterial(Constants.metalTypes, "plate", Constants.miscBlacklist);
         cast = new ItemMaterial(Constants.castTypes, "cast", Constants.none);
+        cast_clay = new ItemMaterial(Constants.castTypes, "cast_clay", Constants.none);
+        cast_steel = new ItemMaterial(Constants.castTypesAdvanced, "cast_steel", Constants.none);
         misc = new ItemMaterial(Constants.miscItems, "item", Constants.none);
         pickaxe_head = new ItemMaterial(Constants.toolTypes, "pickaxe_head", Constants.none);
         axe_head = new ItemMaterial(Constants.toolTypes, "axe_head", Constants.none);
@@ -221,6 +225,8 @@ public class Registry {
         GameRegistry.registerItem(gear, "gear");
         GameRegistry.registerItem(cluster, "cluster");
         GameRegistry.registerItem(cast, "cast");
+        GameRegistry.registerItem(cast_clay, "cast_clay");
+        GameRegistry.registerItem(cast_steel, "cast_steel");
         GameRegistry.registerItem(misc, "item");
         GameRegistry.registerItem(bronze_helmet, "bronze_helmet");
         GameRegistry.registerItem(bronze_chestplate, "bronze_chestplate");

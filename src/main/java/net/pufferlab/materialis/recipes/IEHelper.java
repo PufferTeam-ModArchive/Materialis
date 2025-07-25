@@ -15,8 +15,11 @@ public class IEHelper {
         MetalPressRecipe.recipeList.clear();
     }
 
-    public static void addCrusherRecipe(ItemStack output, ItemStack input, int energy) {
-        CrusherRecipe.addRecipe(output, input, energy);
+    public static void addCrusherRecipe(ItemStack output, ItemStack input, int energy, Object... secondary) {
+        CrusherRecipe r = CrusherRecipe.addRecipe(output, input, energy);
+        if (secondary != null && secondary.length > 0) {
+            r.addToSecondaryOutput(secondary);
+        }
     }
 
     public static void removeAllCrusherRecipes() {

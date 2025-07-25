@@ -2,6 +2,7 @@ package net.pufferlab.materialis.recipes;
 
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
 import tconstruct.library.TConstructRegistry;
@@ -26,12 +27,14 @@ public class TinkerHelper {
     }
 
     public static void addMeltingRecipe(FluidStack output, ItemStack input, int temperature, ItemStack stack) {
-        Smeltery.addMelting(
-            input,
-            ((ItemBlock) stack.getItem()).field_150939_a,
-            stack.getItemDamage(),
-            temperature,
-            output);
+        if (input != null) {
+            Smeltery.addMelting(
+                input,
+                ((ItemBlock) stack.getItem()).field_150939_a,
+                stack.getItemDamage(),
+                temperature,
+                output);
+        }
     }
 
     public static void removeAllMeltingRecipes() {
@@ -45,6 +48,19 @@ public class TinkerHelper {
             .clear();
         TConstructRegistry.getTableCasting()
             .getCastingRecipes()
+            .clear();
+    }
+
+    public static void addFuel(Fluid fluid, int power, int duration) {
+        Smeltery.addSmelteryFuel(fluid, power, duration);
+    }
+
+    public static void addAlloying(FluidStack result, FluidStack... mixers) {
+        Smeltery.addAlloyMixing(result, mixers);
+    }
+
+    public static void removeAllAlloyingRecipes() {
+        Smeltery.getAlloyList()
             .clear();
     }
 

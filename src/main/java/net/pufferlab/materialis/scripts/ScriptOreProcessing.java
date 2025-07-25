@@ -18,170 +18,99 @@ public class ScriptOreProcessing implements IScript {
         for (String element : Constants.metalTypes) {
             addRecipes(element);
         }
-
+        addSpecialRecipes();
     }
 
-    int delay = 10;
+    int delay = 200;
     int ingotMB = 144;
+    int nuggetMB = ingotMB / 9;
+    int blockMB = ingotMB * 9;
+    int energy = 500;
+    int energyPress = 500;
 
     public void addRecipes(String metal) {
         ItemStack ore = ModItems.getModItem("metal", "raw_ore", metal, 1);
+        ItemStack ore_block = ModItems.getModItem("metal", "raw_ore_block", metal, 1);
         ItemStack block = ModItems.getModItem("metal", "block", metal, 1);
         ItemStack ingot = ModItems.getModItem("metal", "ingot", metal, 1);
         ItemStack nugget = ModItems.getModItem("metal", "nugget", metal, 1);
         ItemStack dust = ModItems.getModItem("metal", "dust", metal, 1);
         ItemStack plate = ModItems.getModItem("metal", "plate", metal, 1);
         ItemStack gear = ModItems.getModItem("metal", "gear", metal, 1);
+        ItemStack cluster = ModItems.getModItem("metal", "cluster", metal, 1);
+        int temperature = Utils.getItemFromArray(Constants.metalTypesTemp, Constants.metalTypes, metal);
         Fluid fluid = FluidRegistry.getFluid(metal + ".molten");
 
         if (ore != null) {
             addFurnaceSmelting(ModItems.getModItem("metal", "ingot", metal, 1), ore, 0);
+            if (ore_block != null && fluid != null) {
+                TinkerHelper.addMeltingRecipe(new FluidStack(fluid, ingotMB / 2), ore, temperature, ore_block);
+                TinkerHelper.addMeltingRecipe(new FluidStack(fluid, blockMB / 2), ore_block, temperature, ore_block);
+            }
+            addShapedRecipe(ModItems.getModItem("metal", "raw_ore_block", metal, 1), "III", "III", "III", 'I', ore);
+
+            addShapedRecipe(ModItems.getModItem("metal", "raw_ore", metal, 9), "I", 'I', ore_block);
+        }
+        if (cluster != null && Utils.containsExactMatch(Constants.moddedMetalTypes, metal) && ingot != null) {
+            addFurnaceSmelting(ModItems.getModItem("metal", "ingot", metal, 2), cluster, 0);
+            if (ore_block != null && fluid != null) {
+                TinkerHelper.addMeltingRecipe(new FluidStack(fluid, ingotMB), cluster, temperature, ore_block);
+            }
         }
         if (dust != null) {
             MekanismHelper.addCrusherRecipe(ModItems.getModItem("metal", "dust", metal, 1), ingot);
+            WGHelper.addInfernalBlastFurnaceRecipe(ModItems.getModItem("metal", "ingot", metal, 1), dust, 240, false);
+            IEHelper.addCrusherRecipe(ModItems.getModItem("metal", "dust", metal, 1), ingot, energy);
+            if (Utils.containsExactMatch(Constants.moddedMetalTypes, metal) && ore != null) {
+                String byproduct = Utils
+                    .getItemFromArray(Constants.moddedMetalTypes, Constants.metalTypesByproduct, metal);
+                IEHelper.addCrusherRecipe(ModItems.getModItem("metal", "dust", metal, 2), ore, energy);
+                if (byproduct != null && cluster != null) {
+                    IEHelper.addCrusherRecipe(
+                        ModItems.getModItem("metal", "dust", metal, 3),
+                        cluster,
+                        energy,
+                        ModItems
+                            .getItem("materialis", "dust", Utils.getItemFromArray(Constants.metalTypes, byproduct), 1),
+                        0.5F);
+                }
+            }
         }
         if (plate != null) {
-            IEHelper.addPressRecipe(ModItems.getModItem("metal", "plate", metal, 1), ingot, plateMold, 500);
+            IEHelper
+                .addPressRecipe(ModItems.getModItem("metal", "plate", metal, 1), ingot, plateCastSteel, energyPress);
         }
-        if (fluid != null && block != null) {
-            TinkerHelper.addMeltingRecipe(new FluidStack(fluid, ingotMB), ingot, 500, block);
-            TinkerHelper.addTableCastingRecipe(ingot, new FluidStack(fluid, ingotMB), false, delay);
-        }
-        if (fluid != null && Utils.containsExactMatch(Constants.toolTypes, metal)) {
-            TinkerHelper.addTableCastingRecipe(
-                ModItems.getModItem("tool", "pickaxe_head", metal, 1),
-                new FluidStack(fluid, ingotMB * 3),
-                ModItems.getItem("materialis", "cast", Utils.getItemFromArray(Constants.castTypes, "pickaxe"), 1),
-                false,
-                delay);
-            addShapedRecipe(
-                ModItems.getModItem("tool", "pickaxe", metal, 1),
-                "I",
-                "S",
-                'I',
-                ModItems.getModItem("tool", "pickaxe_head", metal, 1),
-                'S',
-                "stickWood");
-            TinkerHelper.addTableCastingRecipe(
-                ModItems.getModItem("tool", "axe_head", metal, 1),
-                new FluidStack(fluid, ingotMB * 3),
-                ModItems.getItem("materialis", "cast", Utils.getItemFromArray(Constants.castTypes, "axe"), 1),
-                false,
-                delay);
-            addShapedRecipe(
-                ModItems.getModItem("tool", "axe", metal, 1),
-                "I",
-                "S",
-                'I',
-                ModItems.getModItem("tool", "axe_head", metal, 1),
-                'S',
-                "stickWood");
-            TinkerHelper.addTableCastingRecipe(
-                ModItems.getModItem("tool", "shovel_head", metal, 1),
-                new FluidStack(fluid, ingotMB),
-                ModItems.getItem("materialis", "cast", Utils.getItemFromArray(Constants.castTypes, "shovel"), 1),
-                false,
-                delay);
-            addShapedRecipe(
-                ModItems.getModItem("tool", "shovel", metal, 1),
-                "I",
-                "S",
-                'I',
-                ModItems.getModItem("tool", "shovel_head", metal, 1),
-                'S',
-                "stickWood");
-            if (!metal.equals("manasteel")) {
-                TinkerHelper.addTableCastingRecipe(
-                    ModItems.getModItem("tool", "hoe_head", metal, 1),
-                    new FluidStack(fluid, ingotMB * 2),
-                    ModItems.getItem("materialis", "cast", Utils.getItemFromArray(Constants.castTypes, "hoe"), 1),
-                    false,
-                    delay);
-                addShapedRecipe(
-                    ModItems.getModItem("tool", "hoe", metal, 1),
-                    "I",
-                    "S",
-                    'I',
-                    ModItems.getModItem("tool", "hoe_head", metal, 1),
-                    'S',
-                    "stickWood");
-            }
-            TinkerHelper.addTableCastingRecipe(
-                ModItems.getModItem("tool", "sword_blade", metal, 1),
-                new FluidStack(fluid, ingotMB * 2),
-                ModItems.getItem("materialis", "cast", Utils.getItemFromArray(Constants.castTypes, "sword"), 1),
-                false,
-                delay);
-            addShapedRecipe(
-                ModItems.getModItem("tool", "sword", metal, 1),
-                "I",
-                "S",
-                'I',
-                ModItems.getModItem("tool", "sword_blade", metal, 1),
-                'S',
-                "stickWood");
-            TinkerHelper.addTableCastingRecipe(
-                ModItems.getModItem("tool", "saw_blade", metal, 1),
-                new FluidStack(fluid, ingotMB * 3),
-                ModItems.getItem("materialis", "cast", Utils.getItemFromArray(Constants.castTypes, "saw"), 1),
-                false,
-                delay);
-            addShapedRecipe(
-                ModItems.getModItem("tool", "saw", metal, 1),
-                "I",
-                "S",
-                'I',
-                ModItems.getModItem("tool", "saw_blade", metal, 1),
-                'S',
-                "stickWood");
-            TinkerHelper.addTableCastingRecipe(
-                ModItems.getModItem("tool", "chisel_head", metal, 1),
-                new FluidStack(fluid, ingotMB),
-                ModItems.getItem("materialis", "cast", Utils.getItemFromArray(Constants.castTypes, "chisel"), 1),
-                false,
-                delay);
-            addShapedRecipe(
-                ModItems.getModItem("tool", "chisel", metal, 1),
-                "I",
-                "S",
-                'I',
-                ModItems.getModItem("tool", "chisel_head", metal, 1),
-                'S',
-                "stickWood");
-
-            TinkerHelper.addTableCastingRecipe(
-                ModItems.getModItem("tool", "helmet", metal, 1),
-                new FluidStack(fluid, ingotMB * 5),
-                ModItems.getItem("materialis", "cast", Utils.getItemFromArray(Constants.castTypes, "helmet"), 1),
-                false,
-                delay);
-            TinkerHelper.addTableCastingRecipe(
-                ModItems.getModItem("tool", "chestplate", metal, 1),
-                new FluidStack(fluid, ingotMB * 8),
-                ModItems.getItem("materialis", "cast", Utils.getItemFromArray(Constants.castTypes, "chestplate"), 1),
-                false,
-                delay);
-            TinkerHelper.addTableCastingRecipe(
-                ModItems.getModItem("tool", "leggings", metal, 1),
-                new FluidStack(fluid, ingotMB * 7),
-                ModItems.getItem("materialis", "cast", Utils.getItemFromArray(Constants.castTypes, "leggings"), 1),
-                false,
-                delay);
-            TinkerHelper.addTableCastingRecipe(
-                ModItems.getModItem("tool", "boots", metal, 1),
-                new FluidStack(fluid, ingotMB * 4),
-                ModItems.getItem("materialis", "cast", Utils.getItemFromArray(Constants.castTypes, "boots"), 1),
-                false,
-                delay);
-
-        }
-
         if (gear != null) {
             IEHelper.addPressRecipe(
                 ModItems.getModItem("metal", "gear", metal, 1),
                 ModItems.getModItem("metal", "ingot", metal, 4),
-                gearMold,
-                500);
+                gearCastSteel,
+                energyPress);
+        }
+        if (fluid != null && block != null) {
+            TinkerHelper.addMeltingRecipe(new FluidStack(fluid, ingotMB), ingot, temperature, block);
+            TinkerHelper.addMeltingRecipe(new FluidStack(fluid, nuggetMB), nugget, temperature, block);
+            TinkerHelper.addMeltingRecipe(new FluidStack(fluid, blockMB), block, temperature, block);
+
+            TinkerHelper.addTableCastingRecipe(ingot, new FluidStack(fluid, ingotMB), false, delay);
+            TinkerHelper.addBasinTableRecipe(block, new FluidStack(fluid, blockMB), delay);
+
+            if (Utils.containsExactMatch(Constants.toolTypes, metal)) {
+                if (!Utils.containsExactMatch(Constants.hoeBlacklist, metal)) {
+                    addCastRecipes(fluid, metal, "hoe_head", 2, block, temperature);
+                }
+
+                addCastRecipes(fluid, metal, "pickaxe_head", 3, block, temperature);
+                addCastRecipes(fluid, metal, "axe_head", 3, block, temperature);
+                addCastRecipes(fluid, metal, "shovel_head", 1, block, temperature);
+                addCastRecipes(fluid, metal, "sword_blade", 2, block, temperature);
+                addCastRecipes(fluid, metal, "saw_blade", 3, block, temperature);
+                addCastRecipes(fluid, metal, "chisel_head", 1, block, temperature);
+                addCastRecipes(fluid, metal, "helmet", 5, block, temperature);
+                addCastRecipes(fluid, metal, "chestplate", 8, block, temperature);
+                addCastRecipes(fluid, metal, "leggings", 7, block, temperature);
+                addCastRecipes(fluid, metal, "boots", 4, block, temperature);
+            }
         }
 
         addShapedRecipe(ModItems.getModItem("metal", "block", metal, 1), "III", "III", "III", 'I', ingot);
@@ -191,6 +120,83 @@ public class ScriptOreProcessing implements IScript {
         addShapedRecipe(ModItems.getModItem("metal", "ingot", metal, 1), "III", "III", "III", 'I', nugget);
 
         addShapedRecipe(ModItems.getModItem("metal", "nugget", metal, 9), "I", 'I', ingot);
+    }
+
+    public void addCastRecipes(Fluid fluid, String metal, String part, int number, ItemStack block, int temperature) {
+        String[] partA = part.split("_");
+        String moldName = part;
+        String stick = "stickWood";
+        if (metal.equals("manasteel")) {
+            stick = "livingwoodTwig";
+        }
+        if (partA.length > 1) {
+            moldName = partA[0];
+            addShapedRecipe(
+                ModItems.getModItem("tool", moldName, metal, 1),
+                "I",
+                "S",
+                'I',
+                ModItems.getModItem("tool", part, metal, 1),
+                'S',
+                stick);
+
+            TinkerHelper.addMeltingRecipe(
+                new FluidStack(fluid, ingotMB * number),
+                ModItems.getModItem("tool", moldName, metal, 1),
+                temperature,
+                block);
+        }
+        ItemStack cast = ModItems
+            .getItem("materialis", "cast", Utils.getItemFromArray(Constants.castTypes, moldName), 1);
+        ItemStack castClay = ModItems
+            .getItem("materialis", "cast_clay", Utils.getItemFromArray(Constants.castTypes, moldName), 1);
+        ItemStack castSteel = ModItems
+            .getItem("materialis", "cast_steel", Utils.getItemFromArray(Constants.castTypesAdvanced, moldName), 1);
+
+        TinkerHelper.addTableCastingRecipe(
+            ModItems.getModItem("tool", part, metal, 1),
+            new FluidStack(fluid, ingotMB * number),
+            cast,
+            false,
+            delay);
+        TinkerHelper.addTableCastingRecipe(
+            ModItems.getModItem("tool", part, metal, 1),
+            new FluidStack(fluid, ingotMB * number),
+            castClay,
+            true,
+            delay);
+        IEHelper.addPressRecipe(
+            ModItems.getModItem("tool", part, metal, 1),
+            ModItems.getModItem("metal", "ingot", metal, number),
+            castSteel,
+            energyPress);
+        TinkerHelper.addMeltingRecipe(
+            new FluidStack(fluid, ingotMB * number),
+            ModItems.getModItem("tool", part, metal, 1),
+            temperature,
+            block);
+    }
+
+    public void addSpecialRecipes() {
+        TinkerHelper.addFuel(FluidRegistry.LAVA, 1600, 80);
+
+        TinkerHelper.addAlloying(
+            new FluidStack(FluidRegistry.getFluid("bronze.molten"), nuggetMB * 4),
+            new FluidStack(FluidRegistry.getFluid("copper.molten"), nuggetMB * 3),
+            new FluidStack(FluidRegistry.getFluid("tin.molten"), nuggetMB));
+        TinkerHelper.addAlloying(
+            new FluidStack(FluidRegistry.getFluid("electrum.molten"), nuggetMB * 2),
+            new FluidStack(FluidRegistry.getFluid("gold.molten"), nuggetMB),
+            new FluidStack(FluidRegistry.getFluid("silver.molten"), nuggetMB));
+        TinkerHelper.addAlloying(
+            new FluidStack(FluidRegistry.getFluid("invar.molten"), nuggetMB * 3),
+            new FluidStack(FluidRegistry.getFluid("iron.molten"), nuggetMB * 2),
+            new FluidStack(FluidRegistry.getFluid("nickel.molten"), nuggetMB));
+        TinkerHelper.addAlloying(
+            new FluidStack(FluidRegistry.getFluid("constantan.molten"), nuggetMB * 2),
+            new FluidStack(FluidRegistry.getFluid("copper.molten"), nuggetMB),
+            new FluidStack(FluidRegistry.getFluid("nickel.molten"), nuggetMB));
+
     }
 
     public void addResearches() {
