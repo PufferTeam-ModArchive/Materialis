@@ -1,6 +1,5 @@
 package net.pufferlab.materialis.events;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.pufferlab.materialis.Utils;
 

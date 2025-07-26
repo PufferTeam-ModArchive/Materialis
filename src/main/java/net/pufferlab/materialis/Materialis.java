@@ -7,6 +7,7 @@ import net.pufferlab.materialis.events.EventHandler;
 import net.pufferlab.materialis.nei.IMCSenderGTNH;
 import net.pufferlab.materialis.nei.NEIConfig;
 import net.pufferlab.materialis.researches.ResearchTabsRegistry;
+import net.pufferlab.materialis.scripts.ScriptFMP;
 import net.pufferlab.materialis.scripts.ScriptNEIConfig;
 import net.pufferlab.materialis.scripts.ScriptRegistry;
 import net.pufferlab.materialis.scripts.ScriptRemove;
@@ -34,6 +35,7 @@ public class Materialis {
     public static ResearchTabsRegistry researchTabsRegistry = new ResearchTabsRegistry();
     public static ScriptRegistry scriptRegistry = new ScriptRegistry();
     public static ScriptRemove scriptRemove = new ScriptRemove();
+    public static ScriptFMP scriptFMP = new ScriptFMP();
     public static ScriptNEIConfig scriptNEI = new ScriptNEIConfig();
     public static NEIConfig NEIConfig = new NEIConfig();
     public static EventHandler eventHandler = new EventHandler();
@@ -56,6 +58,7 @@ public class Materialis {
         FMLCommonHandler.instance()
             .bus()
             .register(craftingHandler);
+        scriptFMP.init();
         NEIConfig.loadConfig();
         IMCSenderGTNH.IMCSender();
 

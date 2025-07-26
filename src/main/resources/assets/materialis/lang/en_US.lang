@@ -17,6 +17,7 @@ item.materialis.helmet_cast.name=Helmet Cast
 item.materialis.chestplate_cast.name=Chestplate Cast
 item.materialis.leggings_cast.name=Leggings Cast
 item.materialis.boots_cast.name=Boots Cast
+item.materialis.scythe_cast.name=Scythe Cast
 
 item.materialis.blank_cast_clay.name=Blank Ceramic Cast
 item.materialis.pickaxe_cast_clay.name=Pickaxe Head Ceramic Cast
@@ -31,6 +32,7 @@ item.materialis.helmet_cast_clay.name=Helmet Ceramic Cast
 item.materialis.chestplate_cast_clay.name=Chestplate Ceramic Cast
 item.materialis.leggings_cast_clay.name=Leggings Ceramic Cast
 item.materialis.boots_cast_clay.name=Boots Ceramic Cast
+item.materialis.scythe_cast_clay.name=Scythe Ceramic Cast
 
 item.materialis.blank_cast_steel.name=Blank Steel Cast
 item.materialis.pickaxe_cast_steel.name=Pickaxe Head Steel Cast
@@ -45,9 +47,14 @@ item.materialis.helmet_cast_steel.name=Helmet Steel Cast
 item.materialis.chestplate_cast_steel.name=Chestplate Steel Cast
 item.materialis.leggings_cast_steel.name=Leggings Steel Cast
 item.materialis.boots_cast_steel.name=Boots Steel Cast
+item.materialis.scythe_cast_steel.name=Scythe Steel Cast
 item.materialis.plate_cast_steel.name=Plate Steel Cast
 item.materialis.gear_cast_steel.name=Gear Steel Cast
 item.materialis.rod_cast_steel.name=Rod Steel Cast
+
+item.materialis.iron_scythe.name=Iron Scythe
+item.materialis.gold_scythe.name=Gold Scythe
+item.materialis.thaumium_scythe.name=Thaumium Scythe
 
 item.materialis.flint_axe.name=Flint Axe
 item.materialis.flint_shovel.name=Flint Shovel
@@ -63,6 +70,7 @@ item.materialis.bronze_pickaxe.name=Bronze Pickaxe
 item.materialis.bronze_shovel.name=Bronze Shovel
 item.materialis.bronze_hoe.name=Bronze Hoe
 item.materialis.bronze_sword.name=Bronze Sword
+item.materialis.bronze_scythe.name=Bronze Scythe
 
 item.materialis.steel_helmet.name=Steel Helmet
 item.materialis.steel_chestplate.name=Steel Chestplate
@@ -73,6 +81,7 @@ item.materialis.steel_pickaxe.name=Steel Pickaxe
 item.materialis.steel_shovel.name=Steel Shovel
 item.materialis.steel_hoe.name=Steel Hoe
 item.materialis.steel_sword.name=Steel Sword
+item.materialis.steel_scythe.name=Steel Scythe
 
 item.materialis.bronze_pickaxe_head.name=Bronze Pickaxe Head
 item.materialis.gold_pickaxe_head.name=Gold Pickaxe Head
@@ -122,6 +131,13 @@ item.materialis.iron_chisel_head.name=Iron Chisel Head
 item.materialis.steel_chisel_head.name=Steel Chisel Head
 item.materialis.thaumium_chisel_head.name=Thaumium Chisel Head
 item.materialis.manasteel_chisel_head.name=Manasteel Chisel Head
+
+item.materialis.bronze_scythe_head.name=Bronze Scythe Head
+item.materialis.gold_scythe_head.name=Gold Scythe Head
+item.materialis.iron_scythe_head.name=Iron Scythe Head
+item.materialis.steel_scythe_head.name=Steel Scythe Head
+item.materialis.thaumium_scythe_head.name=Thaumium Scythe Head
+item.materialis.manasteel_scythe_head.name=Manasteel Scythe Head
 
 item.materialis.iron_cluster.name=Iron Cluster
 item.materialis.gold_cluster.name=Gold Cluster

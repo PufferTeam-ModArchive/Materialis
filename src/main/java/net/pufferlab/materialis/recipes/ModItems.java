@@ -1,7 +1,5 @@
 package net.pufferlab.materialis.recipes;
 
-import java.io.*;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -159,9 +157,6 @@ public class ModItems {
         "etfuturum:raw_ore_block:2", "etfuturum:raw_ore_block:0", "etfuturum:modded_raw_ore_block:1",
         "etfuturum:modded_raw_ore_block:2", "etfuturum:modded_raw_ore_block:3", "etfuturum:modded_raw_ore_block:4",
         "etfuturum:modded_raw_ore_block:5", "etfuturum:modded_raw_ore_block:0", null, "Mekanism:BasicBlock2:10" };
-
-    public static final String[] BaseAlloyNames = new String[] { "bronze" };
-    public static final String[][] BaseAlloysMix = new String[][] { { "copper 1", "tin 3" } };
 
     public static final String[] BaseMetalItems = new String[] { "block", "ingot", "nugget", "dust", "plate", "gear" };
 
@@ -626,6 +621,9 @@ public class ModItems {
                 } else {
                     return ModItems.getItem("chisel", wood + "Chisel", 0, 1);
                 }
+            }
+            if (name.equals("scythe")) {
+                return ModItems.getItem("materialis", wood + "_scythe", 0, 1);
             }
             if (Utils.containsExactMatch(Constants.headTypes, name)) {
                 return ModItems.getItem("materialis", name, Utils.getItemFromArray(Constants.toolTypes, wood), number);

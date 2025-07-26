@@ -18,10 +18,12 @@ import net.pufferlab.materialis.items.ItemMaterialArmor;
 import net.pufferlab.materialis.items.ItemMaterialAxe;
 import net.pufferlab.materialis.items.ItemMaterialHoe;
 import net.pufferlab.materialis.items.ItemMaterialPickaxe;
+import net.pufferlab.materialis.items.ItemMaterialScythe;
 import net.pufferlab.materialis.items.ItemMaterialShovel;
 import net.pufferlab.materialis.items.ItemMaterialSword;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import thaumcraft.api.ThaumcraftApi;
 
 public class Registry {
 
@@ -67,6 +69,7 @@ public class Registry {
     public static Item sword_blade;
     public static Item saw_blade;
     public static Item chisel_head;
+    public static Item scythe_head;
     public static Item flint_axe;
     public static Item flint_pickaxe;
     public static Item flint_shovel;
@@ -76,11 +79,16 @@ public class Registry {
     public static Item bronze_shovel;
     public static Item bronze_hoe;
     public static Item bronze_sword;
+    public static Item bronze_scythe;
     public static Item steel_axe;
     public static Item steel_pickaxe;
     public static Item steel_shovel;
     public static Item steel_hoe;
     public static Item steel_sword;
+    public static Item steel_scythe;
+    public static Item iron_scythe;
+    public static Item gold_scythe;
+    public static Item thaumium_scythe;
 
     public void preInit() {
         toolFlint = EnumHelper.addToolMaterial("flint", 0, 100, 2.0F, 0.0F, 15);
@@ -171,6 +179,7 @@ public class Registry {
         sword_blade = new ItemMaterial(Constants.toolTypes, "sword_blade", Constants.none);
         saw_blade = new ItemMaterial(Constants.toolTypes, "saw_blade", Constants.none);
         chisel_head = new ItemMaterial(Constants.toolTypes, "chisel_head", Constants.none);
+        scythe_head = new ItemMaterial(Constants.toolTypes, "scythe_head", Constants.hoeBlacklist);
 
         bronze_helmet = new ItemMaterialArmor(
             armorBronze,
@@ -211,11 +220,16 @@ public class Registry {
         bronze_shovel = new ItemMaterialShovel(toolBronze, "bronze_shovel");
         bronze_hoe = new ItemMaterialHoe(toolBronze, "bronze_hoe");
         bronze_sword = new ItemMaterialSword(toolBronze, "bronze_sword");
+        bronze_scythe = new ItemMaterialScythe(toolBronze, "bronze_scythe");
         steel_axe = new ItemMaterialAxe(toolSteel, "steel_axe");
         steel_pickaxe = new ItemMaterialPickaxe(toolSteel, "steel_pickaxe");
         steel_shovel = new ItemMaterialShovel(toolSteel, "steel_shovel");
         steel_hoe = new ItemMaterialHoe(toolSteel, "steel_hoe");
         steel_sword = new ItemMaterialSword(toolSteel, "steel_sword");
+        steel_scythe = new ItemMaterialScythe(toolSteel, "steel_scythe");
+        iron_scythe = new ItemMaterialScythe(ToolMaterial.IRON, "iron_scythe");
+        gold_scythe = new ItemMaterialScythe(ToolMaterial.GOLD, "gold_scythe");
+        thaumium_scythe = new ItemMaterialScythe(ThaumcraftApi.toolMatThaumium, "thaumium_scythe");
 
         GameRegistry.registerItem(gem, "gem");
         GameRegistry.registerItem(ingot, "ingot");
@@ -245,11 +259,16 @@ public class Registry {
         GameRegistry.registerItem(bronze_shovel, "bronze_shovel");
         GameRegistry.registerItem(bronze_hoe, "bronze_hoe");
         GameRegistry.registerItem(bronze_sword, "bronze_sword");
+        GameRegistry.registerItem(bronze_scythe, "bronze_scythe");
+        GameRegistry.registerItem(iron_scythe, "iron_scythe");
+        GameRegistry.registerItem(gold_scythe, "gold_scythe");
+        GameRegistry.registerItem(thaumium_scythe, "thaumium_scythe");
         GameRegistry.registerItem(steel_axe, "steel_axe");
         GameRegistry.registerItem(steel_pickaxe, "steel_pickaxe");
         GameRegistry.registerItem(steel_shovel, "steel_shovel");
         GameRegistry.registerItem(steel_hoe, "steel_hoe");
         GameRegistry.registerItem(steel_sword, "steel_sword");
+        GameRegistry.registerItem(steel_scythe, "steel_scythe");
         GameRegistry.registerItem(pickaxe_head, "pickaxe_head");
         GameRegistry.registerItem(axe_head, "axe_head");
         GameRegistry.registerItem(shovel_head, "shovel_head");
@@ -257,6 +276,7 @@ public class Registry {
         GameRegistry.registerItem(sword_blade, "sword_blade");
         GameRegistry.registerItem(saw_blade, "saw_blade");
         GameRegistry.registerItem(chisel_head, "chisel_head");
+        GameRegistry.registerItem(scythe_head, "scythe_head");
         GameRegistry.registerBlock(arcane_planks, ItemBlockMaterial.class, "arcane_planks");
         GameRegistry.registerBlock(cobblestone, ItemBlockMaterial.class, "cobblestone");
         GameRegistry.registerBlock(

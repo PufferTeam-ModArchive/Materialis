@@ -101,6 +101,7 @@ public class ScriptOreProcessing implements IScript {
             if (Utils.containsExactMatch(Constants.toolTypes, metal)) {
                 if (!Utils.containsExactMatch(Constants.hoeBlacklist, metal)) {
                     addCastRecipes(fluid, metal, "hoe_head", 2, block, temperature);
+                    addCastRecipes(fluid, metal, "scythe_head", 2, block, temperature);
                 }
 
                 addCastRecipes(fluid, metal, "pickaxe_head", 3, block, temperature);
@@ -231,7 +232,38 @@ public class ScriptOreProcessing implements IScript {
             alloyingTime,
             afEnergy,
             ModItems.getModItem("metal", "dust", "nickel", 1));
-
+        addShapedRecipe(
+            ModItems.getItem("materialis", "flint_axe", 0, 1),
+            "II",
+            "S ",
+            'I',
+            ModItems.getItem("materialis", "item", 0, 1),
+            'S',
+            "stickWood");
+        addShapedRecipe(
+            ModItems.getItem("ForgeMicroblock", "sawFlint", 0, 1),
+            "II",
+            "SI",
+            'I',
+            ModItems.getItem("materialis", "item", 0, 1),
+            'S',
+            "stickWood");
+        addShapedRecipe(
+            ModItems.getItem("materialis", "flint_shovel", 0, 1),
+            "I",
+            "S",
+            'I',
+            ModItems.getItem("materialis", "item", 0, 1),
+            'S',
+            "stickWood");
+        addShapedRecipe(
+            ModItems.getItem("materialis", "flint_pickaxe", 0, 1),
+            "III",
+            "S  ",
+            'I',
+            ModItems.getItem("materialis", "item", 0, 1),
+            'S',
+            "stickWood");
     }
 
     public void addResearches() {

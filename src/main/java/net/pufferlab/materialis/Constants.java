@@ -49,13 +49,13 @@ public class Constants {
     public static final String[] rockTypes = new String[] { "andesite", "diorite", "granite", "limestone", "marble" };
 
     public static final String[] castTypes = new String[] { "blank", "pickaxe", "shovel", "axe", "hoe", "sword", "saw",
-        "hammer", "chisel", "helmet", "chestplate", "leggings", "boots" };
+        "hammer", "chisel", "scythe", "helmet", "chestplate", "leggings", "boots" };
 
     public static final String[] castTypesAdvanced = new String[] { "blank", "pickaxe", "shovel", "axe", "hoe", "sword",
-        "saw", "hammer", "chisel", "helmet", "chestplate", "leggings", "boots", "plate", "gear", "rod" };
+        "saw", "hammer", "chisel", "scythe", "helmet", "chestplate", "leggings", "boots", "plate", "gear", "rod" };
 
     public static final String[] headTypes = new String[] { "pickaxe_head", "shovel_head", "axe_head", "hoe_head",
-        "sword_blade", "saw_blade", "chisel_head" };
+        "sword_blade", "saw_blade", "chisel_head", "scythe_head" };
 
     public static final String[] miscItems = new String[] { "flint_shard" };
 
